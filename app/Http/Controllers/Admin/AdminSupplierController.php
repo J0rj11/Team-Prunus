@@ -9,7 +9,7 @@ use Yajra\DataTables\DataTables;
 use Illuminate\Http\JsonResponse;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\RedirectResponse;
-use App\Http\Requests\UpdateSupplierRequest;
+use App\Http\Requests\Supplier\UpdateSupplierRequest;
 use App\Http\Requests\Supplier\StoreSupplierRequest;
 
 class AdminSupplierController extends Controller

@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\Account;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateCategoryRequest extends FormRequest
+class UpdateAccountRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,9 +24,10 @@ class UpdateCategoryRequest extends FormRequest
     public function rules()
     {
         return [
-            'category_code' => 'required',
-            'category_name' => 'required',
-            'description' => 'required'
+            'name' => 'required',
+            'email' => 'required|email|unique:users,email,'.$this->route('account')->id,
+            'password' => 'nullable|sometimes',
+            'role' => 'required|in:cashier,customer,admin'
         ];
     }
 }

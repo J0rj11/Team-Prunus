@@ -6,7 +6,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link nav-color" href="">
+          <a class="nav-link nav-color" href="{{ route('admin.account.index') }}">
             <i class="menu-icon"><iconify-icon icon="ri:user-settings-fill"></iconify-icon></i>
             <span class="menu-title">USERS ACCOUNT</span>
           </a>

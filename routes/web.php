@@ -42,6 +42,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::resource('/customer', \App\Http\Controllers\Admin\AdminCustomerController::class);
         Route::resource('/supplier', \App\Http\Controllers\Admin\AdminSupplierController::class);
         Route::resource('/product',  \App\Http\Controllers\Admin\AdminProductController::class);
+        Route::resource('/account', \App\Http\Controllers\Admin\AdminAccountController::class);
     });
 });
 
