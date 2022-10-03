@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -26,36 +27,42 @@
     <!-- endinject -->
 
 </head>
+
 <body>
-  <div class="container-scroller">
-    @include('layouts.includes.navbar')
-    <div class="container-fluid page-body-wrapper" >
-        <nav class="sidebar sidebar-offcanvas" id="sidebar" >
-      <ul class="nav">
-      @include('layouts.includes.sidebar')
-        </ul>
-    </nav>
-         @yield('content')
+    <div class="container-scroller">
+        @include('layouts.includes.navbar')
+        <div class="container-fluid page-body-wrapper">
+            <nav class="sidebar sidebar-offcanvas" id="sidebar">
+                <ul class="nav">
+                    @if (auth()->user()->hasRole('cashier'))
+                        @include('layouts.cashier-includes.sidebar')
+                    @else
+                        @include('layouts.includes.sidebar')
+                    @endif
+                </ul>
+            </nav>
+            @yield('content')
 
+        </div>
     </div>
-  </div>
 
-  <script src="{{ asset('vendors/js/vendor.bundle.base.js') }}"></script>
-  <script src="https://code.iconify.design/iconify-icon/1.0.0-beta.3/iconify-icon.min.js"></script>
+    <script src="{{ asset('vendors/js/vendor.bundle.base.js') }}"></script>
+    <script src="https://code.iconify.design/iconify-icon/1.0.0-beta.3/iconify-icon.min.js"></script>
 
-  <script src="{{ asset('vendors/chart.js/Chart.min.js') }}"></script>
-  <script src="{{ asset('vendors/datatables.net/jquery.dataTables.js') }}"></script>
-  <script src="{{ asset('vendors/datatables.net-bs4/dataTables.bootstrap4.js') }}"></script>
-  <script src="{{ asset('js/dataTables.select.min.js') }}"></script>
+    <script src="{{ asset('vendors/chart.js/Chart.min.js') }}"></script>
+    <script src="{{ asset('vendors/datatables.net/jquery.dataTables.js') }}"></script>
+    <script src="{{ asset('vendors/datatables.net-bs4/dataTables.bootstrap4.js') }}"></script>
+    <script src="{{ asset('js/dataTables.select.min.js') }}"></script>
 
-  <script src="{{ asset('js/off-canvas.js') }}"></script>
-  <script src="{{ asset('js/hoverable-collapse.js') }}"></script>
-  <script src="{{ asset('js/template.js') }}"></script>
-  <script src="{{ asset('js/settings.js') }}"></script>
-  <script src="{{ asset('js/todolist.js') }}"></script>
+    <script src="{{ asset('js/off-canvas.js') }}"></script>
+    <script src="{{ asset('js/hoverable-collapse.js') }}"></script>
+    <script src="{{ asset('js/template.js') }}"></script>
+    <script src="{{ asset('js/settings.js') }}"></script>
+    <script src="{{ asset('js/todolist.js') }}"></script>
 
-  <script src="{{ asset('js/dashboard.js') }}"></script>
-  <script src="{{ asset('js/Chart.roundedBarCharts.js') }}"></script>
-  @stack('scripts')
+    <script src="{{ asset('js/dashboard.js') }}"></script>
+    <script src="{{ asset('js/Chart.roundedBarCharts.js') }}"></script>
+    @stack('scripts')
 </body>
+
 </html>
