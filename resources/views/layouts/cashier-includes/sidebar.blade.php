@@ -30,9 +30,8 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link nav-color" href="" aria-controls="ui-basic">
+          <a class="nav-link nav-color" href="{{ route('customer-transaction.index') }}" aria-controls="ui-basic">
             <i class="fa fa-handshake-o menu-icon"></i>
-            
             <span class="menu-title">CUSTOMER TRANSACTION</span>
           </a>
         </li>
