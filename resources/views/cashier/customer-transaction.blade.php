@@ -96,7 +96,7 @@
                     </div>
 
                     <div class="pt-4 center mb-4">
-                      <button type="submit" class="btn btn-outline-primary btn-md">Cancel edit</button>
+                      <button type="submit" class="btn btn-outline-primary btn-md">Cancel</button>
                       <button type="submit" class="btn btn-primary btn-md">Proceed</button>
                     </div>
                   </form>

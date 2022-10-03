@@ -34,36 +34,56 @@
                         </form>
                     </div>
                     <div class="card-body">
-                   
 
-                    <div class="card-body bg-transparent">
-                      <h4>ITEM INFORMATION</h4>
-                      <div class="table-responsive mt-2">
-                        <table class="table table-hover table-striped">
-                        <thead class="color">
-                          <tr>
-                            <th>Category</th>
-                            <th>Item Name</th>
-                            <th>Quantity</th>
-                            <th>Price</th>
-                            <th>Action</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <td>Pipes</td>
-                            <td>PVC Pipe #2</td>
-                            <td>2</td>
-                            <td>₱ 250.00</td>
-                            <td>
-                              <label class="btn btn-dark btn-sm">Confirm</label>
-                            </td>
-                          </tr>                        
-                        </tbody>
-                      </table>
+                    <div class="col-md-12 grid-margin stretch-card">
+                        <div class="card-body bg-transparent">
+                        <h4>ITEM INFORMATION</h4>
+                        <div class="form-group row center">
+                            <div class="col">
+                            <label>Category</label>
+                            <select class="form-control" id="exampleFormControlSelect2">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                            </select>
+                            </div>
+                            <div class="col">
+                            <label>Item Name</label>
+                            <select class="form-control" id="exampleFormControlSelect2">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                            </select>
+                            </div>
+                            <div class="col">
+                            <label>Quantity</label>
+                            <div id="the-basics">
+                                <input class="typeahead" type="text">
+                            </div>
+                            </div>
+                            <div class="col">
+                            <label>Price</label>
+                            <div id="bloodhound">
+                                <input class="typeahead" type="text">
+                            </div>
+                            </div>
+                            <div class="col">
+                            <label>Action</label>
+                            <div>
+                                <label class="btn btn-dark btn-sm">Confirm</label>
+                            </div>
+                            </div>
+
+                        </div>
+                        </div>
                     </div>
 
-                    <div class="table-responsive mt-5">
+
+                    <div class="table-responsive mt-3">
                         <table class="table table-hover table-striped">
                         <tbody>
                           <tr>
@@ -110,7 +130,7 @@
                       </table>
                     </div>
                     <div class="pt-4 center">                      
-                      <button  type="submit" class="btn btn-outline-primary btn-md">Cancel edit</button>
+                      <button  type="submit" class="btn btn-outline-primary btn-md">Cancel</button>
                       <button type="submit" class="btn btn-primary btn-md">Submit</button>
                     </div>
                   
