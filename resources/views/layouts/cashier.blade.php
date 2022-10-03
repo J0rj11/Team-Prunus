@@ -24,6 +24,10 @@
     <!-- inject:css -->
     <link rel="stylesheet" href="{{ asset('css/vertical-layout-light/style.css') }}">
     <!-- endinject -->
+    <script
+			src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.1/dist/alpine.min.js"
+			defer
+		></script>
 
 </head>
 <body>
@@ -55,6 +59,7 @@
 
   <script src="{{ asset('js/dashboard.js') }}"></script>
   <script src="{{ asset('js/Chart.roundedBarCharts.js') }}"></script>
+  @stack('scripts')
 
 </body>
 
