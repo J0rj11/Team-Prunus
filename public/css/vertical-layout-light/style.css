@@ -1,8 +1,8 @@
 /*------------------------------------------------------------------
  [Master Stylesheet]
 
-  Project:	SkyDash Admin
-  Version:	1.2.1
+  Project:  SkyDash Admin
+  Version:  1.2.1
 -------------------------------------------------------------------*/
 /*-------------------------------------------------------------------
   ===== Table of Contents =====
@@ -9513,8 +9513,8 @@ pre code {
     max-width: 100%;
   }
   .col-sm-1 {
-    flex: 0 0 8.33333%;
-    max-width: 8.33333%;
+    flex: 0 0 12.33333%;
+    max-width: 12.33333%;
   }
   .col-sm-2 {
     flex: 0 0 16.66667%;
@@ -9549,8 +9549,8 @@ pre code {
     max-width: 75%;
   }
   .col-sm-10 {
-    flex: 0 0 83.33333%;
-    max-width: 83.33333%;
+    flex: 0 0 87.66698%;
+    max-width: 87.66698%;
   }
   .col-sm-11 {
     flex: 0 0 91.66667%;
@@ -9699,7 +9699,7 @@ pre code {
     max-width: 41.66667%;
   }
   .col-md-6 {
-    flex: 0 0 30%;
+    flex: 0 0 50%;
     max-width: 50%;
   }
   .col-md-7 {
@@ -9719,8 +9719,8 @@ pre code {
     max-width: 83.33333%;
   }
   .col-md-11 {
-    flex: 0 0 91.66667%;
-    max-width: 91.66667%;
+    flex: 0 0 99.66667%;
+    max-width: 99.66667%;
   }
   .col-md-12 {
     flex: 0 0 100%;
@@ -10615,7 +10615,7 @@ select.tt-hint:focus::-ms-value {
   margin-bottom: 0;
   font-size: inherit;
   line-height: 1;
-  text-align: right;
+  text-align: left;
 }
 
 .col-form-label-lg {
@@ -17150,6 +17150,11 @@ button.bg-dark:focus,
   margin-left: 8rem !important;
 }
 
+.mr-7,
+.mx-7 {
+  margin-left: 8rem !important;
+}
+
 .p-0 {
   padding: 0 !important;
 }
@@ -22156,8 +22161,8 @@ code {
   border: 1px solid #fff;
 }
 
-.card.card-tale:hover {
-  background: #b29482;
+.card.card-tale:hover, .card.card-tale:active{
+  background: #8f6349;
 }
 
 .card.card-dark-blue {
@@ -28706,13 +28711,13 @@ div.tagsinput span.tag a {
 }
 
 .sidebar .nav:not(.sub-menu) {
-  margin-top: 3rem;
+  margin-top: 2rem;
   margin-left: 1.5rem;
   margin-right: 1rem;
 }
 
 .sidebar .nav:not(.sub-menu) > .nav-item {
-  margin-top: .3rem;
+  margin-top: .2rem;
 }
 
 .sidebar .nav:not(.sub-menu) > .nav-item:hover > .nav-link, .sidebar .nav:not(.sub-menu) > .nav-item:hover[aria-expanded="true"] {
@@ -30258,7 +30263,7 @@ div.tagsinput span.tag a {
     max-height: none;
   }
   .sidebar-fixed .sidebar .nav:not(.sub-menu) {
-    padding-bottom: 3rem;
+    padding-bottom: 2rem;
   }
   .sidebar-fixed .main-panel {
     margin-left: 235px;
@@ -30838,4 +30843,12 @@ padding: 1px !important;
 
 .white-bg{
   background: #fff;
+}
+
+
+.a-nav:link, .a-nav:visited {
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
 }
