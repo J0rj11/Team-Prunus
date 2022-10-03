@@ -31,7 +31,7 @@
 <body>
     <div class="container-scroller">
         @include('layouts.includes.navbar')
-        <div class="container-fluid page-body-wrapper">
+        <div class="container-fluid page-body-wrapper mt3">
             <nav class="sidebar sidebar-offcanvas" id="sidebar">
                 <ul class="nav">
                     @if (auth()->user()->hasRole('cashier'))
