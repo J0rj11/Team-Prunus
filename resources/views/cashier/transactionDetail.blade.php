@@ -19,28 +19,22 @@
                 <div class="col-m-12 grid-margin stretch-card">
                   <div class="card white-bg">
                     <div class="pt-3 pl-4">
-                      <div class="float-right">
-                        <button type="button" class="btn btn-outline-primary btn-sm mr-5">
-                          <i class="fa fa-arrow-left menu-icon"></i>
-                          
-                          <a href="/customer"><span class="menu-title">Back</span></a>
-                        </button>
-                      </div>
+                    <form class="px-3">
+
+                        <div class="row mt-3">
+                            <div class="col-md-6">
+                                <div class="form-group row">
+                                    <label class="col-sm-3 col-form-label">Customer Name</label>
+                                    <div class="col-sm-9">
+                                        <input x-model="form.transaction_code" type="text" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>                    
+                        </form>
                     </div>
                     <div class="card-body">
-                       <form class="px-3 py-3">
-
-                      <div class="row">
-                        <div class="col-md-6">
-                          <div class="form-group row">
-                            <label class="col-sm-3 col-form-label">Customer Name</label>
-                            <div class="col-sm-9">
-                              <input x-model="form.transaction_code" type="text" class="form-control">
-                            </div>
-                          </div>
-                        </div>
-                      </div>                    
-                    </form>
+                   
 
                     <div class="card-body bg-transparent">
                       <h4>ITEM INFORMATION</h4>
@@ -64,7 +58,14 @@
                             <td>
                               <label class="btn btn-dark btn-sm">Confirm</label>
                             </td>
-                          </tr>
+                          </tr>                        
+                        </tbody>
+                      </table>
+                    </div>
+
+                    <div class="table-responsive mt-5">
+                        <table class="table table-hover table-striped">
+                        <tbody>
                           <tr>
                             <td>A2</td>
                             <td>PVC Pipe #2</td>

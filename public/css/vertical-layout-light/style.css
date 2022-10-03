@@ -9240,6 +9240,7 @@ pre code {
   flex-wrap: wrap;
   margin-right: -15px;
   margin-left: -15px;
+  padding-right: 15px;
 }
 .row-2 {
   display: flex;
@@ -17070,6 +17071,11 @@ button.bg-dark:focus,
 .mt-3, .template-demo > .btn, .fc .template-demo > button, .ajax-upload-dragdrop .template-demo > .ajax-file-upload, .swal2-modal .swal2-buttonswrapper .template-demo > .swal2-styled, .wizard > .actions .template-demo > a, .template-demo > .btn-toolbar,
 .my-3 {
   margin-top: 1rem !important;
+}
+
+.mt3, .template-demo > .btn, .fc .template-demo > button, .ajax-upload-dragdrop .template-demo > .ajax-file-upload, .swal2-modal .swal2-buttonswrapper .template-demo > .swal2-styled, .wizard > .actions .template-demo > a, .template-demo > .btn-toolbar,
+.my3 {
+  margin-top: 1.1rem !important;
 }
 
 .mr-3, .template-demo > .btn-toolbar,

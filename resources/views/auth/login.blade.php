@@ -58,9 +58,9 @@
                                         <div class="input-group-prepend">
                                             <span class="input-group-text fa fa-lock "></span>
                                         </div>
-                                        <input type="text" class="form-control font-italic"
+                                        <input type="password" class="form-control font-italic"
                                           name="password"
-                                            placeholder="Input your password" aria-label="Username">
+                                            placeholder="Input your password" aria-label="Password">
                                     </div>
                                 </div>
 
