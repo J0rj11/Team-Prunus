@@ -12,13 +12,13 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link nav-color" href="">
+          <a class="nav-link nav-color" href="{{ route('admin.customer.index') }}">
             <i class="fa fa-user menu-icon"></i>
             <span class="menu-title">CUSTOMER</span>
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link nav-color" href="">
+          <a class="nav-link nav-color" href="{{ route('admin.supplier.index') }}">
             <i class="menu-icon"><iconify-icon icon="fa6-solid:dolly"></iconify-icon></i>
             <span class="menu-title">SUPPLIER</span>
           </a>          
@@ -30,7 +30,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link nav-color" href="">
+          <a class="nav-link nav-color" href="{{ route('admin.product.index') }}">
             <i class="menu-icon"><iconify-icon icon="mdi:shovel"></iconify-icon></i>
             <span class="menu-title">PRODUCT</span>
           </a>
