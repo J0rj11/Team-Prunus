@@ -18,25 +18,44 @@
    
                   <div class="card-body white-bg">
                     <form class="ml-3 py-4">
-                      <div class="form-inline">
-                        <div class="row-2">
-                          <label class="mr-4">Supplier Code </label>
-                          <input type="text" class="form-control mb-2 ">
+                      <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group row">
+                                <label class="col-sm-3 col-form-label">Supplier Code</label>
+                                <div class="col-sm-9">
+                                <input type="text" class="form-control">
+                                </div>
+                            </div>
+                            </div>
 
-                          <label class="ml-6 mr-4">Contact</label>
-                          <input type="text" class="form-control mb-2 ">
-                        </div>   
-                      </div>
-                      <div class="form-inline">
-                        <div class="row-2">
-                          <label class="mr-3">Supplier Name</label>
-                          <input type="text" class="form-control mb-2 mr-sm-2">
+                            <div class="col-md-6">
+                            <div class="form-group row">
+                                <label class="col-sm-3 col-form-label">Contact</label>
+                                <div class="col-sm-9">
+                                <input type="text" class="form-control">
+                                </div>
+                            </div>
+                            </div>
+
+                            <div class="col-md-6">
+                            <div class="form-group row">
+                                <label class="col-sm-3 col-form-label">Supplier Name</label>
+                                <div class="col-sm-9">
+                                <input type="text" class="form-control">
+                                </div>
+                            </div>
+                            </div>                      
                         </div>
-                      </div>
-                      <div class="form-inline">
-                        <label class="mr-6 pl-3">Address</label>
-                        <input type="text" class="form-control mb-2 mr-sm-2 col-md-10">
-                      </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                            <div class="form-group row">
+                                <label class="col-sm-3 col-form-label">Address</label>
+                                <div class="col-sm-9">
+                                <input type="text" class="form-control">
+                                </div>
+                            </div>
+                            </div>
+                        </div>
                       <center class="mt-5 mb-2">
                         <button type="button" class="btn btn-outline-primary btn-md mr-5">Cancel</button>
                         <button type="submit" class="btn btn-primary btn-md">Save</button>
