@@ -18,25 +18,6 @@
                                 <div class="csstab-content">
                                     <div class="col-m-12 grid-margin stretch-card">
                                         <div class="card white-bg">
-                                            {{-- <form class="form-group row py-4 pl-5">
-                                                <div class="col">
-                                                    <label class="mb-2">Search by</label>
-                                                    <select class="form-control">
-                                                        <option></option>
-                                                        <option></option>
-                                                        <option></option>
-                                                        <option></option>
-                                                    </select>
-                                                </div>
-                                                <div class="col">
-                                                    <label class="mb-2">Value</label>
-                                                    <input class="typeahead" type="text" placeholder="">
-                                                </div>
-                                                <div class="col pt-4-5">
-                                                    <button type="submit" class="btn btn-primary mb-2">Submit</button>
-                                                </div>
-                                            </form> --}}
-
                                             <div class="card-body bg-transparent">
                                                 <div class="table-responsive">
                                                     <table class="table table-hover table-striped" id="customerTable">
