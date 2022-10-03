@@ -4,8 +4,8 @@
     <div class="sidebar-fixed main-panel">
         <div class="contentWrapper">
             <div class="row py-2">
-                <h4>SUPPLIER FORM</h4>
-                <p class="pl-2">Add Supplier</p>
+                <h4>CATEGORY FORM</h4>
+                <p class="pl-2">Add Category</p>
             </div>
             <div class="col-12 grid-margin ">
                 <div class="row">
@@ -13,34 +13,31 @@
                         <div class="csstabs">
                             <div class="csstab">
                                 <input type="radio" name="css-tabs" id="tab-1" checked class="csstab-switch">
-                                <label for="tab-1" class="csstab-label">Add Supplier</label>
+                                <label for="tab-1" class="csstab-label">Add Category</label>
                                 <div class="csstab-content">
 
                                     <div class="card-body white-bg">
-                                        <form class="ml-3 py-4" action="{{ route('supplier.store') }}" method="POST">
+                                        <form class="ml-5 py-4" action="{{ route('category.store') }}" method="POST">
                                             @csrf
-                                            <div class="form-inline">
-                                                <div class="row-2">
-                                                    <label class="mr-4">Supplier Code </label>
-                                                    <input type="text" class="form-control mb-2" name="supplier_code">
-
-                                                    <label class="ml-6 mr-4">Contact</label>
-                                                    <input type="text" class="form-control mb-2 " name="contact">
+                                            <div class="form-group row">
+                                                <label class="col-sm-2 col-form-label">Category Code</label>
+                                                <div class="col-sm-9">
+                                                    <input type="text" class="form-control" name="category_code">
                                                 </div>
                                             </div>
-                                            <div class="form-inline">
-                                                <div class="row-2">
-                                                    <label class="mr-3">Supplier Name</label>
-                                                    <input type="text" class="form-control mb-2 mr-sm-2"
-                                                           name="supplier_name">
+                                            <div class="form-group row">
+                                                <label class="col-sm-2 col-form-label">Category Name</label>
+                                                <div class="col-sm-9">
+                                                    <input type="text" class="form-control" name="category_name">
                                                 </div>
                                             </div>
-                                            <div class="form-inline">
-                                                <label class="mr-6 pl-3">Address</label>
-                                                <input type="text" class="form-control mb-2 mr-sm-2 col-md-10"
-                                                       name="address">
+                                            <div class="form-group row">
+                                                <label class="col-sm-2 col-form-label">Description</label>
+                                                <div class="col-sm-9">
+                                                    <input type="text" class="form-control" name="description">
+                                                </div>
                                             </div>
-                                            <center class="mt-5 mb-2">
+                                            <center class="mt-5 mb-5">
                                                 <button type="button" class="btn btn-outline-primary btn-md mr-5">
                                                     Cancel
                                                 </button>
@@ -52,22 +49,23 @@
                             </div>
                             <div class="csstab">
                                 <input type="radio" name="css-tabs" id="tab-2" class="csstab-switch">
-                                <label for="tab-2" class="csstab-label">List Supplier</label>
+                                <label for="tab-2" class="csstab-label">List Category</label>
                                 <div class="csstab-content">
                                     <div class="card-body white-bg">
+
                                         <div class="card-body bg-transparent">
                                             <div class="table-responsive">
-                                                <table class="table table-hover table-striped" id="supplierTable">
+                                                <table class="table table-hover table-striped" id="categoryTable">
                                                     <thead class="color">
                                                     <tr>
                                                         <th>Code</th>
-                                                        <th>Supplier Name</th>
-                                                        <th>Contact</th>
-                                                        <th>Address</th>
+                                                        <th>Category Name</th>
+                                                        <th>Description</th>
                                                         <th>Action</th>
                                                     </tr>
                                                     </thead>
                                                     <tbody>
+
                                                     </tbody>
                                                 </table>
                                             </div>
@@ -87,25 +85,22 @@
 @push('scripts')
     <script type="text/javascript">
         $(() => {
-            $('#supplierTable').DataTable({
+            $('#categoryTable').DataTable({
                 serverSide: true,
                 processing: true,
-                ajax: "{{ route('supplier.index') }}",
-                columns: [{
-                    data: 'supplier_code',
-                    name: 'supplier_code'
-                },
+                ajax: "{{ route('category.index') }}",
+                columns: [
                     {
-                        data: 'supplier_name',
-                        name: 'supplier_name'
+                        data: 'category_code',
+                        name: 'category_code'
                     },
                     {
-                        data: 'contact',
-                        name: 'contact'
+                        data: 'category_name',
+                        name: 'category_name'
                     },
                     {
-                        data: 'address',
-                        name: 'address'
+                        data: 'description',
+                        name: 'description'
                     },
                     {
                         data: 'actions',
@@ -119,5 +114,6 @@
             })
         })
     </script>
+
 @endpush
 

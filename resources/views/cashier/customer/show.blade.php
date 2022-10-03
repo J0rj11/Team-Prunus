@@ -1,4 +1,4 @@
-@extends('layouts.cashier')
+@extends('layouts.app')
 
 @section('content')
 <div class="main-panel">
@@ -19,10 +19,10 @@
                   <div class="card white-bg">
                     <div class="py-3 pl-4">CO1 Details
                       <div class="float-right">
-                        <button type="button" class="btn btn-outline-primary btn-sm mr-5">
+                        <a href="{{ route('customer.index') }}" class="btn btn-outline-primary btn-sm mr-5">
                           <i class="fa fa-arrow-left menu-icon"></i>
                           <span class="menu-title">Back</span>
-                        </button>
+                        </a>
                       </div>
                     </div>
                     <div class="card-body">
@@ -37,9 +37,9 @@
                           </thead>
                           <tbody>
                             <tr>
-                              <td>C01</td>
-                              <td>Juan Dela Cruz </td>
-                              <td>Tandaay, Nabua Camarines Sur</td>
+                              <td>{{ $customer->id }}</td>
+                              <td>{{ $customer->name }}</td>
+                              <td>{{ $customer->addres ?? 'No Address' }}</td>
                             </tr>
                           </tbody>
                         </table>
@@ -97,7 +97,6 @@
                         </table>
                       </div>
                     </div>
-                  
                   </div>
                 </div>    
               </div>
