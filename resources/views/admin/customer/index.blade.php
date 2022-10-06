@@ -1,76 +1,15 @@
-<<<<<<< HEAD
-@extends('layouts.app')
-=======
 @extends('layouts.admin')
->>>>>>> 045746a82f1cd9f71355dd03e90c38dbce3c9bcd
 
 @section('content')
     <div class="main-panel">
         <div class="contentWrapper">
             <div class="row py-2">
-<<<<<<< HEAD
-                <h4>CUSTOMER INDEX</h4>
-                <p class="pl-2">List Customer</p>
-            </div>
-
-=======
                 <h4>CUSTOMERS</h4>
             </div>
->>>>>>> 045746a82f1cd9f71355dd03e90c38dbce3c9bcd
             <div class="col-12 grid-margin ">
                 <div class="row">
                     <div class="csswrapper">
                         <div class="csstabs">
-<<<<<<< HEAD
-                            <div class="csstab">
-                                <input type="radio" name="css-tabs" id="tab-1" checked class="csstab-switch">
-                                <label for="tab-1" class="csstab-label">List Customer</label>
-                                <div class="csstab-content">
-                                    <div class="col-m-12 grid-margin stretch-card">
-                                        <div class="card white-bg">
-                                            {{-- <form class="form-group row py-4 pl-5">
-                                                <div class="col">
-                                                    <label class="mb-2">Search by</label>
-                                                    <select class="form-control">
-                                                        <option></option>
-                                                        <option></option>
-                                                        <option></option>
-                                                        <option></option>
-                                                    </select>
-                                                </div>
-                                                <div class="col">
-                                                    <label class="mb-2">Value</label>
-                                                    <input class="typeahead" type="text" placeholder="">
-                                                </div>
-                                                <div class="col pt-4-5">
-                                                    <button type="submit" class="btn btn-primary mb-2">Submit</button>
-                                                </div>
-                                            </form> --}}
-
-                                            <div class="card-body bg-transparent">
-                                                <div class="table-responsive">
-                                                    <table class="table table-hover table-striped" id="customerTable">
-                                                        <thead class="color">
-                                                            <tr>
-                                                                <th>Code</th>
-                                                                <th>Customer Name</th>
-                                                                <th>Contact</th>
-                                                                <th>Address</th>
-                                                                <th>Action</th>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody>
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-=======
 
                             <div class="csstab">
                                 <input type="radio" name="css-tabs" id="tab-1" value="1" checked
@@ -184,7 +123,6 @@
                                 </div>
                             </div>
 
->>>>>>> 045746a82f1cd9f71355dd03e90c38dbce3c9bcd
                         </div>
                     </div>
                 </div>
@@ -200,11 +138,7 @@
             $('#customerTable').DataTable({
                 serverSide: true,
                 processing: true,
-<<<<<<< HEAD
-                ajax: "{{ route('customer.index') }}",
-=======
                 ajax: "{{ route('admin.customer.index') }}",
->>>>>>> 045746a82f1cd9f71355dd03e90c38dbce3c9bcd
                 columns: [{
                         data: 'id',
                         name: 'id'
