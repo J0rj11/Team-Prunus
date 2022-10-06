@@ -16834,6 +16834,10 @@ button.bg-dark:focus,
   overflow: hidden !important;
 }
 
+.overflow-x {
+  overflow-x: visible !important;
+}
+
 .position-static {
   position: static !important;
 }

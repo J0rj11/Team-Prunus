@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>Zuniga Gravel and Sand Trading</title>
-    <link rel="shortcut icon" href="images/favicon.png" />
+    <link rel="icon" href="{{ asset('images/favicon.png') }}" type = "image/x-icon" />
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
