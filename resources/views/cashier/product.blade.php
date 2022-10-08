@@ -26,6 +26,7 @@
                                                         <th>Description</th>
                                                         <th>Quantity</th>
                                                         <th>Price</th>
+                                                        <th>Action</th>
                                                     </tr>
                                                     </thead>
                                                     <tbody>
@@ -72,6 +73,10 @@
                     {
                         data: 'price',
                         name: 'price'
+                    },
+                    {
+                        data: 'actions',
+                        name: 'actions'
                     }
                 ],
                 columnDefs: [{

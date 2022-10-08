@@ -20,11 +20,6 @@ class SupplierController extends Controller
                 ->addColumn('actions', function (Supplier $supplier) {
                     return '<div>
                         <a href="' . route('supplier.show', $supplier) . '" class="btn btn-secondary btn-sm">View</a>
-                        <button type="button" onclick="document.getElementById(' . "'deleteForm'" . ').submit()" class="btn btn-dark btn-sm">Delete</button>
-                        <form action="' . route('supplier.destroy', $supplier) . '" method="POST" id="deleteForm">
-                                <input type="hidden" name="_token" value="' . csrf_token() . '">
-                                ' . method_field('DELETE') . '
-                        </form>
                     </div>';
                 })
                 ->rawColumns(['actions'])
