@@ -19,14 +19,14 @@
                                         x-text="id != null ? 'Edit' : 'Add'"></span> Supplier</label>
                                 <div class="csstab-content">
                                     <div class="card-body white-bg">
-                                        <form class="ml-3 py-4 py-4" action="{{ route('admin.supplier.store') }}"
+                                        <form class="ml-3 pt-4 px-4" action="{{ route('admin.supplier.store') }}"
                                             method="POST">
                                             @csrf
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group row">
-                                                        <label class="col-sm-3 col-form-label">Supplier Code</label>
-                                                        <div class="col-sm-9">
+                                                        <label class="col-sm-4 col-form-label">Supplier Code</label>
+                                                        <div class="col-sm-8">
                                                             <input name="supplier_code" value="{{ old('supplier_code') }}"
                                                                 type="text" class="form-control">
                                                         </div>
@@ -35,8 +35,8 @@
 
                                                 <div class="col-md-6">
                                                     <div class="form-group row">
-                                                        <label class="col-sm-3 col-form-label">Contact</label>
-                                                        <div class="col-sm-9">
+                                                        <label class="col-sm-4 col-form-label">Contact</label>
+                                                        <div class="col-sm-8">
                                                             <input name="contact" value="{{ old('contact') }}"
                                                                 type="text" class="form-control">
                                                         </div>
@@ -45,8 +45,8 @@
 
                                                 <div class="col-md-6">
                                                     <div class="form-group row">
-                                                        <label class="col-sm-3 col-form-label">Supplier Name</label>
-                                                        <div class="col-sm-9">
+                                                        <label class="col-sm-4 col-form-label">Supplier Name</label>
+                                                        <div class="col-sm-8">
                                                             <input name="supplier_name" value="{{ old('supplier_name') }}"
                                                                 type="text" class="form-control">
                                                         </div>
@@ -54,10 +54,10 @@
                                                 </div>
                                             </div>
                                             <div class="row">
-                                                <div class="col-md-6">
+                                                <div class="col-md-12">
                                                     <div class="form-group row">
-                                                        <label class="col-sm-3 col-form-label">Address</label>
-                                                        <div class="col-sm-9">
+                                                        <label class="col-sm-2 col-form-label">Address</label>
+                                                        <div class="col-sm-10">
                                                             <input name="address" value="{{ old('address') }}"
                                                                 type="text" class="form-control">
                                                         </div>
@@ -65,8 +65,10 @@
                                                 </div>
                                             </div>
 
-                                            <div class="pt-4 center">
-                                                <button type="submit" class="btn btn-primary btn-md">Add supplier</button>
+                                            <div class="mt-5 pb-2 center">
+                                                <button type="button"
+                                                    class="btn btn-outline-primary btn-md mr-2">Cancel</button>
+                                                <button type="submit" class="btn btn-primary btn-md">Save</button>
                                             </div>
 
                                         </form>
@@ -76,7 +78,7 @@
                             <div class="csstab">
                                 <input type="radio" name="css-tabs" id="tab-2" value="2" checked
                                     class="csstab-switch">
-                                <label for="tab-2" class="csstab-label">List Supplier</label>
+                                <label for="tab-2" class="csstab-label">Supplier List</label>
                                 <div class="csstab-content">
                                     <div class="card-body white-bg">
                                         <div class="card-body bg-transparent">

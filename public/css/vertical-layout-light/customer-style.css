@@ -9549,9 +9549,8 @@ pre code {
     max-width: 75%;
   }
   .col-sm-10 {
-    
-    flex: 0 0 83.33333%;
-    max-width: 83.33333%;
+    flex: 0 0 87.66698%;
+    max-width: 87.66698%;
   }
   .col-sm-11 {
     flex: 0 0 91.66667%;
@@ -11069,7 +11068,7 @@ textarea.is-invalid.tt-hint {
 }
 
 .btn:hover, .fc button:hover, .ajax-upload-dragdrop .ajax-file-upload:hover, .swal2-modal .swal2-buttonswrapper .swal2-styled:hover, .wizard > .actions a:hover {
-  color: #1F1F1F;
+  color: #fff;
   text-decoration: none;
 }
 
@@ -11779,16 +11778,16 @@ input[type="button"].btn-block {
   z-index: 1000;
   display: none;
   float: left;
-  min-width: 10rem;
+  min-width: 15rem;
   padding: 0.5rem 0;
   margin: 0.125rem 0 0;
   font-size: 1rem;
-  color: #212529;
+  color: #fff;
   text-align: left;
   list-style: none;
-  background-color: #fff;
+  background-color: #b78c72;
   background-clip: padding-box;
-  border: 1px solid #CED4DA;
+  /*border: 1px solid #CED4DA;*/
   border-radius: 0.25rem;
 }
 
@@ -11946,15 +11945,16 @@ input[type="button"].btn-block {
 
 .dropdown-item {
   display: block;
-  width: 100%;
-  padding: 0.25rem 1.5rem;
+  /*width: 100%;*/
+  margin: 10px;
   clear: both;
   font-weight: 400;
-  color: #1F1F1F;
+  color: #fff;
   text-align: inherit;
   white-space: nowrap;
-  background-color: transparent;
-  border: 0;
+  background-color: #876855;
+  border-radius: 2px;
+  padding: 10px;
 }
 
 .dropdown-item:hover, .dropdown-item:focus {
@@ -12291,7 +12291,7 @@ input[type="button"].btn-block {
 .asColorPicker-wrap > .custom-file {
   position: relative;
   flex: 1 1 auto;
-  width: 1%;
+  width: 60%;
   min-width: 0;
   margin-bottom: 0;
 }
@@ -13472,7 +13472,7 @@ input[type="button"].btn-block {
 }
 
 .navbar-nav .dropdown-menu {
-  position: static;
+  position: absolute;
   float: none;
 }
 
@@ -15721,10 +15721,6 @@ a.close.disabled {
   vertical-align: text-top !important;
 }
 
-.align-right {
-  text-align: right !important;
-}
-
 .bg-primary, .settings-panel .color-tiles .tiles.primary {
   background-color: #856047 !important;
 }
@@ -17131,6 +17127,26 @@ button.bg-dark:focus,
 .mt-5,
 .my-5 {
   margin-top: 3rem !important;
+}
+
+.mt-6,
+.my-6 {
+  margin-top: 4rem !important;
+}
+
+.mt-7,
+.my-7 {
+  margin-top: 5rem !important;
+}
+
+.mb-7,
+.my-7 {
+  margin-top: 5rem !important;
+}
+
+.mb-8,
+.my-8 {
+  margin-top: 6rem !important;
 }
 
 .mr-5,
@@ -18979,7 +18995,7 @@ button.bg-dark:focus,
 }
 
 .text-primary, .list-wrapper .completed .remove {
-  color: #856047 !important;
+  color: #fff !important;
 }
 
 a.text-primary:hover, .list-wrapper .completed a.remove:hover, a.text-primary:focus, .list-wrapper .completed a.remove:focus {
@@ -19495,7 +19511,11 @@ input:focus {
 }
 
 .bg-gradient-info {
-  background: linear-gradient(to bottom, #0e4cfd, #6a8eff);
+  background: linear-gradient(to bottom, #68492a, #965732);
+}
+
+.bg-gradient-info:hover{
+  background: linear-gradient(to bottom, #7f5a38, #b9754d);
 }
 
 .bg-gradient-warning {
@@ -28558,7 +28578,7 @@ div.tagsinput span.tag a {
 
 .content-wrapper {
   background: #fbf3e4;
-  padding:  10px 10px 10px 30px ;
+  padding:  10px 10px 10px 55px ;
   width: 100%;
   height: 100%;
   -webkit-flex-grow: 1;
@@ -28960,7 +28980,7 @@ div.tagsinput span.tag a {
   padding-left: 2.375rem;
   width: calc(100% - 235px);
   height: 80px;
-  border-bottom: 2px solid #684b26;
+  /*border-bottom: 2px solid #684b26;*/
 }
 
 @media (max-width: 991px) {
@@ -29041,10 +29061,10 @@ div.tagsinput span.tag a {
 .navbar .navbar-menu-wrapper .navbar-nav .nav-item.nav-search .asColorPicker-wrap .tt-hint,
 .navbar .navbar-menu-wrapper .navbar-nav .nav-item.nav-search .input-group .input-group-text,
 .navbar .navbar-menu-wrapper .navbar-nav .nav-item.nav-search .asColorPicker-wrap .input-group-text {
-  background: transparent;
-  border: 0;
-  color: #000;
-  padding: 0;
+  background: #965732;
+  border: 1px solid #c7aa99;
+  color: #fff;
+  padding: 5px;
 }
 
 .navbar .navbar-menu-wrapper .navbar-nav .nav-item.nav-search .input-group .input-group-text i, .navbar .navbar-menu-wrapper .navbar-nav .nav-item.nav-search .asColorPicker-wrap .input-group-text i {
@@ -29059,7 +29079,7 @@ div.tagsinput span.tag a {
 .navbar .navbar-menu-wrapper .navbar-nav .nav-item.nav-search .asColorPicker-wrap .tt-query,
 .navbar .navbar-menu-wrapper .navbar-nav .nav-item.nav-search .input-group .tt-hint,
 .navbar .navbar-menu-wrapper .navbar-nav .nav-item.nav-search .asColorPicker-wrap .tt-hint {
-  margin-left: .7rem;
+  margin-left: 0rem;
 }
 
 .navbar .navbar-menu-wrapper .navbar-nav .nav-item.nav-search .input-group .form-control::-webkit-input-placeholder, .navbar .navbar-menu-wrapper .navbar-nav .nav-item.nav-search .asColorPicker-wrap .form-control::-webkit-input-placeholder, .navbar .navbar-menu-wrapper .navbar-nav .nav-item.nav-search .input-group .asColorPicker-input::-webkit-input-placeholder, .navbar .navbar-menu-wrapper .navbar-nav .nav-item.nav-search .asColorPicker-wrap .asColorPicker-input::-webkit-input-placeholder, .navbar .navbar-menu-wrapper .navbar-nav .nav-item.nav-search .input-group .dataTables_wrapper select::-webkit-input-placeholder, .dataTables_wrapper .navbar .navbar-menu-wrapper .navbar-nav .nav-item.nav-search .input-group select::-webkit-input-placeholder, .navbar .navbar-menu-wrapper .navbar-nav .nav-item.nav-search .asColorPicker-wrap .dataTables_wrapper select::-webkit-input-placeholder, .dataTables_wrapper .navbar .navbar-menu-wrapper .navbar-nav .nav-item.nav-search .asColorPicker-wrap select::-webkit-input-placeholder, .navbar .navbar-menu-wrapper .navbar-nav .nav-item.nav-search .input-group .jsgrid .jsgrid-table .jsgrid-filter-row input[type=text]::-webkit-input-placeholder, .jsgrid .jsgrid-table .jsgrid-filter-row .navbar .navbar-menu-wrapper .navbar-nav .nav-item.nav-search .input-group input[type=text]::-webkit-input-placeholder, .navbar .navbar-menu-wrapper .navbar-nav .nav-item.nav-search .asColorPicker-wrap .jsgrid .jsgrid-table .jsgrid-filter-row input[type=text]::-webkit-input-placeholder, .jsgrid .jsgrid-table .jsgrid-filter-row .navbar .navbar-menu-wrapper .navbar-nav .nav-item.nav-search .asColorPicker-wrap input[type=text]::-webkit-input-placeholder,
@@ -29124,6 +29144,14 @@ div.tagsinput span.tag a {
 .navbar .navbar-menu-wrapper .navbar-nav .nav-item.nav-profile img {
   width: 40px;
   height: 40px;
+  border-radius: 100%;
+  background: #684b26;
+  border: 3px solid #684b26;
+}
+
+.customer-nav-item.customer-nav-profile img {
+  width: 100px;
+  height: 100px;
   border-radius: 100%;
   background: #684b26;
   border: 3px solid #684b26;
@@ -29232,11 +29260,11 @@ div.tagsinput span.tag a {
 
 @media (min-width: 992px) {
   .navbar .navbar-menu-wrapper .navbar-nav.navbar-nav-right {
-    margin-left: auto;
+    margin-left: 40%;
   }
   .rtl .navbar .navbar-menu-wrapper .navbar-nav.navbar-nav-right {
     margin-left: 0;
-    margin-right: auto;
+    margin-right: 40%;
   }
 }
 
@@ -30808,9 +30836,16 @@ content: "\f07a";
     color: transparent;
 }
 .nav-color{
-    color: #007bff;
+    color: #fff;
     text-decoration: none;
-    background-color: #c9a790;
+    background-color: #876855;
+    border-radius: 5px;
+}
+
+.nav-color:hover{
+    color: #fff;
+    text-decoration: none;
+    background-color: #60412d;
     border-radius: 5px;
 }
 .icon-img{
@@ -30848,6 +30883,20 @@ padding: 1px !important;
 
 .color{
   color: #684b26;
+}
+
+.w-color{
+  color: #fff;
+}
+
+.no-border{
+  background-color: #9f6d50;
+  border: none;
+}
+
+.form-color{
+  background-color: #965732;
+  border-color: 1px solid #fff;
 }
 
 .nav.active {
@@ -30948,41 +30997,19 @@ padding: 1px !important;
   clear: both;
   display: table;
 }
-.u{
-  text-decoration: underline;
-  color: gray;
-}
-
-.detail-subtitle {
-  display: inline-block;
-  color: #684b26;
-  margin-bottom: 1rem;
-  text-transform: capitalize;
-  font-size: 1.125rem;
-  font-weight: light;
-}
-
-.detail-title {
-  display: inline-block;
-  color: #684b26;
-  margin-bottom: 1.2rem;
-  text-transform: capitalize;
-  font-size: 1.125rem;
-  font-weight: bolder;
-}
-.customer-info p{
-  display: inline-block;
-  margin-bottom: 10px;
-}
-.back{
-  overflow: hidden;
-  padding: 10px;
-  float: right;
-}
 
 /* Change styles for cancel button and delete button on extra small screens */
 @media screen and (max-width: 300px) {
   .cancelbtn, .deletebtn {
      width: 100%;
   }
+}
+
+.dd-border{
+
+}
+.browse-img{
+  width: 400px;
+  height: 388px;
+  float: right;
 }

@@ -19,7 +19,7 @@
 							<div class="csstab-content">
 								
 								<div class="card-body white-bg">
-									<form class="ml-5 py-4" method="POST" action="{{ route('admin.category.store') }}">
+									<form class="ml-5 pt-4" method="POST" action="{{ route('admin.category.store') }}">
 										@csrf
 										<div class="form-group row">
 											<label class="col-sm-2 col-form-label">Category Code</label>
@@ -40,9 +40,11 @@
 											</div>
 										</div>
 
-										<div class="pt-4 center">
-											<button type="submit" class="btn btn-primary btn-md">Add category</button>
-										</div>
+										<div class="mt-5 pb-2 center">
+                                                <button type="button"
+                                                    class="btn btn-outline-primary btn-md mr-2">Cancel</button>
+                                                <button type="submit" class="btn btn-primary btn-md">Save</button>
+                                        </div>
 									</form>
 								</div>
 							</div>
@@ -50,7 +52,7 @@
 
 						<div class="csstab">
 							<input type="radio" name="css-tabs" id="tab-2" value="2" checked class="csstab-switch">
-							<label for="tab-2" class="csstab-label">List Category</label>
+							<label for="tab-2" class="csstab-label">Category List</label>
 							<div class="csstab-content">
 								<div class="card-body white-bg">
 

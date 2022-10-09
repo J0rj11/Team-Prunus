@@ -17,8 +17,14 @@
                                 <div class="csstab-content">
 
                                     <div class="card-body white-bg">
-                                        <form class="py-4 pl-5" action="{{ route('admin.account.store') }}" method="POST">
+                                        <form class="pt-4 pl-5" action="{{ route('admin.account.store') }}" method="POST">
                                             @csrf
+                                            <div class="form-group row">
+                                                <label class="col-sm-2 col-form-label">User ID</label>
+                                                <div class="col-sm-9">
+                                                    <input type="text" value="{{ old('name') }}" name="name" class="form-control">
+                                                </div>
+                                            </div>
                                             <div class="form-group row">
                                                 <label class="col-sm-2 col-form-label">Name</label>
                                                 <div class="col-sm-9">
@@ -26,7 +32,7 @@
                                                 </div>
                                             </div>
                                             <div class="form-group row">
-                                                <label class="col-sm-2 col-form-label">Email</label>
+                                                <label class="col-sm-2 col-form-label">Username</label>
                                                 <div class="col-sm-9">
                                                     <input type="email" value="{{ old('email') }}" name="email" class="form-control">
                                                 </div>
@@ -45,7 +51,7 @@
                                             </div>
                                             <div class="form-group row">
                                                 <label class="col-sm-2 col-form-label">Role</label>
-                                                <div class="col-sm-9">
+                                                <div class="col-sm-4">
                                                     <select class="form-control" name="role">
                                                         <option value="admin">Admin</option>
                                                         <option value="cashier">Cashier</option>
@@ -53,11 +59,11 @@
                                                     </select>
                                                 </div>
                                             </div>
-                                            <center class="mt-5 mb-5">
+                                            <div class="mt-5 pb-2 center">
                                                 <button type="button"
-                                                    class="btn btn-outline-primary btn-md mr-5">Cancel</button>
+                                                    class="btn btn-outline-primary btn-md mr-2">Cancel</button>
                                                 <button type="submit" class="btn btn-primary btn-md">Save</button>
-                                            </center>
+                                            </div>
                                         </form>
                                     </div>
                                 </div>
@@ -65,7 +71,7 @@
 
                             <div class="csstab">
                                 <input type="radio" name="css-tabs" id="tab-2" class="csstab-switch">
-                                <label for="tab-2" class="csstab-label">List User</label>
+                                <label for="tab-2" class="csstab-label">User List</label>
                                 <div class="csstab-content">
                                     <div class="card-body white-bg">
                                         <div class="card-body bg-transparent">
@@ -75,7 +81,7 @@
                                                         <tr>
                                                             <th>User ID</th>
                                                             <th>Name</th>
-                                                            <th>Email</th>
+                                                            <th>Username</th>
                                                             <th>Role</th>
                                                             <th>Action</th>
                                                         </tr>

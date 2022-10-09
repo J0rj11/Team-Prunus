@@ -18,7 +18,7 @@
                                         x-text="id != null ? 'Edit' : 'Register'"></span> Customer</label>
                                 <div class="csstab-content">
                                     <div class="card-body white-bg">
-                                        <form class="ml-3 py-4" action="{{ route('admin.customer.store') }}" method="POST">
+                                        <form class="ml-3 pt-4" action="{{ route('admin.customer.store') }}" method="POST">
                                         @csrf
                                             <div class="row">
                                                 <div class="col-md-4 row form-group">
@@ -67,9 +67,10 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="pt-4 center">
-                                                <button type="submit"
-                                                    class="btn btn-primary btn-md">Register client</button>
+                                            <div class="mt-5 pb-2 center">
+                                                <button type="button"
+                                                    class="btn btn-outline-primary btn-md mr-2">Cancel</button>
+                                                <button type="submit" class="btn btn-primary btn-md">Save</button>
                                             </div>
                                         </form>
                                     </div>
@@ -79,7 +80,7 @@
                             <div class="csstab">
                                 <input type="radio" name="css-tabs" id="tab-2" value="2" x-model="tab"
                                     class="csstab-switch">
-                                <label for="tab-2" class="csstab-label">List Customer</label>
+                                <label for="tab-2" class="csstab-label">Customer List</label>
                                 <div class="csstab-content">
                                     <div class="card white-bg">
                                         <div class="card-body bg-transparent">

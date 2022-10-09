@@ -95,9 +95,9 @@
                             </tr>                            
                           </tbody>
                         </table>
-                        <div class="float-right px-3 py-3">
+                        <!-- <div class="float-right px-3 py-3">
                           <button type="submit" class="btn btn-secondary btn-md">Submit Report</button>
-                        </div>
+                        </div> -->
                       </div>
                     </form>
                   </div>
@@ -248,15 +248,16 @@
               <div class="csstab-content">
                 <div class="card-body white-bg">
                   <h3>EXPENSE REPORT</h3>
-                  <form class="form-group row mb-3 px-1 pl-5">
-                    <div class="col">
-                      <label>Date</label>
-                      <input class="typeahead" type="text" placeholder="">
+                    <div class="row pt-2 px-5">
+                        <div class="col-md-6">
+                            <div class="form-group row">
+                                <label class="col-sm-4 col-form-label ">Date</label>
+                                <div class="col-sm-8">
+                                    <input name="" value="" type="date" class="form-control form-control-sm">
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col pt-4 ml-7">
-                      <button type="submit" class="btn btn-primary mb-2">Add Expenses</button>
-                    </div>
-                  </form>
                     <div class="card-body bg-transparent">
                       <div class="table-responsive">
                         <table class="table table-hover table-striped">
@@ -287,16 +288,12 @@
                               <td>₱ 100.00</td>
                               <td>Truck #1R</td>
                             </tr>
-                            <tr class="color font-weight-bolder"> 
-                              <td>TOTAL:</td>
-                              <td>₱ 1,350.00</td>
-                              <td></td><td></td>
-                            </tr>
                           </tbody>
                         </table>
-                        <div class="float-right px-3 py-3">
+                        <div class="detail-title pt-3">Total:</div> <span class="detail-subtitle">₱ 1,350.00</span>
+                        <!-- <div class="float-right px-3 py-3">
                           <button type="submit" class="btn btn-secondary btn-md">Submit Report</button>
-                        </div>
+                        </div> -->
                       </div>
                     </div>
                   </div>
