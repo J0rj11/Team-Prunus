@@ -26,6 +26,7 @@
                                                         <th>Supplier Name</th>
                                                         <th>Contact</th>
                                                         <th>Address</th>
+                                                        <th>Action</th>
                                                     </tr>
                                                     </thead>
                                                     <tbody>
@@ -67,6 +68,10 @@
                     {
                         data: 'address',
                         name: 'address'
+                    },
+                    {
+                        data: 'actions',
+                        name: 'actions'
                     }
                 ],
                 columnDefs: [{

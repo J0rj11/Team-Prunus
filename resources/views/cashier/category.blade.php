@@ -26,6 +26,7 @@
                                                         <th>Code</th>
                                                         <th>Category Name</th>
                                                         <th>Description</th>
+                                                        <th>Action</th>
                                                     </tr>
                                                     </thead>
                                                     <tbody>
@@ -65,6 +66,10 @@
                     {
                         data: 'description',
                         name: 'description'
+                    },
+                    {
+                        data: 'actions',
+                        name: 'actions'
                     }
                 ],
                 columnDefs: [{
