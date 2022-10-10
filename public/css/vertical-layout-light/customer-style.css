@@ -8807,14 +8807,14 @@ sup {
 }
 
 a {
-  color: #007bff;
+  color: #fff;
   text-decoration: none;
   background-color: transparent;
 }
 
 a:hover {
-  color: #0056b3;
-  text-decoration: underline;
+  color: #fff;
+  text-decoration: none;
 }
 
 a:not([href]):not([class]) {
@@ -9031,7 +9031,6 @@ h3, .h3 {
 h4, .h4 {
   font-size: 1.5rem;
   font-weight: bolder;
-  padding-left: 10px;
 }
 
 h5, .h5 {
@@ -9239,7 +9238,6 @@ pre code {
   flex-wrap: wrap;
   margin-right: -15px;
   margin-left: -15px;
-  padding-right: 15px;
 }
 .row-2 {
   display: flex;
@@ -9267,8 +9265,8 @@ pre code {
 .col-xl-auto {
   position: relative;
   width: 100%;
-  padding-right: 10px;
-  padding-left: 10px;
+  padding-right: 5px;
+  padding-left: 5px;
 }
 
 .col {
@@ -13344,7 +13342,6 @@ input[type="button"].btn-block {
 
 .nav-link {
   display: block;
-  padding: 0.5rem 1rem;
 }
 .nav-link-color{
   
@@ -13850,7 +13847,6 @@ input[type="button"].btn-block {
 .card-body {
   flex: 1 1 auto;
   min-height: 1px;
-  padding: 1.25rem;
 
 }
 
@@ -18995,11 +18991,14 @@ button.bg-dark:focus,
 }
 
 .text-primary, .list-wrapper .completed .remove {
-  color: #fff !important;
+  color: #684b26 !important;
 }
 
 a.text-primary:hover, .list-wrapper .completed a.remove:hover, a.text-primary:focus, .list-wrapper .completed a.remove:focus {
-  color: #343276 !important;
+  color: #684b26 !important;
+  font-weight: bolder;
+  font-size: 1.02rem;
+  text-decoration: underline;
 }
 
 .text-secondary, .list-wrapper .remove {
@@ -20296,11 +20295,11 @@ code {
 
 .card-people {
   position: relative;
-  padding-top: 20px;
 }
 
 .card-people img {
   width: 100%;
+  border-radius: 20px;
 }
 
 .card-people .weather-info {
@@ -22104,7 +22103,7 @@ code {
 }
 
 .card .card-body {
-  padding: 1.25rem 1.25rem;
+  margin: 1.25rem 1.25rem;
 }
 
 .card .card-body + .card-body {
@@ -22112,17 +22111,20 @@ code {
 }
 
 .card .card-title {
-  color: #010101;
+  color: #684b26;
   margin-bottom: 1.2rem;
-  text-transform: capitalize;
-  font-size: 1.125rem;
+  font-size: 1.3rem;
   font-weight: 600;
+  text-align: center;
 }
 
 .card .card-subtitle {
+  color: #684b26;
   font-weight: 400;
   margin-top: 0.625rem;
-  margin-bottom: 0.625rem;
+  margin-bottom: 0.8rem;
+  font-size: 1rem;
+  text-align: center;
 }
 
 .card .card-description {
@@ -22189,8 +22191,8 @@ code {
 }
 
 .card.card-tale {
-  background: #a88976;
-  color: #ffffff;
+  background: #b78c72;
+  color: #523b1e;
   border: 1px solid #fff;
 }
 
@@ -28441,7 +28443,7 @@ div.tagsinput span.tag a {
   background: #ffffff;
   border: 5px solid #9f6d50;
   border-radius: 25px;
-  margin-top: 80px;
+  margin: 10px;
 }
 
 .auth .auth-form-light select {
@@ -28542,7 +28544,7 @@ div.tagsinput span.tag a {
 }
 
 .page-body-wrapper {
-  min-height: calc(100vh - 60px);
+  min-height: 100%;
   display: -webkit-flex;
   display: flex;
   -webkit-flex-direction: row;
@@ -28560,13 +28562,15 @@ div.tagsinput span.tag a {
 
 .main-panel {
   transition: width 0.25s ease, margin 0.25s ease;
-  width: calc(100% - 235px);
-  min-height: calc(100vh - 60px);
+  /*width: calc(100% - 235px);
+  min-height: calc(100vh - 60px);*/
+  width: 100%;
+  min-height: 100vh;
   display: -webkit-flex;
   display: flex;
   -webkit-flex-direction: column;
   flex-direction: column;
-  margin-left: 235px;
+  /*margin-left: 235px;*/
 }
 
 @media (max-width: 991px) {
@@ -28577,8 +28581,8 @@ div.tagsinput span.tag a {
 }
 
 .content-wrapper {
-  background: #fbf3e4;
-  padding:  10px 10px 10px 55px ;
+  background: #fff;
+  padding: 50px;
   width: 100%;
   height: 100%;
   -webkit-flex-grow: 1;
@@ -30881,7 +30885,7 @@ margin: auto;
 padding: 1px !important; 
 }
 
-.color{
+.color {
   color: #684b26;
 }
 
@@ -31012,4 +31016,61 @@ padding: 1px !important;
   width: 400px;
   height: 388px;
   float: right;
+}
+
+.logout{
+    color: #fff;
+    text-decoration: none;
+    background-color: transparent;
+    border-radius: 5px;
+}
+
+.logout:hover{
+    color: #fff;
+    text-decoration: none;
+    background-color: #876855;
+    border-radius: 5px;
+}
+
+.logout:active{
+    color: #fff;
+    text-decoration: none;
+    background-color: #60412d;
+    border-radius: 5px;
+}
+
+
+.register{
+  text-align: center;
+  font-weight: light;
+  color: #684b26;
+  display: inline;
+  border-top: dashed;
+  }
+
+.hr-dashed{
+  border-top: dashed;
+  box-sizing: content-box;
+  height: 2;
+  overflow: visible;
+  width: 60%;
+  margin: auto;
+  padding: 5px 0;
+}
+.detail-subtitle {
+  display: inline-block;
+  color: #684b26;
+  margin-bottom: 1rem;
+  text-transform: capitalize;
+  font-size: 1.125rem;
+  font-weight: light;
+}
+
+.detail-title {
+  display: inline-block;
+  color: #684b26;
+  margin-bottom: 1.2rem;
+  text-transform: capitalize;
+  font-size: 1.125rem;
+  font-weight: bolder;
 }
