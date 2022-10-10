@@ -49,7 +49,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link nav-color" href="">
+          <a class="nav-link nav-color" href="{{ route('report.index') }}">
             <i class="icon-paper menu-icon"></i>
             <span class="menu-title">REPORTS</span>
           </a>

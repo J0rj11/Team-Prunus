@@ -33,6 +33,7 @@ Route::group(['prefix' => 'cashier', 'middleware' => 'auth'], function () {
     Route::resource('/expense', \App\Http\Controllers\ExpenseController::class);
 
     Route::get('/customer-transaction', [CustomerTransactionController::class, 'index'])->name('customer-transaction.index');
+    Route::view('/reports', 'report.index');
 });
 
 

@@ -55,7 +55,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link nav-color" href="">
+          <a class="nav-link nav-color" href="/reports">
             <i class="menu-icon"><iconify-icon icon="iconoir:stats-report"></iconify-icon></i>
             <span class="menu-title">REPORTS</span>
           </a>
