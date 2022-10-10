@@ -22,8 +22,19 @@
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group row">
-                                                        <label class="col-sm-3 col-form-label">Transaction ID</label>
-                                                        <div class="col-sm-9">
+                                                        <label class="col-sm-4 col-form-label">Date</label>
+                                                        <div class="col-sm-8">
+                                                            <input name="" type="date"
+                                                                class="form-control">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="form-group row">
+                                                        <label class="col-sm-2 col-form-label">Transaction ID</label>
+                                                        <div class="col-sm-10">
                                                             <input name="transaction_identifier" type="text"
                                                                 class="form-control">
                                                         </div>
@@ -34,8 +45,8 @@
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group row">
-                                                        <label class="col-sm-3 col-form-label">Transaction Name</label>
-                                                        <div class="col-sm-9">
+                                                        <label class="col-sm-4 col-form-label">Customer Name</label>
+                                                        <div class="col-sm-8">
                                                             <input name="transaction_name" type="text"
                                                                 class="form-control">
                                                         </div>
@@ -43,10 +54,9 @@
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-group row">
-                                                        <label class="col-sm-3 col-form-label">Date</label>
-                                                        <div class="col-sm-9">
-                                                            <input name="date" class="form-control" type="date"
-                                                                placeholder="dd/mm/yyyy">
+                                                        <label class="col-sm-4 col-form-label">Address</label>
+                                                        <div class="col-sm-8">
+                                                            <input name="address" type="text" class="form-control">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -55,17 +65,36 @@
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group row">
-                                                        <label class="col-sm-3 col-form-label">Address</label>
-                                                        <div class="col-sm-9">
-                                                            <input name="address" type="text" class="form-control">
+                                                        <label class="col-sm-4 col-form-label">Contact No.</label>
+                                                        <div class="col-sm-8">
+                                                            <input name="number" type="text" class="form-control">
                                                         </div>
                                                     </div>
                                                 </div>
+                                                
                                                 <div class="col-md-6">
                                                     <div class="form-group row">
-                                                        <label class="col-sm-3 col-form-label">Payment Method</label>
-                                                        <div class="col-sm-9">
-                                                            <select class="form-control" name="payment_method">
+                                                        <label class="col-sm-4 col-form-label">Delivery Status</label>
+                                                        <div class="col-sm-8">
+                                                            <select class="form-control form-control-sm" name="delivery_status">
+                                                                <option
+                                                                    value="{{ \App\Models\Transaction::$TRANSACTION_DELIVERY_DELIVER }}">
+                                                                    Deliver</option>
+                                                                <option
+                                                                    value="{{ \App\Models\Transaction::$TRANSACTION_DELIVERY_PICKUP }}">
+                                                                    Pickup</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group row">
+                                                        <label class="col-sm-4 col-form-label">Payment Method</label>
+                                                        <div class="col-sm-8">
+                                                            <select class="form-control form-control-sm" name="payment_method">
                                                                 <option
                                                                     value="{{ \App\Models\Transaction::$TRANSACTION_PAYMENT_CASH }}">
                                                                     Cash</option>
@@ -77,29 +106,12 @@
                                                     </div>
                                                 </div>
                                             </div>
-
                                             <div class="row mb-5">
                                                 <div class="col-md-6">
                                                     <div class="form-group row">
-                                                        <label class="col-sm-3 col-form-label">Contact No.</label>
-                                                        <div class="col-sm-9">
-                                                            <input name="contact_number" type="text"
-                                                                class="form-control">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <div class="form-group row">
-                                                        <label class="col-sm-3 col-form-label">Delivery Status</label>
-                                                        <div class="col-sm-9">
-                                                            <select class="form-control" name="delivery_status">
-                                                                <option
-                                                                    value="{{ \App\Models\Transaction::$TRANSACTION_DELIVERY_DELIVER }}">
-                                                                    Deliver</option>
-                                                                <option
-                                                                    value="{{ \App\Models\Transaction::$TRANSACTION_DELIVERY_PICKUP }}">
-                                                                    Pickup</option>
-                                                            </select>
+                                                        <label class="col-sm-4 col-form-label">Due Date</label>
+                                                        <div class="col-sm-8">
+                                                            <input name="date" type="date" class="form-control">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -117,7 +129,7 @@
                             </div>
                             <div class="csstab">
                                 <input type="radio" name="css-tabs" id="tab-2" class="csstab-switch">
-                                <label for="tab-2" class="csstab-label">List Transaction</label>
+                                <label for="tab-2" class="csstab-label">Transaction List</label>
                                 <div class="csstab-content">
                                     <div class="card-body white-bg">
                                         {{-- <form class="form-group row px-1 pl-5">
