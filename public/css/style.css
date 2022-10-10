@@ -154,3 +154,22 @@ h1, h2, h3, h4, h5, h6,
   width: 400px;
   margin: auto;
 }
+
+.register{
+  text-align: center;
+  font-weight: light;
+  color: #684b26;
+  display: inline;
+  border-top: dashed;
+  margin: auto;
+  }
+
+.hr-dashed{
+  border-top: dashed;
+  box-sizing: content-box;
+  height: 2;
+  overflow: visible;
+  width: 80%;
+  margin: auto;
+  padding: 5px 0;
+}
