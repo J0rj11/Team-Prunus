@@ -1,11 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="sidebar-fixed main-panel">
+    <div class="sidebar-fixed main-panel overflow-auto">
         <div class="contentWrapper">
             <div class="row py-2">
                 <h4>PRODUCT FORM</h4>
-                <p class="pl-2">Add Product</p>
+                <p class="pl-2">Product List</p>
             </div>
             <div class="col-12 grid-margin ">
                 <div class="row">
@@ -13,68 +13,7 @@
                         <div class="csstabs">
                             <div class="csstab">
                                 <input type="radio" name="css-tabs" id="tab-1" checked class="csstab-switch">
-                                <label for="tab-1" class="csstab-label">Add/Edit Product</label>
-                                <div class="csstab-content">
-
-                                    <div class="card-body white-bg">
-                                        <form class="py-4 pl-5" action="{{ route('product.store') }}" method="POST">
-                                            @csrf
-                                            <div class="form-group row">
-                                                <label class="col-sm-2 col-form-label">Product Code</label>
-                                                <div class="col-sm-9">
-                                                    <input type="text" class="form-control" name="product_code">
-                                                </div>
-                                            </div>
-                                            <div class="form-group row">
-                                                <label class="col-sm-2 col-form-label">Product Name</label>
-                                                <div class="col-sm-9">
-                                                    <input type="text" class="form-control" name="product_name">
-                                                </div>
-                                            </div>
-
-                                            <div class="form-group row">
-                                                <label class="col-sm-2 col-form-label">Price</label>
-                                                <div class="col-sm-9">
-                                                    <input type="number" class="form-control" name="price">
-                                                </div>
-                                            </div>
-                                            <div class="form-group row">
-                                                <label class="col-sm-2 col-form-label">Category</label>
-                                                <div class="col-sm-9">
-                                                    <select class="form-control" name="category_id">
-                                                        @foreach($categories as $category)
-                                                            <option
-                                                                value="{{ $category->id }}">{{ $category->category_name }}</option>
-                                                        @endforeach
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="form-group row">
-                                                <label class="col-sm-2 col-form-label">Quantity</label>
-                                                <div class="col-sm-9">
-                                                    <input type="number" class="form-control" name="quantity">
-                                                </div>
-                                            </div>
-                                            <div class="form-group row">
-                                                <label class="col-sm-2 col-form-label">Description</label>
-                                                <div class="col-sm-9">
-                                                    <input type="text" class="form-control" name="description">
-                                                </div>
-                                            </div>
-                                            <center class="mt-5 mb-5">
-                                                <button type="button" class="btn btn-outline-primary btn-md mr-5">
-                                                    Cancel
-                                                </button>
-                                                <button type="submit" class="btn btn-primary btn-md">Save</button>
-                                            </center>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="csstab">
-                                <input type="radio" name="css-tabs" id="tab-2" class="csstab-switch">
-                                <label for="tab-2" class="csstab-label">List Product</label>
+                                <label for="tab-2" class="csstab-label">Product List</label>
                                 <div class="csstab-content">
                                     <div class="card-body white-bg">
                                         <div class="card-body bg-transparent">

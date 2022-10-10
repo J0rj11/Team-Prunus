@@ -2,14 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreCategoryRequest;
-use App\Http\Requests\StoreProductRequest;
+use App\Http\Requests\Product\StoreProductRequest;
 use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
 use Yajra\DataTables\DataTables;
 
@@ -23,11 +21,6 @@ class ProductController extends Controller
                 ->addColumn('actions', function (Product $product) {
                     return '<div>
                         <a href="' . route('product.show', $product) . '" class="btn btn-secondary btn-sm">View</a>
-                        <button type="button" onclick="document.getElementById(' . "'deleteForm'" . ').submit()" class="btn btn-dark btn-sm">Delete</button>
-                        <form action="' . route('product.destroy', $product) . '" method="POST" id="deleteForm">
-                                <input type="hidden" name="_token" value="' . csrf_token() . '">
-                                ' . method_field('DELETE') . '
-                        </form>
                     </div>';
                 })
                 ->rawColumns(['actions'])

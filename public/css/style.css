@@ -33,7 +33,7 @@ li a:hover {
 .landing-header {
   position: relative;
   overflow: hidden;
-  padding: 10px 0px 0px 30px;
+  padding: 10px 0px 0px 50px;
 }
 .login-header {
   padding: 10px 0 0 0; 
@@ -79,7 +79,7 @@ li a:hover {
  section  {
   position: relative;
   width: 50%;
-  padding:50px 0 0 50px;
+  padding: 30px 0 0 50px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -89,22 +89,24 @@ p{
   text-align: justify;
   font-size: large;
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 0 10px;
 }
 h1{
-  font-size: 2em;
+  font-size: 2.5em;
+  text-align: center;
 }
   .textBox{
     position: relative;
     max-width: 500px;
     }
 
-        .half-circle{
-          position: absolute;
-            top: 0;
-            width: 100%;
-            height: 100vh;
-            background: #b78c72;
-          clip-path: circle(600px at right 430px);
+  .half-circle{
+    position: absolute;
+      top: 0;
+      width: 100%;
+      height: 100vh;
+      background: #b78c72;
+    clip-path: circle(600px at right 430px);
 }
 
 .button {
@@ -151,4 +153,23 @@ h1, h2, h3, h4, h5, h6,
   height: 430px;  
   width: 400px;
   margin: auto;
+}
+
+.register{
+  text-align: center;
+  font-weight: light;
+  color: #684b26;
+  display: inline;
+  border-top: dashed;
+  margin: auto;
+  }
+
+.hr-dashed{
+  border-top: dashed;
+  box-sizing: content-box;
+  height: 2;
+  overflow: visible;
+  width: 80%;
+  margin: auto;
+  padding: 5px 0;
 }

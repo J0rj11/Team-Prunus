@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreCategoryRequest;
+use App\Http\Requests\Category\StoreCategoryRequest;
 use App\Models\Category;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
@@ -19,11 +19,6 @@ class CategoryController extends Controller
                 ->addColumn('actions', function (Category $category) {
                     return '<div>
                         <a href="' . route('category.show', $category) . '" class="btn btn-secondary btn-sm">View</a>
-                        <button type="button" onclick="document.getElementById(' . "'deleteForm'" . ').submit()" class="btn btn-dark btn-sm">Delete</button>
-                        <form action="' . route('category.destroy', $category) . '" method="POST" id="deleteForm">
-                                <input type="hidden" name="_token" value="' . csrf_token() . '">
-                                ' . method_field('DELETE') . '
-                        </form>
                     </div>';
                 })
                 ->rawColumns(['actions'])

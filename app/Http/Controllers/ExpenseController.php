@@ -12,8 +12,9 @@ class ExpenseController extends Controller
 {
     public function index(Request $request): View | JsonResponse {
         if ($request->ajax()) {
-            return DataTables::of(Expense::query())
-               ->make();
+            $expenseQuery = Expense::query()
+                ->when($request->has('created_at'), fn ($query) => $query->whereDate('created_at', $request->date('created_at')));
+            return DataTables::of($expenseQuery)->make();
         }
         return view('cashier.delivery');
     }

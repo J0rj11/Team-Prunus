@@ -14,34 +14,26 @@
 
 </head>
 <body>
-<div class="half-circle">
-</div>
-<header>
-<div class="landing-header">
-  <a href="#default" class="landing-logo">
-    <img src="images/zlogo.png" alt="Zuniga Gravel and Sand Trading">
-  </a>
-</div>
-</header>
-<div class="col-12">
-    <img src="images/zuniga.png" class="landing-img" id="right" alt="Product Image">
-</div>
+  <div class="half-circle"></div>
+  <header>
+    <div class="landing-header">
+      <a href="#default" class="landing-logo">
+        <img src="images/zlogo.png" alt="Zuniga Gravel and Sand Trading">
+      </a>
+    </div>
+  </header>
+  <div class="col-12">
+      <img src="images/zuniga.png" class="landing-img" id="right" alt="Product Image">
+  </div>
 
-
-      <section>
-          <div class="text-box">
-              <h1 class="h1" style="font-weight: bolder">Let's get your future planned!<br>Trust Zuniga's Gravel and Sand!</h1><br>
-                    
-                      <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-                        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                        commodo consequat."
-</p><br>
-                        <center><a href="{{url('login')}}" class="button">Get Started</a>         
-          </div>
-      </section>
-</div>
-<!-- /.center -->
+  <section>
+    <div>
+      <h1 class="h1" style="font-weight: bolder">Built it strong and tough!<br>Trust Zuniga's Gravel and Sand!</h1><br>          
+        <p>Zuñiga’s Gravel and Sand Trading is one of a starting business located in Barangay Tandaay, Nabua, Camarines Sur. The business started on January 17, 2020, in the middle of pandemic.</p><br>
+        <center><a href="{{url('login')}}" class="button">Get Started</a></center>         
+      </div>
+  </section>
+  </div>
 
 
 </body>

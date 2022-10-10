@@ -1,57 +1,169 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @section('content')
-    <div class="main-panel">
-        <div class="content-wrapper">
-            <h4 style="padding-bottom: 10px;">DASHBOARD</h4>
-            <div class="row">
-                <div class="col-12 grid-margin ">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="d-flex justify-content-between">
-                                <p class="card-title">Sales Report</p>
-                                <a href="#" class="text-info">View all</a>
-                            </div>
-                            <canvas id="sales-chart" style=" width: 100%; height: 250px; padding: 0 50px 0 50px;"
-                                class="chartjs-render-monitor"></canvas>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 grid-margin ">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="d-flex justify-content-between">
-                                <div class="col-md-6 mb-4 stretch-card transparent">
-                                    <div class="card card-tale" style="border-radius: 5px;">
-                                        <div class="card-body">
-                                            <h4>RESERVATIONS</h4>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-6 mb-4 stretch-card transparent">
-                                    <div class="card card-tale" style="border-radius: 5px;">
-                                        <div class="card-body">
-                                            <h4>DELIVERIES</h4>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-6 mb-4 stretch-card transparent">
-                                    <div class="card card-tale" style="border-radius: 5px;">
-                                        <div class="card-body">
-                                            <h4>ITEMS AVAILABLE</h4>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+<div class="sidebar-fixed main-panel">
+  <div class="contentWrapper">
+    <div class="row py-2">
+      <h4>SUPPLIER FORM</h4>
+        <p class="pl-2">Add Supplier</p> 
     </div>
+    <div class="col-12 grid-margin ">
+      <div class="row">
+        <div class="csswrapper">
+          <div class="csstabs">
+            <div class="csstab">
+              <input type="radio" name="css-tabs" id="tab-1" checked class="csstab-switch">
+              <label for="tab-1" class="csstab-label">Add Supplier</label>
+              <div class="csstab-content">
+   
+                  <div class="card-body white-bg">
+                    <form class="ml-3 py-4">
+                      <div class="form-inline">
+                        <div class="row-2">
+                          <label class="mr-4">Supplier Code </label>
+                          <input type="text" class="form-control mb-2 ">
+
+                          <label class="ml-6 mr-4">Contact</label>
+                          <input type="text" class="form-control mb-2 ">
+                        </div>   
+                      </div>
+                      <div class="form-inline">
+                        <div class="row-2">
+                          <label class="mr-3">Supplier Name</label>
+                          <input type="text" class="form-control mb-2 mr-sm-2">
+                        </div>
+                      </div>
+                      <div class="form-inline">
+                        <label class="mr-6 pl-3">Address</label>
+                        <input type="text" class="form-control mb-2 mr-sm-2 col-md-10">
+                      </div>
+                      <center class="mt-5 mb-2">
+                        <button type="button" class="btn btn-outline-primary btn-md mr-5">Cancel</button>
+                        <button type="submit" class="btn btn-primary btn-md">Save</button>
+                      </center>
+                    </form>
+                  </div>
+              </div>
+            </div>
+            <div class="csstab">
+              <input type="radio" name="css-tabs" id="tab-2" class="csstab-switch">
+              <label for="tab-2" class="csstab-label">List Supplier</label>
+              <div class="csstab-content">
+                  <div class="card-body white-bg">
+                    <form class="form-group row px-1 pl-5">
+                      <div class="col">
+                        <label class="mb-2">Search by</label>
+                        <select class="form-control">
+                          <option></option>
+                          <option></option>
+                          <option></option>
+                          <option></option>
+                        </select>
+                      </div>
+                      <div class="col">
+                        <label class="mb-2">Value</label>
+                        <input class="typeahead" type="text" placeholder="">
+                      </div>
+                      <div class="col pt-4-5">
+                        <button type="submit" class="btn btn-primary mb-2">Search</button>
+                      </div>
+                    </form>
+                    <div class="card-body bg-transparent">
+                      <div class="table-responsive">
+                        <table class="table table-hover table-striped">
+                          <thead class="color">
+                            <tr>
+                              <th>Code</th>
+                              <th>Supplier Name</th>
+                              <th>Contact</th>
+                              <th>Address</th>
+                              <th>Action</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>S01</td>
+                              <td> HDPE Pipe</td>
+                              <td>(02) 8251 1029</td>
+                              <td>35th Floor, San Juan, 1100 Metro Manila</td>
+                              <td>
+                                <label class="btn btn-secondary btn-sm">View</label>
+                                <label class="btn btn-dark btn-sm">Delete</label>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>S02</td>
+                              <td> HDPE Pipe</td>
+                              <td>(02) 8251 1029</td>
+                              <td>35th Floor, San Juan, 1100 Metro Manila</td>
+                              <td>
+                                <label class="btn btn-secondary btn-sm">View</label>
+                                <label class="btn btn-dark btn-sm">Delete</label>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>S03</td>
+                              <td> HDPE Pipe</td>
+                              <td>(02) 8251 1029</td>
+                              <td>35th Floor, San Juan, 1100 Metro Manila</td>
+                              <td>
+                                <label class="btn btn-secondary btn-sm">View</label>
+                                <label class="btn btn-dark btn-sm">Delete</label>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>S04</td>
+                              <td> HDPE Pipe</td>
+                              <td>(02) 8251 1029</td>
+                              <td>35th Floor, San Juan, 1100 Metro Manila</td>
+                              <td>
+                                <label class="btn btn-secondary btn-sm">View</label>
+                                <label class="btn btn-dark btn-sm">Delete</label>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>S05</td>
+                              <td> HDPE Pipe</td>
+                              <td>(02) 8251 1029</td>
+                              <td>35th Floor, San Juan, 1100 Metro Manila</td>
+                              <td>
+                                <label class="btn btn-secondary btn-sm">View</label>
+                                <label class="btn btn-dark btn-sm">Delete</label>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>S06</td>
+                              <td> HDPE Pipe</td>
+                              <td>(02) 8251 1029</td>
+                              <td>35th Floor, San Juan, 1100 Metro Manila</td>
+                              <td>
+                                <label class="btn btn-secondary btn-sm">View</label>
+                                <label class="btn btn-dark btn-sm">Delete</label>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>S07</td>
+                              <td> HDPE Pipe</td>
+                              <td>(02) 8251 1029</td>
+                              <td>35th Floor, San Juan, 1100 Metro Manila</td>
+                              <td>
+                                <label class="btn btn-secondary btn-sm">View</label>
+                                <label class="btn btn-dark btn-sm">Delete</label>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>    
+            </div>
+          </div>
+        </div>    
+      </div>
+    </div>
+  </div>
+
 @endsection
+
