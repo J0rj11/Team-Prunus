@@ -30,6 +30,7 @@ class StoreTransactionRequest extends FormRequest
             'date' => 'required|date',
             'contact_number' => 'required',
             'payment_method' => 'required|in:0,1',
+            'due_date' => 'nullable|sometimes|date',
             'delivery_status' => 'required|in:0,1'
         ];
     }

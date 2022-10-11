@@ -28,6 +28,7 @@ class Transaction extends Model
 
 
     protected $dates = [
-        'date'
+        'date',
+        'due_date'
     ];
 }

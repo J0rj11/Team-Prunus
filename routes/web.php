@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\Admin\AdminCategoryController;
 use App\Http\Controllers\CustomerTransactionController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -22,8 +21,8 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/admin', [App\Http\Controllers\AdminController::class, 'index'])->name('admin');;
-Route::get('/cashier', [App\Http\Controllers\CashierController::class, 'index'])->name('cashier');;
+// Route::get('/admin', [App\Http\Controllers\AdminController::class, 'index'])->name('admin');
+// Route::get('/cashier', [App\Http\Controllers\CashierController::class, 'index'])->name('cashier');;
 
 
 Route::group(['middleware' => 'auth'], function () {
@@ -34,7 +33,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::resource('/product', \App\Http\Controllers\ProductController::class);
         Route::resource('/expense', \App\Http\Controllers\ExpenseController::class);
 
-        Route::get('/transaction/{transaction}', [CustomerTransactionController::class, 'setup'])->name('transaction.setup');
+        Route::get('/transaction/{transaction}/setup', [\App\Http\Controllers\CustomerTransactionController::class, 'setup'])->name('transaction.setup');
         Route::resource('/transaction', \App\Http\Controllers\CustomerTransactionController::class);
 
         Route::get('/customer-transaction', [CustomerTransactionController::class, 'index'])->name('customer-transaction.index');

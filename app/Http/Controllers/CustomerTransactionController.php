@@ -12,7 +12,8 @@ use App\Http\Requests\StoreTransactionRequest;
 
 class CustomerTransactionController extends Controller
 {
-    public function index(Request $request) : View | JsonResponse {
+    public function index(Request $request): View | JsonResponse
+    {
         if ($request->ajax()) {
             return DataTables::of(Transaction::query())
                 ->addColumn('payment_method', fn (Transaction $transaction) => $transaction->payment_method == 0 ? 'Credit' : 'Cash')
@@ -33,20 +34,29 @@ class CustomerTransactionController extends Controller
     }
 
 
-    public function store(StoreTransactionRequest $request) : RedirectResponse {
+    public function store(StoreTransactionRequest $request): RedirectResponse
+    {
         Transaction::create($request->validated());
 
-        return redirect()->back();
+        return redirect()->route('transaction.setup');
     }
 
 
-    public function show(Transaction $transaction) : View {
+    public function setup(Transaction $transaction): View
+    {
+        return view('cashier.transaction.setup', compact('transaction'));
+    }
+
+
+    public function show(Transaction $transaction): View
+    {
         return view('cashier.transaction.show', compact('transaction'));
     }
 
 
 
-    public function destroy(Transaction $transaction) : RedirectResponse {
+    public function destroy(Transaction $transaction): RedirectResponse
+    {
         $transaction->delete();
 
         return redirect()->back();

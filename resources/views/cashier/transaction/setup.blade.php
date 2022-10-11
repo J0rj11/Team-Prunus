@@ -26,7 +26,9 @@
                                                                 <label class="col-sm-3 col-form-label">Customer Name</label>
                                                                 <div class="col-sm-9">
                                                                     <input x-model="form.transaction_code" type="text"
-                                                                        class="form-control">
+                                                                        class="form-control"
+                                                                        value="{{ $transaction->transaction_name }}"
+                                                                        readonly>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -134,6 +136,7 @@
                                                         class="btn btn-outline-primary btn-md">Cancel</button>
                                                     <button type="submit" class="btn btn-primary btn-md">Submit</button>
                                                 </div>
+
                                             </div>
                                         </div>
                                     </div>
