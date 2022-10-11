@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>Zuniga Gravel and Sand Trading</title>
-    <link rel="icon" href="{{ asset('images/favicon.png') }}" type = "image/x-icon" />
+    <link rel="icon" href="{{ asset('images/favicon.png') }}" type="image/x-icon" />
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
@@ -25,7 +25,7 @@
     <!-- inject:css -->
     <link rel="stylesheet" href="{{ asset('css/vertical-layout-light/style.css') }}">
     <!-- endinject -->
-
+    @livewireStyles
 </head>
 
 <body>
@@ -46,6 +46,7 @@
         </div>
     </div>
 
+    @livewireScripts
     <script src="{{ asset('vendors/js/vendor.bundle.base.js') }}"></script>
     <script src="https://code.iconify.design/iconify-icon/1.0.0-beta.3/iconify-icon.min.js"></script>
 

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Requests\Product\StoreProductRequest;
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\Transaction;
+use App\Models\TransactionItem;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -33,7 +35,8 @@ class ProductController extends Controller
 
 
 
-    public function store(StoreProductRequest $request) : RedirectResponse {
+    public function store(StoreProductRequest $request): RedirectResponse
+    {
         Product::create($request->validated());
 
         return redirect()->back();
@@ -41,7 +44,8 @@ class ProductController extends Controller
 
 
 
-    public function destroy(Product $product) : RedirectResponse {
+    public function destroy(Product $product): RedirectResponse
+    {
         $product->delete();
 
         return redirect()->back();

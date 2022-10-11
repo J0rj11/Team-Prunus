@@ -1,6 +1,10 @@
 <?php
 
+use App\Http\Controllers\BalanceController;
 use App\Http\Controllers\CustomerTransactionController;
+use App\Http\Controllers\DeliveryController;
+use App\Http\Controllers\ReportsController;
+use App\Http\Livewire\SetupCustomerTransaction;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -36,7 +40,13 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/transaction/{transaction}/setup', [\App\Http\Controllers\CustomerTransactionController::class, 'setup'])->name('transaction.setup');
         Route::resource('/transaction', \App\Http\Controllers\CustomerTransactionController::class);
 
-        Route::get('/customer-transaction', [CustomerTransactionController::class, 'index'])->name('customer-transaction.index');
+        Route::resource('/balance', BalanceController::class);
+        Route::resource('/delivery', DeliveryController::class)
+            ->except('store', 'edit', 'create');
+
+        Route::get('/reports', [ReportsController::class, 'index'])->name('reports.index');
+        Route::get('/reports/product-sold', [ReportsController::class, 'productSoldReport'])->name('reports.product-sold');
+        Route::get('/reports/delivery-completed', [ReportsController::class, 'deliveryCompletedReport'])->name('reports.delivery-completed');
     });
 
     Route::view('/reports', 'report.index');

@@ -186,12 +186,12 @@
                         name: 'transaction_name'
                     },
                     {
-                        data: 'total_item',
-                        name: 'total_item'
+                        data: 'transaction_items_count',
+                        name: 'transaction_items_count'
                     },
                     {
-                        data: 'total_price',
-                        name: 'total_price'
+                        data: 'transaction_items_sum_price',
+                        name: 'transaction_items_sum_price'
                     },
                     {
                         data: 'payment_method',

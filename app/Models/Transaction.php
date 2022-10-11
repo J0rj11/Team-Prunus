@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Transaction extends Model
 {
@@ -31,4 +32,10 @@ class Transaction extends Model
         'date',
         'due_date'
     ];
+
+
+
+    public function transactionItems() : HasMany {
+        return $this->hasMany(TransactionItem::class);
+    }
 }

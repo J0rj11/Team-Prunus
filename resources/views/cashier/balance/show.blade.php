@@ -17,10 +17,10 @@
                                 <div class="csstab-content">
                                     <div class="col-m-12 grid-margin stretch-card">
                                         <div class="card white-bg">
-                                            <div class="py-3 pl-4">OUT190081
+                                            <div class="py-3 pl-4">{{ $balance->transaction_identifier }}
                                                 <div class="float-right">
                                                     <a type="button" class="btn btn-outline-primary btn-sm mr-5"
-                                                        href="{{ route('transaction.index') }}">
+                                                        href="{{ route('balance.index') }}">
                                                         <i class="fa fa-arrow-left menu-icon"></i>
                                                         <span class="menu-title">Back</span>
                                                     </a>
@@ -42,14 +42,14 @@
                                                         </thead>
                                                         <tbody>
                                                             <tr>
-                                                                <td>{{ $transaction->transaction_identifier }}</td>
-                                                                <td>{{ $transaction->transaction_name }}</td>
-                                                                <td>{{ $transaction->transaction_items_count }}</td>
-                                                                <td>₱ {{ $transaction->transaction_items_sum_price }}</td>
-                                                                <td>{{ $transaction->payment_method == 0 ? 'CREDIT' : 'CASH' }}
+                                                                <td>{{ $balance->transaction_identifier }}</td>
+                                                                <td>{{ $balance->transaction_name }}</td>
+                                                                <td>{{ $balance->transaction_items_count }}</td>
+                                                                <td>₱ {{ $balance->transaction_items_sum_price }}</td>
+                                                                <td>{{ $balance->payment_method == 0 ? 'CREDIT' : 'CASH' }}
                                                                 </td>
-                                                                <td>{{ $transaction->due_date }}</td>
-                                                                <td>{{ $transaction->date }}</td>
+                                                                <td>{{ $balance->due_date }}</td>
+                                                                <td>{{ $balance->date }}</td>
                                                             </tr>
                                                         </tbody>
                                                     </table>
@@ -70,13 +70,13 @@
                                                             </tr>
                                                         </thead>
                                                         <tbody>
-                                                            @foreach ($transaction->transactionItems as $transactionItem)
+                                                            @foreach ($balance->transactionItems as $transactionItem)
                                                                 <tr>
                                                                     <td>{{ $transactionItem->product->product_name }}</td>
                                                                     <td>{{ $transactionItem->product->category->category_name }}
                                                                     </td>
                                                                     <td>{{ $transactionItem->quantity }}</td>
-                                                                    <td>{{ $transactionItem->product->price }}</td>
+                                                                    <td>₱ {{ $transactionItem->product->price }}</td>
                                                                     <td>₱ {{ $transactionItem->price }}</td>
                                                                 </tr>
                                                             @endforeach

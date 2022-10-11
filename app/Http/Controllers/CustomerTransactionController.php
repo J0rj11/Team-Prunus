@@ -9,13 +9,14 @@ use Yajra\DataTables\DataTables;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use App\Http\Requests\StoreTransactionRequest;
+use App\Jobs\NewDeliveryScheduleJob;
 
 class CustomerTransactionController extends Controller
 {
     public function index(Request $request): View | JsonResponse
     {
         if ($request->ajax()) {
-            return DataTables::of(Transaction::query())
+            return DataTables::of(Transaction::query()->withCount('transactionItems')->withSum('transactionItems', 'price'))
                 ->addColumn('payment_method', fn (Transaction $transaction) => $transaction->payment_method == 0 ? 'Credit' : 'Cash')
                 ->addColumn('actions', function (Transaction $transaction) {
                     return '<div>
@@ -36,20 +37,26 @@ class CustomerTransactionController extends Controller
 
     public function store(StoreTransactionRequest $request): RedirectResponse
     {
-        Transaction::create($request->validated());
+        $transaction = Transaction::create($request->validated());
 
-        return redirect()->route('transaction.setup');
+        if ($transaction->delivery_status == Transaction::$TRANSACTION_DELIVERY_DELIVER) {
+            NewDeliveryScheduleJob::dispatch($transaction);
+        }
+        return redirect()->route('transaction.setup', $transaction);
     }
 
 
-    public function setup(Transaction $transaction): View
+    public function setup(Transaction $transaction)
     {
         return view('cashier.transaction.setup', compact('transaction'));
     }
 
-
     public function show(Transaction $transaction): View
     {
+        $transaction->load('transactionItems', 'transactionItems.product', 'transactionItems.product.category')
+            ->loadCount('transactionItems')
+            ->loadSum('transactionItems', 'price');
+
         return view('cashier.transaction.show', compact('transaction'));
     }
 
