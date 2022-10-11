@@ -48,6 +48,7 @@
                               <th>Product Name</th>
                               <th>Quantity</th>
                               <th>Total</th>
+                              <th>Action</th>
                             </tr>
                           </thead>
                           <tbody>
@@ -57,47 +58,13 @@
                               <td>PVC Pipe #2</td>
                               <td>55</td>
                               <td> ₱ 250.00 </td>
-                            </tr>
-                            <tr> 
-                              <td>05/22/2022 </td>
-                              <td>A1</td>
-                              <td>PVC Pipe #2</td>
-                              <td>55</td>
-                              <td> ₱ 250.00 </td>
-                            </tr>
-                            <tr> 
-                              <td>05/22/2022 </td>
-                              <td>A1</td>
-                              <td>PVC Pipe #2</td>
-                              <td>55</td>
-                              <td> ₱ 250.00 </td>
-                            </tr>
-                            <tr> 
-                              <td>05/22/2022 </td>
-                              <td>A1</td>
-                              <td>PVC Pipe #2</td>
-                              <td>55</td>
-                              <td> ₱ 250.00 </td>
-                            </tr>
-                            <tr> 
-                              <td>05/22/2022 </td>
-                              <td>A1</td>
-                              <td>PVC Pipe #2</td>
-                              <td>55</td>
-                              <td> ₱ 250.00 </td>
-                            </tr>
-                            <tr> 
-                              <td>05/22/2022 </td>
-                              <td>A1</td>
-                              <td>PVC Pipe #2</td>
-                              <td>55</td>
-                              <td> ₱ 250.00 </td>
-                            </tr>                            
+                              <td>
+                                <label class="btn btn-secondary btn-sm">Edit</label>
+                                <label class="btn btn-dark btn-sm">Delete</label>
+                              </td>
+                            </tr>                        
                           </tbody>
                         </table>
-                        <!-- <div class="float-right px-3 py-3">
-                          <button type="submit" class="btn btn-secondary btn-md">Submit Report</button>
-                        </div> -->
                       </div>
                     </form>
                   </div>
@@ -141,6 +108,7 @@
                               <th>Client's Name</th>
                               <th>Items</th>
                               <th>Amount</th>
+                              <th>Action</th>
                             </tr>
                           </thead>
                           <tbody>
@@ -151,48 +119,11 @@
                               <td>Juan Dela Cruz</td>
                               <td>50 Hollowblocks </td>
                               <td>₱ 250.00</td>
+                              <td>
+                                <label class="btn btn-secondary btn-sm">Edit</label>
+                                <label class="btn btn-dark btn-sm">Delete</label>
+                              </td>
                             </tr>
-                            <tr> 
-                              <td>05/22/2022</td>
-                              <td>11:25:05 AM</td>
-                              <td>#1R</td>
-                              <td>Juan Dela Cruz</td>
-                              <td>5 cubics sand</td>
-                              <td>₱ 250.00</td>
-                            </tr>
-                            <tr> 
-                              <td>05/22/2022</td>
-                              <td>11:45:16 AM</td>
-                              <td>#2G</td>
-                              <td>Juan Dela Cruz</td>
-                              <td>Plywood</td>
-                              <td>₱ 250.00</td>
-                            </tr>
-                            <tr> 
-                              <td>05/22/2022</td>
-                              <td>01:07:10 PM</td>
-                              <td>#2G</td>
-                              <td>Juan Dela Cruz</td>
-                              <td>5 cubics gravel</td>
-                              <td>₱ 250.00</td>
-                            </tr>
-                            <tr> 
-                              <td>05/22/2022</td>
-                              <td>02:35:00 PM</td>
-                              <td>#1R</td>
-                              <td>Juan Dela Cruz</td>
-                              <td>Plywood</td>
-                              <td>₱ 250.00</td>
-                            </tr>
-                            <tr> 
-                              <td>05/22/2022</td>
-                              <td>04:15:20 PM</td>
-                              <td>#2G</td>
-                              <td>Juan Dela Cruz</td>
-                              <td>PVC Pipe</td>
-                              <td>₱ 250.00</td>
-                            </tr>
-                            
                           </tbody>
                         </table>
                       </div>
@@ -204,102 +135,47 @@
 
             <div class="csstab">
               <input type="radio" name="css-tabs" id="tab-3" class="csstab-switch">
-              <label for="tab-3" class="csstab-label">Add Expenses</label>
+              <label for="tab-3" class="csstab-label">Expenses</label>
               <div class="csstab-content">
                 <div class="card-body white-bg">
-                  <form class="ml-5 py-4">
-                    <div class="form-group row">
-                      <label class="col-sm-2 col-form-label">Date</label>
-                      <div class="col-sm-4">
-                        <input type="text" class="form-control" >
-                      </div>
-                    </div>
-                    <div class="form-group row">
-                      <label class="col-sm-2 col-form-label">Expense Amount</label>
-                      <div class="col-sm-9">
-                        <input type="text" class="form-control" >
-                      </div>
-                    </div>
-                    <div class="form-group row">
-                      <label class="col-sm-2 col-form-label">Amount</label>
-                      <div class="col-sm-9">
-                        <input type="text" class="form-control" >
-                      </div>
-                    </div>
-                    <div class="form-group row">
-                      <label class="col-sm-2 col-form-label">Notes</label>
-                      <div class="col-sm-9">
-                        <textarea class="form-control" ></textarea>
-                      </div>
-                    </div>
-
-                    <div class="pt-4 center">
-                      <button  type="submit" class="btn btn-primary">Add Expenses</button>
-                    </div>
-                  </form>
-                </div>
-                </div>    
-              </div>
-
-
-            <div class="csstab">
-              <input type="radio" name="css-tabs" id="tab-4" class="csstab-switch">
-              <label for="tab-4" class="csstab-label">Expenses</label>
-              <div class="csstab-content">
-                <div class="card-body white-bg">
-                  <h3>EXPENSE REPORT</h3>
+                <h3>EXPENSE REPORT</h3>
                     <div class="row pt-2 px-5">
                         <div class="col-md-6">
                             <div class="form-group row">
-                                <label class="col-sm-4 col-form-label ">Date</label>
+                                <label class="col-sm-4 col-form-label ">Search</label>
                                 <div class="col-sm-8">
-                                    <input name="" value="" type="date" class="form-control form-control-sm">
+                                    <input name="" value="" type="text" class="form-control form-control-sm">
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="card-body bg-transparent">
-                      <div class="table-responsive">
-                        <table class="table table-hover table-striped">
-                          <thead class="color">
+                    <div class="table-responsive">
+                        <table class="table table-hover table-striped mb-2">
+                        <thead class="color">
                             <tr>
-                              <th>Date</th>
-                              <th>Expense Account</th>
-                              <th>Amount</th>
-                              <th>Notes</th>
+                            <th>Date</th>
+                            <th>Expense Account</th>
+                            <th>Amount</th>
+                            <th>Notes</th>
                             </tr>
-                          </thead>
-                          <tbody>
+                        </thead>
+                        <tbody>
                             <tr> 
-                              <td>05/22/2022</td>
-                              <td>Gas</td>
-                              <td>₱ 500.00</td>
-                              <td>Truck #2G</td>
+                            <td>05/22/2022</td>
+                            <td>Car Repair</td>
+                            <td>₱ 100.00</td>
+                            <td>Truck #1R</td>
                             </tr>
-                            <tr> 
-                              <td>05/22/2022</td>
-                              <td>Payroll</td>
-                              <td>₱ 750.00</td>
-                              <td>Salary 5 worker</td>
-                            </tr>
-                            <tr> 
-                              <td>05/22/2022</td>
-                              <td>Car Repair</td>
-                              <td>₱ 100.00</td>
-                              <td>Truck #1R</td>
-                            </tr>
-                          </tbody>
+                        </tbody>
                         </table>
                         <div class="detail-title pt-3">Total:</div> <span class="detail-subtitle">₱ 1,350.00</span>
-                        <!-- <div class="float-right px-3 py-3">
-                          <button type="submit" class="btn btn-secondary btn-md">Submit Report</button>
-                        </div> -->
-                      </div>
+                        
                     </div>
-                  </div>
+                    </div>
+                </div>
                 </div>    
               </div>
-            </div>
           </div>
 
 
