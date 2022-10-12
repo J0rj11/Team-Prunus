@@ -62,6 +62,8 @@ Route::group(['middleware' => 'auth'], function () {
 
 
         Route::get('/reservations', [ReservationController::class, 'index'])->name('reservations.index');
+        Route::get('/reservation/{reservation}', [ReservationController::class, 'show'])->name('reservation.show');
+        Route::put('/reservation/{reservation}', [ReservationController::class, 'update'])->name('reservation.update');
     });
 
     Route::view('/reports', 'report.index');

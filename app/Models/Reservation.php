@@ -17,11 +17,19 @@ class Reservation extends Model
     public static int $RESERVATION_STATUS_APPROVED = 1;
     public static int $RESERVATION_STATUS_DENIED = 2;
 
+
+    public static int $RESERVATION_PAYMENT_TYPE_FULL = 0;
+    public static int $RESERVATION_PAYMENT_TYPE_PARTIAL = 1;
+
     protected $fillable = [
         'user_id',
         'is_approved',
         'payment_method',
+        'status',
         'date_of_delivery',
+        'payment_type',
+        'due_date',
+        'payment_amount'
     ];
 
 

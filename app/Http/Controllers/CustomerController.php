@@ -35,6 +35,7 @@ class CustomerController extends Controller
 
     public function show(User $customer)
     {
+        // load previous transactions with table
         return view('cashier.customer.show', compact('customer'));
     }
 

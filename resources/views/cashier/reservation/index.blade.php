@@ -65,8 +65,8 @@
                         name: 'user.username'
                     },
                     {
-                        data: 'user.username',
-                        name: 'user.username'
+                        data: 'user.address',
+                        name: 'user.address'
                     },
                     {
                         data: 'id',

@@ -7,6 +7,8 @@ use App\Models\Reservation;
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Http\RedirectResponse;
+use App\Http\Requests\UpdateReservationRequest;
 
 class ReservationController extends Controller
 {
@@ -17,7 +19,7 @@ class ReservationController extends Controller
                 ->addColumn('name', fn (Reservation $reservation) => $reservation->user->first_name . ' ' . $reservation->user->last_name)
                 ->addColumn('actions', function (Reservation $reservation) {
                     return '<div>
-                        <button type="button" onclick="document.getElementById(' . "'approveForm'" . ').submit()" class="btn btn-secondary btn-sm">Process Order</button>
+                        <a href="' . route('reservation.show', $reservation) . '"class="btn btn-secondary btn-sm">Process Order</a>
                         <form action="' . route('admin.reservation.approve', $reservation) . '" method="POST" id="approveForm">
                             <input type="hidden" name="_token" value="' . csrf_token() . '">
                             ' . method_field('PUT') . '
@@ -27,6 +29,21 @@ class ReservationController extends Controller
                 ->rawColumns(['actions'])
                 ->make();
         }
-        return view('cashier.reservation');
+        return view('cashier.reservation.index');
+    }
+
+
+    public function show(Reservation $reservation): View
+    {
+        $reservation->load('user', 'reservationItems', 'reservationItems.product');
+        return view('cashier.reservation.edit', compact('reservation'));
+    }
+
+
+    public function update(UpdateReservationRequest $request, Reservation $reservation): RedirectResponse
+    {
+        $reservation->update($request->validated());
+
+        return redirect()->back();
     }
 }
