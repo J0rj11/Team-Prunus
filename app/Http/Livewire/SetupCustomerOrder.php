@@ -2,17 +2,17 @@
 
 namespace App\Http\Livewire;
 
-use App\Models\Category;
 use App\Models\Product;
-use App\Models\Transaction;
-use App\Models\TransactionItem;
-use Illuminate\Http\RedirectResponse;
 use Livewire\Component;
+use App\Models\Category;
+use App\Models\Reservation;
+use App\Models\ReservationItem;
+use App\Models\TransactionItem;
 
-class SetupCustomerTransaction extends Component
+class SetupCustomerOrder extends Component
 {
 
-    public Transaction $transaction;
+
 
     public $products = [];
     public $categories = [];
@@ -23,15 +23,18 @@ class SetupCustomerTransaction extends Component
     public $productQuantity = 0;
     public $productPrice = 0;
     public $selectedProductTotal = 0;
+    public $paymentMethod = 0;
+    public $dateOfDelivery = NULL;
+
 
     protected $rules = [
         'selectedCategory' => 'required',
         'selectedProduct' => 'required',
+        'dateOfDelivery' => 'required',
     ];
 
-    public function mount(Transaction $transaction)
+    public function mount()
     {
-        $this->transaction = $transaction;
         $this->categories = Category::all();
         $this->selectedCategory = collect($this->categories)->first();
         $this->products = $this->categories->first()->products()->get();
@@ -40,7 +43,7 @@ class SetupCustomerTransaction extends Component
 
     public function render()
     {
-        return view('livewire.setup-customer-transaction');
+        return view('livewire.setup-customer-order');
     }
 
 
@@ -65,7 +68,10 @@ class SetupCustomerTransaction extends Component
         $this->productPrice =  $productQuantity * (float)$this->selectedProduct['price'];
     }
 
-
+    public function updatePaymentMethod($paymentMethod)
+    {
+        $this->paymentMethod = $paymentMethod;
+    }
 
     public function confirmProduct(): void
     {
@@ -90,12 +96,19 @@ class SetupCustomerTransaction extends Component
 
     public function save(): void
     {
-        $transactionItems = [];
+
+        $reservation = Reservation::create([
+            'user_id' => auth()->id(),
+            'date_of_delivery' => $this->dateOfDelivery,
+            'payment_method' => $this->paymentMethod
+        ]);
+
+        $reservationItems = [];
         $createdAt = now();
         foreach ($this->confirmedProducts as $confirmedProduct) {
-            $transactionItems[] = [
+            $reservationItems[] = [
                 'product_id' => (int)$confirmedProduct['product']['id'],
-                'transaction_id' => $this->transaction->id,
+                'reservation_id' => $reservation->id,
                 'price' => (float)$confirmedProduct['price'],
                 'quantity'  => (int)$confirmedProduct['quantity'],
                 'created_at' => $createdAt,
@@ -103,8 +116,8 @@ class SetupCustomerTransaction extends Component
             ];
         }
 
-        TransactionItem::insert($transactionItems);
+        ReservationItem::insert($reservationItems);
 
-        redirect()->route('transaction.index');
+        redirect()->route('customer.dashboard.index');
     }
 }

@@ -39,7 +39,7 @@
     </a>
 </li>
 <li class="nav-item">
-    <a class="nav-link nav-color" href="" aria-controls="auth">
+    <a class="nav-link nav-color" href="{{ route('reservations.index') }}" aria-controls="auth">
         <i class=" menu-icon">
             <iconify-icon icon="fluent:notepad-edit-16-regular"></iconify-icon>
         </i>

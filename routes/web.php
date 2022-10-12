@@ -1,9 +1,14 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminReportsController;
+use App\Http\Controllers\Admin\AdminReservationController;
 use App\Http\Controllers\BalanceController;
+use App\Http\Controllers\Customer\CustomerDashboardController;
+use App\Http\Controllers\Customer\CustomerReservationController;
 use App\Http\Controllers\CustomerTransactionController;
 use App\Http\Controllers\DeliveryController;
 use App\Http\Controllers\ReportsController;
+use App\Http\Controllers\ReservationController;
 use App\Http\Livewire\SetupCustomerTransaction;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -30,6 +35,12 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 
 Route::group(['middleware' => 'auth'], function () {
+    Route::group(['prefix' => 'customer', 'as' => 'customer.'], function () {
+        Route::get('/home', [CustomerDashboardController::class, 'index'])->name('dashboard.index');
+        Route::get('/reservation', [CustomerReservationController::class, 'index'])->name('reservation.index');
+    });
+
+
     Route::prefix('cashier')->group(function () {
         Route::resource('/customer',  App\Http\Controllers\CustomerController::class);
         Route::resource('/supplier', \App\Http\Controllers\SupplierController::class);
@@ -44,9 +55,13 @@ Route::group(['middleware' => 'auth'], function () {
         Route::resource('/delivery', DeliveryController::class)
             ->except('store', 'edit', 'create');
 
+
         Route::get('/reports', [ReportsController::class, 'index'])->name('reports.index');
         Route::get('/reports/product-sold', [ReportsController::class, 'productSoldReport'])->name('reports.product-sold');
         Route::get('/reports/delivery-completed', [ReportsController::class, 'deliveryCompletedReport'])->name('reports.delivery-completed');
+
+
+        Route::get('/reservations', [ReservationController::class, 'index'])->name('reservations.index');
     });
 
     Route::view('/reports', 'report.index');
@@ -57,5 +72,14 @@ Route::group(['middleware' => 'auth'], function () {
         Route::resource('/supplier', \App\Http\Controllers\Admin\AdminSupplierController::class);
         Route::resource('/product',  \App\Http\Controllers\Admin\AdminProductController::class);
         Route::resource('/account', \App\Http\Controllers\Admin\AdminAccountController::class);
+        Route::resource('/delivery', \App\Http\Controllers\Admin\AdminDeliveryController::class);
+
+        Route::get('/reports', [AdminReportsController::class, 'index'])->name('reports.index');
+        Route::get('/reports/product-sold', [AdminReportsController::class, 'productSoldReport'])->name('reports.product-sold');
+        Route::get('/reports/delivery-completed', [AdminReportsController::class, 'deliveryCompletedReport'])->name('reports.delivery-completed');
+
+        Route::get('/reservation', [AdminReservationController::class, 'index'])->name('reservation.index');
+        Route::put('/reservation/{reservation}/approve', [AdminReservationController::class, 'approveReservation'])->name('reservation.approve');
+        Route::put('/reservation/{reservation}/decline', [AdminReservationController::class, 'declineReservation'])->name('reservation.decline');
     });
 });

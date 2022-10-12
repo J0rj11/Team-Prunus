@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.cashier')
 
 @section('content')
     <div class="sidebar-fixed main-panel">
@@ -22,7 +22,7 @@
                                                 <form>
                                                     <div class="table-responsive">
                                                         <table class="table table-hover table-striped"
-                                                            id="soldProductTable">
+                                                            id="productSoldTable">
                                                             <thead class="color">
                                                                 <tr>
                                                                     <th>Date</th>
@@ -33,7 +33,6 @@
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
-                                                               
                                                             </tbody>
                                                         </table>
                                                     </div>
@@ -45,9 +44,10 @@
                             </div>
                             <div class="csstab">
                                 <input type="radio" name="css-tabs" id="tab-2" class="csstab-switch">
-                                <label for="tab-2" class="csstab-label">Deliveries</label>
+                                <label for="tab-2" class="csstab-label">Delivery</label>
                                 <div class="csstab-content">
                                     <div class="card-body white-bg">
+
                                         <div class="card bg-transparent">
                                             <div class="card-body">
                                                 <div class="table-responsive">
@@ -78,20 +78,13 @@
                                 <div class="csstab-content">
                                     <div class="card-body white-bg">
                                         <h3>EXPENSE REPORT</h3>
-                                        <div class="row pt-2 px-5">
-                                            <div class="col-md-6">
-                                                <div class="form-group row">
-                                                    <label class="col-sm-4 col-form-label ">Search</label>
-                                                    <div class="col-sm-8">
-                                                        <input name="" value="" type="text"
-                                                            class="form-control form-control-sm">
-                                                    </div>
-                                                </div>
-                                            </div>
+                                        <div class="d-flex justify-content-end">
+                                            <a type="submit" class="btn btn-primary mb-2 mr-4"
+                                                href="{{ route('expense.index') }}">Add Expenses</a>
                                         </div>
                                         <div class="card-body bg-transparent">
                                             <div class="table-responsive">
-                                                <table class="table table-hover table-striped mb-2" id="expenseTable">
+                                                <table class="table table-hover table-striped" id="expenseTable">
                                                     <thead class="color">
                                                         <tr>
                                                             <th>Date</th>
@@ -103,14 +96,14 @@
                                                     <tbody>
                                                     </tbody>
                                                 </table>
-                                                <div class="detail-title pt-3">Total:</div> <span class="detail-subtitle">₱
-                                                    1,350.00</span>
+
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+
                     </div>
                 </div>
             </div>
@@ -121,7 +114,7 @@
 @push('scripts')
     <script>
         $(() => {
-            $('#soldProductTable').DataTable({
+            $('#productSoldTable').DataTable({
                 processing: true,
                 serverSide: true,
                 ajax: "{{ route('reports.product-sold') }}",
@@ -144,8 +137,7 @@
                     {
                         data: 'price',
                         name: 'price'
-                    },
-                   
+                    }
                 ]
             })
 
@@ -176,8 +168,7 @@
                     {
                         data: 'sum_price',
                         name: 'sum_price'
-                    },
-                
+                    }
                 ]
             })
 

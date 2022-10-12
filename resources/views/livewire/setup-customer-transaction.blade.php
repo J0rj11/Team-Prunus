@@ -70,7 +70,8 @@
                                                             <div class="col">
                                                                 <label>Price</label>
                                                                 <div id="bloodhound">
-                                                                    <input class="typeahead" type="number" wire:model="productPrice" readonly>
+                                                                    <input class="typeahead" type="number"
+                                                                        wire:model="productPrice" readonly>
                                                                 </div>
                                                             </div>
                                                             <div class="col">
@@ -108,6 +109,10 @@
                                                             @endforeach
                                                         </tbody>
                                                     </table>
+                                                    <div class="detail-title pt-3">Total:</div> <span
+                                                        class="detail-subtitle">₱
+                                                        {{ number_format($selectedProductTotal, 2) }}</span>
+
                                                 </div>
                                                 <div class="pt-4 center">
                                                     <button type="submit"

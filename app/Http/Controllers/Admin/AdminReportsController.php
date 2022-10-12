@@ -1,20 +1,20 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use App\Models\Delivery;
-use App\Models\Transaction;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
 use App\Models\TransactionItem;
 use Yajra\DataTables\DataTables;
 use Illuminate\Http\JsonResponse;
+use App\Http\Controllers\Controller;
 
-class ReportsController extends Controller
+class AdminReportsController extends Controller
 {
     public function index(): View
     {
-        return view('cashier.report.index');
+        return view('admin.report');
     }
 
 

@@ -5,14 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Expense extends Model
+class ReservationItem extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'expense_date',
-        'expense_account',
-        'amount',
-        'notes'
+        'reservation_id',
+        'product_id',
+        'quantity',
+        'price'
     ];
 }

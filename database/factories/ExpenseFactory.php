@@ -18,6 +18,7 @@ class ExpenseFactory extends Factory
     {
         return [
             'expense_account' => $this->faker->name(),
+            'expense_date' => now(),
             'amount' => $this->faker->numberBetween(100, 1000),
             'notes' => $this->faker->sentence(),
         ];

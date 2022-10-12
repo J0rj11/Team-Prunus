@@ -18,6 +18,7 @@ class Delivery extends Model
         'driver_name',
         'truck_number',
         'status',
+        'is_approved'
     ];
 
 

@@ -2,12 +2,10 @@
 
 namespace Database\Seeders;
 
-use App\Models\Delivery;
-use App\Models\Transaction;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class DeliverySeeder extends Seeder
+class ReservationSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -16,6 +14,6 @@ class DeliverySeeder extends Seeder
      */
     public function run()
     {
-        // Delivery::factory(100)->create();
+        //
     }
 }

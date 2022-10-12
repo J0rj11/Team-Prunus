@@ -42,14 +42,13 @@
                             <h2 class="center mt-5">Log In</h2>
                             <hr>
                             <form action="/login" class="py-3 text-center" method="POST">
-                              @csrf
+                                @csrf
                                 <div class="form-group py-2">
                                     <div class="input-group login-input">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text fa fa-user"></span>
                                         </div>
-                                        <input type="text" class="form-control font-italic"
-                                          name="email"
+                                        <input type="text" class="form-control font-italic" name="username"
                                             placeholder="Input your username" aria-label="Username">
                                     </div>
                                 </div>
@@ -58,8 +57,7 @@
                                         <div class="input-group-prepend">
                                             <span class="input-group-text fa fa-lock "></span>
                                         </div>
-                                        <input type="password" class="form-control font-italic"
-                                          name="password"
+                                        <input type="password" class="form-control font-italic" name="password"
                                             placeholder="Input your password" aria-label="Password">
                                     </div>
                                 </div>

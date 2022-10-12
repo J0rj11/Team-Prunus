@@ -31,11 +31,15 @@ class LoginController extends Controller
     protected $redirectTo = RouteServiceProvider::HOME;
 
 
-    protected function authenticated(Request $request, User $user) {
+    protected function authenticated(Request $request, User $user)
+    {
         if ($user->hasRole('admin')) {
             return redirect()->route('admin.customer.index');
         }
-        return redirect()->route('customer.index');
+        if ($user->hasRole('cashier')) {
+            return redirect()->route('cashier.index');
+        }
+        return redirect()->route('customer.dashboard.index');
     }
 
     /**
@@ -46,5 +50,12 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+    }
+
+
+
+    public function username(): string
+    {
+        return 'username';
     }
 }
