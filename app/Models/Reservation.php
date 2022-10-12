@@ -13,6 +13,10 @@ class Reservation extends Model
     use HasFactory;
 
 
+    public static int $RESERVATION_STATUS_IDLE = 0;
+    public static int $RESERVATION_STATUS_APPROVED = 1;
+    public static int $RESERVATION_STATUS_DENIED = 2;
+
     protected $fillable = [
         'user_id',
         'is_approved',
@@ -45,12 +49,12 @@ class Reservation extends Model
 
     public function approve(): void
     {
-        $this->update(['is_approved' => true]);
+        $this->update(['status' => self::$RESERVATION_STATUS_APPROVED]);
     }
 
 
     public function decline(): void
     {
-        $this->update(['is_approved' => false]);
+        $this->update(['is_approved' => self::$RESERVATION_STATUS_DENIED]);
     }
 }
