@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.cashier')
 
 @section('content')
     <div class="main-panel">
@@ -14,7 +14,7 @@
                         <div class="csstabs">
                             <div class="csstab">
                                 <input type="radio" name="css-tabs" id="tab-1" checked class="csstab-switch">
-                                <label for="tab-1" class="csstab-label">Delivery List </label>
+                                <label for="tab-1" class="csstab-label">Reservation List </label>
                                 <div class="csstab-content">
                                     <div class="col-m-12 grid-margin stretch-card">
                                         <div class="card white-bg">
@@ -23,9 +23,11 @@
                                                     <table class="table table-hover table-striped" id="reservationTable">
                                                         <thead class="color">
                                                             <tr>
-                                                                <th>Date</th>
                                                                 <th>Code</th>
-                                                                <th>Client Name</th>
+                                                                <th>Customer Name</th>
+                                                                <th>Address</th>
+                                                                <th>Total Amount</th>
+                                                                <th>Action</th>
                                                             </tr>
                                                         </thead>
                                                         <tbody>
@@ -55,17 +57,25 @@
                 serverSide: true,
                 ajax: "{{ route('reservations.index') }}",
                 columns: [{
-                        data: 'created_at',
-                        name: 'created_at',
+                        data: 'id',
+                        name: 'id',
+                    },
+                    {
+                        data: 'user.username',
+                        name: 'user.username'
+                    },
+                    {
+                        data: 'user.username',
+                        name: 'user.username'
                     },
                     {
                         data: 'id',
                         name: 'id'
                     },
                     {
-                        data: 'user.username',
-                        name: 'user.username'
-                    },
+                        data: 'actions',
+                        name: 'actions'
+                    }
                 ]
             })
         })

@@ -17,12 +17,7 @@ class ReservationController extends Controller
                 ->addColumn('name', fn (Reservation $reservation) => $reservation->user->first_name . ' ' . $reservation->user->last_name)
                 ->addColumn('actions', function (Reservation $reservation) {
                     return '<div>
-                        <button type="button" onclick="document.getElementById(' . "'approveForm'" . ').submit()" class="btn btn-secondary btn-sm">Approve</button>
-                        <button type="button" onclick="document.getElementById(' . "'declineForm'" . ').submit()" class="btn btn-dark btn-sm">Delete</button>
-                        <form action="' . route('admin.reservation.decline', $reservation) . '" method="POST" id="declineForm">
-                                <input type="hidden" name="_token" value="' . csrf_token() . '">
-                                ' . method_field('PUT') . '
-                        </form>
+                        <button type="button" onclick="document.getElementById(' . "'approveForm'" . ').submit()" class="btn btn-secondary btn-sm">Process Order</button>
                         <form action="' . route('admin.reservation.approve', $reservation) . '" method="POST" id="approveForm">
                             <input type="hidden" name="_token" value="' . csrf_token() . '">
                             ' . method_field('PUT') . '
