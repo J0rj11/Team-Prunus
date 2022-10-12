@@ -12,73 +12,7 @@
                         <div class="csstabs">
 
                             <div class="csstab">
-                                <input type="radio" name="css-tabs" id="tab-1" value="1" checked
-                                    class="csstab-switch">
-                                <label for="tab-1" class="csstab-label"><span
-                                        x-text="id != null ? 'Edit' : 'Register'"></span> Customer</label>
-                                <div class="csstab-content">
-                                    <div class="card-body white-bg">
-                                        <form class="ml-3 pt-4" action="{{ route('admin.customer.store') }}" method="POST">
-                                        @csrf
-                                            <div class="row">
-                                                <div class="col-md-4 row form-group">
-                                                    <label class="col-md-4 col-form-label">First name</label>
-                                                    <div class="col-md-8">
-                                                        <input value="{{ old('first_name') }}" name="first_name" type="text"
-                                                            class="form-control">
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-4 row form-group">
-                                                    <label class="col-md-4 col-form-label">Middle name</label>
-                                                    <div class="col-md-8">
-                                                        <input value="{{ old('middle_name') }}" name="middle_name" type="text"
-                                                            class="form-control">
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-4 row form-group">
-                                                    <label class="col-md-4 col-form-label">Last name</label>
-                                                    <div class="col-md-8">
-                                                        <input value="{{ old('last_name') }}" name="last_name" type="text"
-                                                            class="form-control">
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="row">
-                                                <div class="col-md-4 row form-group">
-                                                    <label class="col-md-4 col-form-label">Email</label>
-                                                    <div class="col-md-8">
-                                                        <input value="{{ old('email') }}" name="email"
-                                                            type="text" class="form-control">
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-4 row form-group">
-                                                    <label class="col-md-4 col-form-label">Mobile</label>
-                                                    <div class="col-md-8">
-                                                        <input value="{{ old('contact_number') }}" name="contact_number"
-                                                            type="text" class="form-control">
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-4 row form-group">
-                                                    <label class="col-md-4 col-form-label">Address</label>
-                                                    <div class="col-md-8">
-                                                        <input value="{{ old('address') }}" name="address" type="text"
-                                                            class="form-control">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="mt-5 pb-2 center">
-                                                <button type="button"
-                                                    class="btn btn-outline-primary btn-md mr-2">Cancel</button>
-                                                <button type="submit" class="btn btn-primary btn-md">Save</button>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="csstab">
-                                <input type="radio" name="css-tabs" id="tab-2" value="2" x-model="tab"
+                                <input type="radio" name="css-tabs" id="tab-2" value="2" x-model="tab" checked
                                     class="csstab-switch">
                                 <label for="tab-2" class="csstab-label">Customer List</label>
                                 <div class="csstab-content">
