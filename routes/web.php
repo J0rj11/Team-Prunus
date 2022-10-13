@@ -42,6 +42,9 @@ Route::group(['middleware' => 'auth'], function () {
 
 
     Route::prefix('cashier')->group(function () {
+
+        Route::view('/home', 'cashier.cashierDashboard')->name('cashier.index');
+
         Route::resource('/customer',  App\Http\Controllers\CustomerController::class);
         Route::resource('/supplier', \App\Http\Controllers\SupplierController::class);
         Route::resource('/category', \App\Http\Controllers\CategoryController::class);
