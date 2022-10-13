@@ -14,8 +14,8 @@ return new class extends Migration
     public function up()
     {
         Schema::table('reservations', function (Blueprint $table) {
-            $table->double('payment_amount');
-            $table->integer('payment_type');
+            $table->double('payment_amount')->nullable();
+            $table->integer('payment_type')->nullable();
             $table->date('due_date')->nullable();
         });
     }
