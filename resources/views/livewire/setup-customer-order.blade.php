@@ -136,7 +136,8 @@
                             <div class="card-body white-bg p-4">
                                 <label>Total</label>
                                 <div class="p-2 pb-2 col-sm-12">
-                                    <input class="form-control" type="text">
+                                    <input class="form-control" type="text"
+                                        value="{{ collect($confirmedProducts)->sum('price') }}" readonly>
                                 </div>
 
                                 <!-- <label>Payment Method</label>
