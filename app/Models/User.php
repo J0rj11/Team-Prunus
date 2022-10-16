@@ -7,6 +7,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
@@ -54,6 +55,29 @@ class User extends Authenticatable
     ];
 
 
+
+    public function reservations(): HasMany
+    {
+        return $this->hasMany(Reservation::class);
+    }
+
+
+    public function transactions(): HasMany
+    {
+        return $this->hasMany(Transaction::class);
+    }
+
+
+    // public function latestTransaction(): HasMany
+    // {
+    //     return $this->hasMany(Transaction::class, 'user_id')
+    //         ->latest()
+    //         ->take(1);
+    // }
+
+
+
+    // mutators and accessors
     public function id(): Attribute
     {
         return Attribute::make(
@@ -62,13 +86,10 @@ class User extends Authenticatable
     }
 
 
-    public function reservations(): HasMany
+    public function password(): Attribute
     {
-        return $this->hasMany(Reservation::class);
-    }
-
-
-    public function transactions(): HasMany {
-        return $this->hasMany(Transaction::class);
+        return Attribute::make(
+            set: fn ($value) => bcrypt($value)
+        );
     }
 }

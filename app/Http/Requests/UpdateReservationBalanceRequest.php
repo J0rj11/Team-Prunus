@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Account;
+namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreAccountRequest extends FormRequest
+class UpdateReservationBalanceRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,11 +24,7 @@ class StoreAccountRequest extends FormRequest
     public function rules()
     {
         return [
-            'first_name' => 'required',
-            'last_name' => 'required',
-            'username' => 'required|unique:users,username',
-            'password' => 'required|confirmed',
-            'role' => 'required|in:cashier,customer,admin'
+            'amount' => 'required|numeric'
         ];
     }
 }

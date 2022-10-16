@@ -41,7 +41,12 @@
                             </div>
                             <h2 class="center mt-5">Log In</h2>
                             <hr>
-                            <form action="/login" class="py-3 text-center" method="POST">
+                            @if ($errors->any())
+                                @foreach ($errors->all() as $error)
+                                    <div>{{ $error }}</div>
+                                @endforeach
+                            @endif
+                            <form action="{{ route('login') }}" class="py-3 text-center" method="POST">
                                 @csrf
                                 <div class="form-group py-2">
                                     <div class="input-group login-input">

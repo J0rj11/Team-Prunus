@@ -100,7 +100,8 @@ class SetupCustomerOrder extends Component
         $reservation = Reservation::create([
             'user_id' => auth()->id(),
             'date_of_delivery' => $this->dateOfDelivery,
-            'payment_method' => $this->paymentMethod
+            'payment_method' => $this->paymentMethod,
+            'remaining_balance' => collect($this->confirmedProducts)->sum('price'),
         ]);
 
         $reservationItems = [];

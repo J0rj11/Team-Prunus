@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.cashier')
 
 @section('content')
     <div class="sidebar-fixed main-panel overflow-auto">

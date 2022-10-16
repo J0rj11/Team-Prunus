@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Reservation;
 use Illuminate\View\View;
 use App\Models\Transaction;
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Http\RedirectResponse;
 
 class BalanceController extends Controller
 {
@@ -91,13 +93,19 @@ class BalanceController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  Transaction  $transaction
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Transaction $balance): RedirectResponse
     {
-        //
+        if ($request->amount > $balance->remaining_balance) {
+            return redirect()->back()->withErrors(['message' => 'Cannot deposit higher than balance.']);
+        }
+        $balance->update(['remaining_balance' => ($balance->remaining_balance - $request->amount)]);
+        return redirect()->back();
     }
+
+
 
     /**
      * Remove the specified resource from storage.
@@ -105,7 +113,7 @@ class BalanceController extends Controller
      * @param  Transaction  $balance
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Transaction $balance)
+    public function destroy(Transaction $balance): RedirectResponse
     {
         $balance->delete();
 

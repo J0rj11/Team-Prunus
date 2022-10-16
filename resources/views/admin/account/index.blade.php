@@ -15,26 +15,34 @@
                                 <input type="radio" name="css-tabs" id="tab-1" checked class="csstab-switch">
                                 <label for="tab-1" class="csstab-label">Add User</label>
                                 <div class="csstab-content">
-
                                     <div class="card-body white-bg">
                                         <form class="pt-4 pl-5" action="{{ route('admin.account.store') }}" method="POST">
                                             @csrf
-                                            <div class="form-group row">
+                                            {{-- <div class="form-group row">
                                                 <label class="col-sm-2 col-form-label">User ID</label>
                                                 <div class="col-sm-9">
                                                     <input type="text" value="{{ old('name') }}" name="name" class="form-control">
                                                 </div>
+                                            </div> --}}
+                                            <div class="form-group row">
+                                                <label class="col-sm-2 col-form-label">FirstName</label>
+                                                <div class="col-sm-9">
+                                                    <input type="text" value="{{ old('first_name') }}" name="first_name"
+                                                        class="form-control">
+                                                </div>
                                             </div>
                                             <div class="form-group row">
-                                                <label class="col-sm-2 col-form-label">Name</label>
+                                                <label class="col-sm-2 col-form-label">LastName</label>
                                                 <div class="col-sm-9">
-                                                    <input type="text" value="{{ old('name') }}" name="name" class="form-control">
+                                                    <input type="text" value="{{ old('last_name') }}" name="last_name"
+                                                        class="form-control">
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label class="col-sm-2 col-form-label">Username</label>
                                                 <div class="col-sm-9">
-                                                    <input type="email" value="{{ old('email') }}" name="email" class="form-control">
+                                                    <input type="text" value="{{ old('username') }}" name="username"
+                                                        class="form-control">
                                                 </div>
                                             </div>
                                             <div class="form-group row">
@@ -46,7 +54,8 @@
                                             <div class="form-group row">
                                                 <label class="col-sm-2 col-form-label">Confirm Password</label>
                                                 <div class="col-sm-9">
-                                                    <input type="password" name="password_confirmation" class="form-control">
+                                                    <input type="password" name="password_confirmation"
+                                                        class="form-control">
                                                 </div>
                                             </div>
                                             <div class="form-group row">
@@ -106,14 +115,13 @@
 
 
 @push('scripts')
-	<script type="text/javascript">
-		$(() => {
-			$('#accountTable').DataTable({
+    <script type="text/javascript">
+        $(() => {
+            $('#accountTable').DataTable({
                 serverSide: true,
                 processing: true,
                 ajax: "{{ route('admin.account.index') }}",
-                columns: [
-                    {
+                columns: [{
                         data: 'id',
                         name: 'id'
                     },
@@ -122,8 +130,8 @@
                         name: 'name'
                     },
                     {
-                        data: 'email',
-                        name: 'email'
+                        data: 'username',
+                        name: 'username'
                     },
                     {
                         data: 'user_role',
@@ -139,6 +147,6 @@
                     "targets": "_all"
                 }]
             })
-		})
-	</script>
+        })
+    </script>
 @endpush

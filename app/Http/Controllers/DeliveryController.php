@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\UpdateDeliveryRequest;
 use App\Models\Delivery;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
@@ -18,7 +19,14 @@ class DeliveryController extends Controller
     public function index(Request $request): View | JsonResponse
     {
         if ($request->ajax()) {
-            return DataTables::of(Delivery::query()->where('status', Delivery::$DELIVERY_STATUS_IDLE)->with('transaction'))
+            $query = Delivery::query()
+                ->when(
+                    $request->has('status'),
+                    fn (Builder $query) => $query->where('status', $request->status),
+                    fn (Builder $query) => $query->where('status', Delivery::$DELIVERY_STATUS_IDLE),
+                )
+                ->with('transaction');
+            return DataTables::of($query)
                 ->addColumn('actions', function (Delivery $delivery) {
                     return '<div>
                             <a href="' . route('delivery.show', $delivery) . '" class="btn btn-secondary btn-sm">View</a>

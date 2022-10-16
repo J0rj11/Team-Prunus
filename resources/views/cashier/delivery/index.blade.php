@@ -51,7 +51,7 @@
                                             <div class="py-3 pl-4">Delivery Schedules</div>
                                             <div class="card-body bg-transparent">
                                                 <div class="table-responsive">
-                                                    <table class="table table-hover table-striped" id="deliveryTable">
+                                                    <table class="table table-hover table-striped" id="pickupDeliveryTable">
                                                         <thead class="color">
                                                             <tr>
                                                                 <th>Date</th>
@@ -88,6 +88,48 @@
             processing: true,
             serverSide: true,
             ajax: "{{ route('delivery.index') }}",
+            columns: [{
+                    data: 'created_at',
+                    name: 'created_at'
+                },
+                {
+                    data: 'transaction.transaction_name',
+                    name: 'transaction.transaction_name'
+                },
+                {
+                    data: 'transaction.address',
+                    name: 'transaction.address'
+                },
+                {
+                    data: 'transaction.contact_number',
+                    name: 'transaction.contact_number'
+                },
+                {
+                    data: 'actions',
+                    name: 'actions'
+                }
+            ],
+            columnDefs: [{
+                    "defaultContent": "-",
+                    "targets": "_all"
+                },
+                {
+                    "searchable": false,
+                    targets: [2, 3]
+                }
+            ]
+        })
+
+
+        $('#pickupDeliveryTable').DataTable({
+            processing: true,
+            serverSide: true,
+            ajax: {
+                data: {
+                    'status': "{{ \App\Models\Delivery::$DELIVERY_STATUS_COMPLETED }}"
+                },
+                url: "{{ route('delivery.index') }}"
+            },
             columns: [{
                     data: 'created_at',
                     name: 'created_at'

@@ -17,7 +17,7 @@
                                 <div class="csstab-content">
                                     <div class="col-m-12 grid-margin stretch-card">
                                         <div class="card white-bg">
-                                            <div class="py-3 pl-4">{{ $balance->transaction_identifier }}
+                                            <div class="py-3 pl-4">{{ $reservationBalance->id }}
                                                 <div class="float-right">
                                                     <a type="button" class="btn btn-outline-primary btn-sm mr-5"
                                                         href="{{ route('balance.index') }}">
@@ -42,20 +42,24 @@
                                                         </thead>
                                                         <tbody>
                                                             <tr>
-                                                                <td>{{ $balance->transaction_identifier }}</td>
-                                                                <td>{{ $balance->transaction_name }}</td>
-                                                                <td>{{ $balance->transaction_items_count }}</td>
-                                                                <td>₱ {{ $balance->transaction_items_sum_price }}</td>
-                                                                <td>{{ $balance->payment_method == 0 ? 'CREDIT' : 'CASH' }}
+                                                                <td>{{ $reservationBalance->id }}</td>
+                                                                <td>{{ $reservationBalance->user->first_name . ' ' . $reservationBalance->user->last_name }}
                                                                 </td>
-                                                                <td>{{ $balance->due_date }}</td>
-                                                                <td>{{ $balance->date }}</td>
+                                                                <td>{{ $reservationBalance->reservation_items_count }}</td>
+                                                                <td>₱ {{ $reservationBalance->reservation_items_sum_price }}
+                                                                </td>
+
+                                                                <td>{{ $reservationBalance->payment_type == 0 ? 'FULL' : 'PARTIAL' }}
+                                                                </td>
+                                                                <td>{{ $reservationBalance->due_date }}</td>
+                                                                <td>{{ $reservationBalance->created_at }}</td>
                                                             </tr>
                                                         </tbody>
                                                         <tfoot>
                                                             <tr>
                                                                 <td class="font-weight-bolder color">Remaining Balance:</td>
-                                                                <td>₱ {{ number_format($balance->remaining_balance, 2) }}
+                                                                <td>₱
+                                                                    {{ number_format($reservationBalance->remaining_balance, 2) }}
                                                                 </td>
                                                                 <td></td>
                                                                 <td></td>
@@ -72,7 +76,8 @@
                                                 <div id="id01" class="alert-modal overflow-hidden"
                                                     style="display: none;">
                                                     <form class="alert-modal-content"
-                                                        action="{{ route('balance.update', $balance) }}" method="POST">
+                                                        action="{{ route('reservation-balance.update', $reservationBalance) }}"
+                                                        method="POST">
                                                         @csrf
                                                         @method('PUT')
                                                         <div class="modal-container">
@@ -86,7 +91,7 @@
                                                             </div>
                                                             <div class="detail-title mt-4 ml-3"> Remaining Balance :</div>
                                                             <span class="pl-1 detail-subtitle">₱
-                                                                {{ number_format($balance->remaining_balance, 2) }}</span>
+                                                                {{ number_format($reservationBalance->remaining_balance, 2) }}</span>
 
                                                             <div class="p-2">
                                                                 <div class="col-sm-12">
@@ -130,14 +135,14 @@
                                                             </tr>
                                                         </thead>
                                                         <tbody>
-                                                            @foreach ($balance->transactionItems as $transactionItem)
+                                                            @foreach ($reservationBalance->reservationItems as $reservationItem)
                                                                 <tr>
-                                                                    <td>{{ $transactionItem->product->product_name }}</td>
-                                                                    <td>{{ $transactionItem->product->category->category_name }}
+                                                                    <td>{{ $reservationItem->product->product_name }}</td>
+                                                                    <td>{{ $reservationItem->product->category->category_name }}
                                                                     </td>
-                                                                    <td>{{ $transactionItem->quantity }}</td>
-                                                                    <td>₱ {{ $transactionItem->product->price }}</td>
-                                                                    <td>₱ {{ $transactionItem->price }}</td>
+                                                                    <td>{{ $reservationItem->quantity }}</td>
+                                                                    <td>₱ {{ $reservationItem->product->price }}</td>
+                                                                    <td>₱ {{ $reservationItem->price }}</td>
                                                                 </tr>
                                                             @endforeach
                                                         </tbody>

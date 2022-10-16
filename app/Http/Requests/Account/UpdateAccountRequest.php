@@ -25,7 +25,7 @@ class UpdateAccountRequest extends FormRequest
     {
         return [
             'name' => 'required',
-            'email' => 'required|email|unique:users,email,'.$this->route('account')->id,
+            'username' => 'required|unique:users,username,' . $this->route('account')->id,
             'password' => 'nullable|sometimes',
             'role' => 'required|in:cashier,customer,admin'
         ];

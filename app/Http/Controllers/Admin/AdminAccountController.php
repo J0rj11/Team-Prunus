@@ -15,9 +15,11 @@ use Spatie\Permission\Models\Role;
 
 class AdminAccountController extends Controller
 {
-    public function index(Request $request) : View | JsonResponse {
+    public function index(Request $request): View | JsonResponse
+    {
         if ($request->ajax()) {
             return DataTables::of(User::query()->role(['cashier', 'admin']))
+                ->addColumn('name', fn (User $user) => $user->first_name . ' ' . $user->last_name)
                 ->addColumn('actions', function (User $user) {
                     return '<div>
                                 <a href="' . route('admin.account.edit', $user) . '" class="btn btn-secondary btn-sm">View</a>
@@ -36,22 +38,29 @@ class AdminAccountController extends Controller
     }
 
 
-    public function store(StoreAccountRequest $request) : RedirectResponse {
+    public function store(StoreAccountRequest $request): RedirectResponse
+    {
         User::create($request->validated())->assignRole($request->role);
 
         return redirect()->back();
     }
 
-    public function edit(User $account) : View {
+    public function edit(User $account): View
+    {
         $roles = Role::all();
         return view('admin.account.edit', compact('account', 'roles'));
     }
 
 
-    public function update(UpdateAccountRequest $request, User $account) : RedirectResponse {
+    public function update(UpdateAccountRequest $request, User $account): RedirectResponse
+    {
 
         if ($request->has('password')) {
             $account->password = bcrypt($request->password);
+        }
+
+        if ($request->has('role')) {
+            $account->syncRoles($request->role);
         }
 
         $account->fill($request->except('password'))->save();
@@ -60,7 +69,8 @@ class AdminAccountController extends Controller
     }
 
 
-    public function destroy(User $user) : RedirectResponse {
+    public function destroy(User $user): RedirectResponse
+    {
         $user->delete();
 
         return redirect()->back();

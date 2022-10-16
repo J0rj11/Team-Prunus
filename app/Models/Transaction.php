@@ -25,6 +25,7 @@ class Transaction extends Model
         'date',
         'payment_method',
         'delivery_status',
+        'remaining_balance',
     ];
 
 
@@ -35,7 +36,8 @@ class Transaction extends Model
 
 
 
-    public function transactionItems() : HasMany {
+    public function transactionItems(): HasMany
+    {
         return $this->hasMany(TransactionItem::class);
     }
 }

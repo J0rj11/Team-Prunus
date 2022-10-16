@@ -8,6 +8,7 @@ use App\Http\Controllers\Customer\CustomerReservationController;
 use App\Http\Controllers\CustomerTransactionController;
 use App\Http\Controllers\DeliveryController;
 use App\Http\Controllers\ReportsController;
+use App\Http\Controllers\ReservationBalanceController;
 use App\Http\Controllers\ReservationController;
 use App\Http\Livewire\SetupCustomerTransaction;
 use Illuminate\Support\Facades\Auth;
@@ -55,6 +56,8 @@ Route::group(['middleware' => 'auth'], function () {
         Route::resource('/transaction', \App\Http\Controllers\CustomerTransactionController::class);
 
         Route::resource('/balance', BalanceController::class);
+        Route::resource('/reservation-balance', ReservationBalanceController::class)
+            ->except('store', 'edit', 'create');
         Route::resource('/delivery', DeliveryController::class)
             ->except('store', 'edit', 'create');
 

@@ -22,17 +22,26 @@
                                             @csrf
                                             @method('PUT')
                                             <div class="form-group row">
-                                                <label class="col-sm-2 col-form-label">Name</label>
+                                                <label class="col-sm-2 col-form-label">FirstName</label>
                                                 <div class="col-sm-9">
-                                                    <input type="text" value="{{ old('name', $account->name) }}"
-                                                        name="name" class="form-control">
+                                                    <input type="text"
+                                                        value="{{ old('first_name', $account->first_name) }}" name="name"
+                                                        class="form-control">
                                                 </div>
                                             </div>
                                             <div class="form-group row">
-                                                <label class="col-sm-2 col-form-label">Email</label>
+                                                <label class="col-sm-2 col-form-label">LastName</label>
                                                 <div class="col-sm-9">
-                                                    <input type="email" value="{{ old('email', $account->email) }}"
-                                                        name="email" class="form-control">
+                                                    <input type="text"
+                                                        value="{{ old('last_name', $account->last_name) }}" name="last_name"
+                                                        class="form-control">
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label class="col-sm-2 col-form-label">Username</label>
+                                                <div class="col-sm-9">
+                                                    <input type="text" value="{{ old('username', $account->username) }}"
+                                                        name="username" class="form-control">
                                                 </div>
                                             </div>
                                             <div class="form-group row">
@@ -53,10 +62,10 @@
                                                 <div class="col-sm-9">
                                                     <select class="form-control" name="role">
                                                         @foreach ($roles as $role)
-                                                             <option value="{{ $role->name }}"
+                                                            <option value="{{ $role->name }}"
                                                                 {{ $account->hasRole($role->name) ? 'selected' : null }}>
                                                                 {{ $role->name }}</option>
-                                                        @endforeach                                                
+                                                        @endforeach
                                                     </select>
                                                 </div>
                                             </div>

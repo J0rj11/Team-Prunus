@@ -63,36 +63,31 @@
                                                             </tr>
                                                         </thead>
                                                         <tbody>
-                                                            <tr>
-                                                                <td>PVC Pipe #2</td>
-                                                                <td>Pipes</td>
-                                                                <td>2</td>
-                                                                <td>₱ 250.00</td>
-                                                                <td>₱ 500.00</td>
-                                                                <td>2022-07-26</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>PVC Pipe #2</td>
-                                                                <td>Pipes</td>
-                                                                <td>2</td>
-                                                                <td>₱ 250.00</td>
-                                                                <td>₱ 500.00</td>
-                                                                <td>2022-07-26</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>PVC Pipe #2</td>
-                                                                <td>Pipes</td>
-                                                                <td>2</td>
-                                                                <td>₱ 250.00</td>
-                                                                <td>₱ 500.00</td>
-                                                                <td>2022-07-26</td>
-                                                            </tr>
+                                                            @foreach ($customer->reservations as $reservation)
+                                                                @foreach ($reservation->reservationItems as $reservationItem)
+                                                                    <tr>
+                                                                        <td>{{ $reservationItem->product->product_name }}
+                                                                        </td>
+                                                                        <td>{{ $reservationItem->product->category->category_name }}
+                                                                        </td>
+                                                                        <td>{{ $reservationItem->quantity }}</td>
+                                                                        <td>₱
+                                                                            {{ number_format($reservationItem->product->price, 2) }}
+                                                                        </td>
+                                                                        <td>₱
+                                                                            {{ number_format($reservationItem->price, 2) }}
+                                                                        </td>
+                                                                        <td>{{ $reservationItem->created_at->format('d M Y') }}
+                                                                        </td>
+                                                                    </tr>
+                                                                @endforeach
+                                                            @endforeach
                                                             <tr class="font-weight-bolder color">
                                                                 <td>Total</td>
                                                                 <td></td>
                                                                 <td></td>
                                                                 <td></td>
-                                                                <td>₱ 1500,00</td>
+                                                                <td>₱ 1500</td>
                                                                 <td></td>
                                                             </tr>
                                                         </tbody>

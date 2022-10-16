@@ -109,8 +109,8 @@
                                                         </div>
                                                         <div class="col">
                                                             <label>Payment Type</label>
-                                                            <select class="form-control form-control-sm"
-                                                                id="exampleFormControlSelect2" name="payment_type">
+                                                            <select class="form-control form-control-sm" id="payment_type"
+                                                                name="payment_type">
                                                                 <option
                                                                     value="{{ \App\Models\Reservation::$RESERVATION_PAYMENT_TYPE_FULL }}"
                                                                     @selected(old('payment_type') == $reservation->payment_type || $reservation->payment_type == 0)>
@@ -132,6 +132,7 @@
                                                             <label>Due Date</label>
                                                             <div>
                                                                 <input class="form-control" type="date" name="due_date",
+                                                                    id="due_date"
                                                                     value="{{ old('due_date', $reservation->due_date) }}">
                                                             </div>
                                                         </div>
@@ -155,3 +156,18 @@
         </div>
     </div>
 @endsection
+
+
+@push('scripts')
+    <script>
+        $(() => {
+            $('#payment_type').on('change', function(e) {
+                if (e.target.value == 0) {
+                    $('#due_date').prop('disabled', true);
+                    return;
+                }
+                $('#due_date').prop('disabled', false)
+            })
+        })
+    </script>
+@endpush

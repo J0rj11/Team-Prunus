@@ -29,7 +29,8 @@ class Reservation extends Model
         'date_of_delivery',
         'payment_type',
         'due_date',
-        'payment_amount'
+        'payment_amount',
+        'remaining_balance'
     ];
 
 
