@@ -57,14 +57,28 @@
                                                 @csrf
                                                 @method('PUT')
                                                 <div class="form-inline mb-2">
-                                                    <div class="row-2">
-                                                        <label class="mr-4">Driver Name </label>
-                                                        <input type="text" class="form-control mb-2" name="driver_name"
-                                                            value="{{ old('driver_name', $delivery->driver_name) }}">
+                                                    <div class="col-md-12"><div class="row-2">
+                                                        
+                                                            <label class="mr-4">Driver Name </label>
+                                                            <!-- <input type="text" class="form-control mb-2" name="driver_name"
+                                                                value="{{ old('driver_name', $delivery->driver_name) }}"> -->
+                                                                <select class="form-control col-sm-3" name="status">
+                                                                    <option value="">
+                                                                        Alex Ventura</option>
+                                                                    <option value="">
+                                                                        Jeron Tandaan</option>
+                                                                </select>
 
-                                                        <label class="ml-6 mr-4">Truck #</label>
-                                                        <input type="text" class="form-control mb-2" name="truck_number"
-                                                            value="{{ old('truck_number', $delivery->truck_number) }}">
+                                                            <label class="ml-6 mr-4">Truck #</label>
+                                                            <!-- <input type="text" class="form-control mb-2" name="truck_number"
+                                                                value="{{ old('truck_number', $delivery->truck_number) }}"> -->
+                                                                <select class="form-control col-sm-3" name="status">
+                                                                    <option value="">
+                                                                        Green Truck</option>
+                                                                    <option value="">
+                                                                        Red Truck</option>
+                                                                </select>
+                                                        </div>    
                                                     </div>
                                                 </div>
                                                 <div class="form-inline">

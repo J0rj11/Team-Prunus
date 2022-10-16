@@ -78,7 +78,7 @@
 
                                                 <div class="col-md-6">
                                                     <div class="form-group row">
-                                                        <label class="col-sm-4 col-form-label">Delivery Status</label>
+                                                        <label class="col-sm-4 col-form-label">Delivery Method</label>
                                                         <div class="col-sm-8">
                                                             <select class="form-control form-control-sm"
                                                                 name="delivery_status">
@@ -103,10 +103,10 @@
                                                                 name="payment_method" id="payment_method">
                                                                 <option
                                                                     value="{{ \App\Models\Transaction::$TRANSACTION_PAYMENT_CASH }}">
-                                                                    Cash</option>
+                                                                    Full Payment</option>
                                                                 <option
                                                                     value="{{ \App\Models\Transaction::$TRANSACTION_PAYMENT_CREDIT }}">
-                                                                    Credit</option>
+                                                                    Partial Payment</option>
                                                             </select>
                                                         </div>
                                                     </div>

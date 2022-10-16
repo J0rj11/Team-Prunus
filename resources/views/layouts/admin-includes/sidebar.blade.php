@@ -48,14 +48,14 @@
         <span class="menu-title">RESERVATIONS</span>
     </a>
 </li>
-<li class="nav-item">
+<!-- <li class="nav-item">
     <a class="nav-link nav-color" href="{{ route('admin.delivery.index') }}">
         <i class="menu-icon">
             <iconify-icon icon="bxs:truck"></iconify-icon>
         </i>
         <span class="menu-title">DELIVERY</span>
     </a>
-</li>
+</li> -->
 <li class="nav-item">
     <a class="nav-link nav-color" href="{{ route('admin.reports.index') }}">
         <i class="menu-icon">
