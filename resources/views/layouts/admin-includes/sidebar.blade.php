@@ -64,3 +64,11 @@
         <span class="menu-title">REPORTS</span>
     </a>
 </li>
+<li class="nav-item">
+    <a class="nav-link nav-color" href="">
+        <i class="menu-icon">
+            <iconify-icon icon="el:list-alt"></iconify-icon>
+        </i>
+        <span class="menu-title">STOCK INVENTORY</span>
+    </a>
+</li>
