@@ -89,7 +89,7 @@
 
                                                 <div class="col-md-6">
                                                     <div class="form-group row">
-                                                        <label class="col-sm-4 col-form-label align-right">Truck #</label>
+                                                        <label class="col-sm-4 col-form-label align-right">Truck # sd</label>
                                                         <div class="col-sm-8">
                                                             <input name="truck_number"
                                                                 value="{{ old('truck_number', $delivery->truck_number) }}"

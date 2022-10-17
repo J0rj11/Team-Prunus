@@ -26,6 +26,8 @@
                                                             <tr>
                                                                 <th>Date</th>
                                                                 <th>Customer Name</th>
+                                                                <th>Driver Name</th>
+                                                                <th>Truck Number</th>
                                                                 <th>Address</th>
                                                                 <th>Contact No.</th>
                                                                 <th>Action</th>
@@ -56,6 +58,8 @@
                                                             <tr>
                                                                 <th>Date</th>
                                                                 <th>Customer Name</th>
+                                                                <th>Driver Name</th>
+                                                                <th>Truck Number</th>
                                                                 <th>Address</th>
                                                                 <th>Contact No.</th>
                                                                 <th>Action</th>
@@ -95,6 +99,14 @@
                 {
                     data: 'transaction.transaction_name',
                     name: 'transaction.transaction_name'
+                },
+                {
+                    data: 'driver_name',
+                    name: 'driver_name'
+                },
+                {
+                    data: 'truck_number',
+                    name: 'truck_number'
                 },
                 {
                     data: 'transaction.address',
@@ -137,6 +149,14 @@
                 {
                     data: 'transaction.transaction_name',
                     name: 'transaction.transaction_name'
+                },
+                {
+                    data: 'driver_name',
+                    name: 'driver_name'
+                },
+                {
+                    data: 'truck_number',
+                    name: 'truck_number'
                 },
                 {
                     data: 'transaction.address',
