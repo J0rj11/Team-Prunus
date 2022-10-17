@@ -20,14 +20,13 @@
                                             <div class="table-responsive">
                                                 <table class="table table-hover table-striped" id="productTable">
                                                     <thead class="color">
-                                                    <tr>
-                                                        <th>Code</th>
-                                                        <th>Product Name</th>
-                                                        <th>Description</th>
-                                                        <th>Quantity</th>
-                                                        <th>Price</th>
-                                                        <th>Action</th>
-                                                    </tr>
+                                                        <tr>
+                                                            <th>Code</th>
+                                                            <th>Product Name</th>
+                                                            <th>Quantity</th>
+                                                            <th>Price</th>
+                                                            <th>Action</th>
+                                                        </tr>
                                                     </thead>
                                                     <tbody>
                                                     </tbody>
@@ -53,18 +52,13 @@
                 serverSide: true,
                 processing: true,
                 ajax: "{{ route('product.index') }}",
-                columns: [
-                    {
-                        data: 'product_code',
-                        name: 'product_code'
+                columns: [{
+                        data: 'id',
+                        name: 'id'
                     },
                     {
                         data: 'product_name',
                         name: 'product_name'
-                    },
-                    {
-                        data: 'description',
-                        name: 'description'
                     },
                     {
                         data: 'quantity',
@@ -87,4 +81,3 @@
         })
     </script>
 @endpush
-

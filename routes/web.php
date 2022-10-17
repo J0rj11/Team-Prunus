@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\AdminReportsController;
 use App\Http\Controllers\Admin\AdminReservationController;
+use App\Http\Controllers\AdminStockInventoryController;
 use App\Http\Controllers\BalanceController;
 use App\Http\Controllers\Customer\CustomerDashboardController;
 use App\Http\Controllers\Customer\CustomerReservationController;
@@ -52,27 +53,33 @@ Route::group(['middleware' => 'auth'], function () {
         Route::resource('/product', \App\Http\Controllers\ProductController::class);
         Route::resource('/expense', \App\Http\Controllers\ExpenseController::class);
 
+
+        // Transaction
         Route::get('/transaction/{transaction}/setup', [\App\Http\Controllers\CustomerTransactionController::class, 'setup'])->name('transaction.setup');
         Route::resource('/transaction', \App\Http\Controllers\CustomerTransactionController::class);
 
+        // Balance
         Route::resource('/balance', BalanceController::class);
         Route::resource('/reservation-balance', ReservationBalanceController::class)
             ->except('store', 'edit', 'create');
+
+        // Delivery
         Route::resource('/delivery', DeliveryController::class)
             ->except('store', 'edit', 'create');
 
 
+        // Products
         Route::get('/reports', [ReportsController::class, 'index'])->name('reports.index');
         Route::get('/reports/product-sold', [ReportsController::class, 'productSoldReport'])->name('reports.product-sold');
         Route::get('/reports/delivery-completed', [ReportsController::class, 'deliveryCompletedReport'])->name('reports.delivery-completed');
 
 
+        // Reservations
         Route::get('/reservations', [ReservationController::class, 'index'])->name('reservations.index');
         Route::get('/reservation/{reservation}', [ReservationController::class, 'show'])->name('reservation.show');
         Route::put('/reservation/{reservation}', [ReservationController::class, 'update'])->name('reservation.update');
     });
 
-    Route::view('/reports', 'report.index');
 
     Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
         Route::resource('/category', \App\Http\Controllers\Admin\AdminCategoryController::class);
@@ -82,12 +89,19 @@ Route::group(['middleware' => 'auth'], function () {
         Route::resource('/account', \App\Http\Controllers\Admin\AdminAccountController::class);
         Route::resource('/delivery', \App\Http\Controllers\Admin\AdminDeliveryController::class);
 
+
+        // Reports
         Route::get('/reports', [AdminReportsController::class, 'index'])->name('reports.index');
         Route::get('/reports/product-sold', [AdminReportsController::class, 'productSoldReport'])->name('reports.product-sold');
         Route::get('/reports/delivery-completed', [AdminReportsController::class, 'deliveryCompletedReport'])->name('reports.delivery-completed');
 
+        // Reservation
         Route::get('/reservation', [AdminReservationController::class, 'index'])->name('reservation.index');
         Route::put('/reservation/{reservation}/approve', [AdminReservationController::class, 'approveReservation'])->name('reservation.approve');
         Route::put('/reservation/{reservation}/decline', [AdminReservationController::class, 'declineReservation'])->name('reservation.decline');
+
+
+        // Inventory
+        Route::resource('/stock-inventory', AdminStockInventoryController::class);
     });
 });

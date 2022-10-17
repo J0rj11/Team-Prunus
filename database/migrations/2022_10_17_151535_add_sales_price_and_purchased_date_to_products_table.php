@@ -13,13 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('products', function (Blueprint $table) {
-            $table->id();
-            $table->string('product_name');
-            $table->foreignId('category_id')->nullable()->constrained()->nullOnDelete();
-            $table->double('price');
-            $table->integer('quantity');
-            $table->timestamps();
+        Schema::table('products', function (Blueprint $table) {
+            $table->double('purchase_price');
         });
     }
 
@@ -30,6 +25,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('products');
+        Schema::table('products', function (Blueprint $table) {
+            //
+        });
     }
 };

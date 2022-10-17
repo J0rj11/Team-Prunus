@@ -17,26 +17,27 @@
 
                                     <div class="card white-bg">
                                         <div class="card-body">
-                                        <h3>PURCHASE DATA FORM</h3>
-                                        <div class="row pt-2 px-5">
-                                            <div class="col-md-6">
-                                                <div class="form-group row">
-                                                    <label class="col-sm-2 col-form-label ">Date</label>
-                                                    <div class="col-sm-8">
-                                                        <input name="" value="" type="date"
-                                                            class="form-control form-control-sm">
+                                            <h3>PURCHASE DATA FORM</h3>
+                                            <div class="row pt-2 px-5">
+                                                <div class="col-md-6">
+                                                    <div class="form-group row">
+                                                        <label class="col-sm-2 col-form-label ">Date</label>
+                                                        <div class="col-sm-8">
+                                                            <input name="" value="" type="date"
+                                                                class="form-control form-control-sm">
+                                                        </div>
                                                     </div>
                                                 </div>
+                                                <div class="col-md-6">
+                                                    <a class="btn btn-primary float-right"
+                                                        href="{{ route('admin.stock-inventory.create') }}">Add Product</a>
+                                                </div>
                                             </div>
-                                            <div class="col-md-6">
-                                                <button class="btn btn-primary float-right">Add Product</button>
-                                            </div>
-                                        </div>
                                             <div class="card-body bg-transparent">
                                                 <form>
                                                     <div class="table-responsive">
                                                         <table class="table table-hover table-striped"
-                                                            id="soldProductTable">
+                                                            id="purchaseProductTable">
                                                             <thead class="color">
                                                                 <tr>
                                                                     <th>Product Category</th>
@@ -49,30 +50,6 @@
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
-                                                               <tr>
-                                                                    <td>Pipes</td>                                                                
-                                                                    <td>PVC Pipe</td>                                                                
-                                                                    <td>50</td>                                                                
-                                                                    <td>92.81</td>                                                                
-                                                                    <td>4640.5</td>                                                                
-                                                                    <td>94</td>                                                                
-                                                                    <td>
-                                                                        <button class="btn btn-primary btn-sm">Edit</button>
-                                                                        <button class="btn btn-dark btn-sm">Delete</button>
-                                                                    </td>                                                                
-                                                               </tr>
-                                                               <tr>
-                                                                    <td>Sealant</td>                                                                
-                                                                    <td>Vulcaseal 1/2 L</td>                                                                
-                                                                    <td>10</td>                                                                
-                                                                    <td>322</td>                                                                
-                                                                    <td>3220</td>                                                                
-                                                                    <td>324</td>                                                                
-                                                                    <td>
-                                                                        <button class="btn btn-primary btn-sm">Edit</button>
-                                                                        <button class="btn btn-dark btn-sm">Delete</button>
-                                                                    </td>                                                                
-                                                               </tr>
                                                             </tbody>
                                                         </table>
                                                     </div>
@@ -88,7 +65,7 @@
                                 <div class="csstab-content">
                                     <div class="card-body white-bg">
                                         <div class="card bg-transparent">
-                                                <h3>MONTHLY PURCHASE RECORDS</h3>
+                                            <h3>MONTHLY PURCHASE RECORDS</h3>
                                             <div class="card-body">
                                                 <div class="table-responsive px-3">
                                                     <table class="table table-hover table-striped" id="deliveryTable">
@@ -101,24 +78,24 @@
                                                         </thead>
                                                         <tbody>
                                                             <tr>
-                                                                <td>January</td>                                                                
-                                                                <td>2022</td>                                                                
+                                                                <td>January</td>
+                                                                <td>2022</td>
                                                                 <td>
                                                                     <button class="btn btn-primary btn-sm">View</button>
                                                                     <button class="btn btn-dark btn-sm">Delete</button>
                                                                 </td>
                                                             </tr>
                                                             <tr>
-                                                                <td>February</td>                                                                
-                                                                <td>2022</td>                                                                
+                                                                <td>February</td>
+                                                                <td>2022</td>
                                                                 <td>
                                                                     <button class="btn btn-primary btn-sm">View</button>
                                                                     <button class="btn btn-dark btn-sm">Delete</button>
                                                                 </td>
                                                             </tr>
                                                             <tr>
-                                                                <td>March</td>                                                                
-                                                                <td>2022</td>                                                                
+                                                                <td>March</td>
+                                                                <td>2022</td>
                                                                 <td>
                                                                     <button class="btn btn-primary btn-sm">View</button>
                                                                     <button class="btn btn-dark btn-sm">Delete</button>
@@ -139,3 +116,45 @@
         </div>
     </div>
 @endsection
+
+
+@push('scripts')
+    <script>
+        $(() => {
+            $('#purchaseProductTable').DataTable({
+                serverSide: true,
+                processing: true,
+                ajax: "{{ route('admin.stock-inventory.index') }}",
+                columns: [{
+                        data: 'category.category_name',
+                        name: 'category.category_name'
+                    },
+                    {
+                        data: 'product_name',
+                        name: 'product_name'
+                    },
+                    {
+                        data: 'quantity',
+                        name: 'quantity'
+                    },
+                    {
+                        data: 'purchase_price',
+                        name: 'purchase_price'
+                    },
+                    {
+                        data: 'total',
+                        name: 'total'
+                    },
+                    {
+                        data: 'price',
+                        name: 'price',
+                    },
+                    {
+                        data: 'actions',
+                        name: 'actions'
+                    }
+                ]
+            })
+        })
+    </script>
+@endpush

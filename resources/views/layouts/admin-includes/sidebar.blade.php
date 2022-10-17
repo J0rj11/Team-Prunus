@@ -65,7 +65,7 @@
     </a>
 </li>
 <li class="nav-item">
-    <a class="nav-link nav-color" href="">
+    <a class="nav-link nav-color" href="{{ route('admin.stock-inventory.index') }}">
         <i class="menu-icon">
             <iconify-icon icon="el:list-alt"></iconify-icon>
         </i>
