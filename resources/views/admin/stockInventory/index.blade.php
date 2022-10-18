@@ -30,30 +30,28 @@
                                                 </div>
                                                 <div class="col-md-6">
                                                     <a class="btn btn-primary float-right"
-                                                        href="{{ route('admin.stock-inventory.create') }}">Add Product</a>
+                                                        href="{{ route('admin.stockInventory.create') }}">Add Product</a>
                                                 </div>
                                             </div>
                                             <div class="card-body bg-transparent">
-                                                <form>
-                                                    <div class="table-responsive">
-                                                        <table class="table table-hover table-striped"
-                                                            id="purchaseProductTable">
-                                                            <thead class="color">
-                                                                <tr>
-                                                                    <th>Product Category</th>
-                                                                    <th>Product Name</th>
-                                                                    <th>Quantity</th>
-                                                                    <th>Purchase Price</th>
-                                                                    <th>Total</th>
-                                                                    <th>Sale Price</th>
-                                                                    <th>Action</th>
-                                                                </tr>
-                                                            </thead>
-                                                            <tbody>
-                                                            </tbody>
-                                                        </table>
-                                                    </div>
-                                                </form>
+                                                <div class="table-responsive">
+                                                    <table class="table table-hover table-striped"
+                                                        id="purchaseProductTable">
+                                                        <thead class="color">
+                                                            <tr>
+                                                                <th>Product Category</th>
+                                                                <th>Product Name</th>
+                                                                <th>Quantity</th>
+                                                                <th>Purchase Price</th>
+                                                                <th>Total</th>
+                                                                <th>Sale Price</th>
+                                                                <th>Action</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -88,23 +86,6 @@
                                                                     </td>
                                                                 </tr>
                                                             @endforeach
-
-                                                            {{-- <tr>
-                                                                <td>February</td>
-                                                                <td>2022</td>
-                                                                <td>
-                                                                    <button class="btn btn-primary btn-sm">View</button>
-                                                                    <button class="btn btn-dark btn-sm">Delete</button>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>March</td>
-                                                                <td>2022</td>
-                                                                <td>
-                                                                    <button class="btn btn-primary btn-sm">View</button>
-                                                                    <button class="btn btn-dark btn-sm">Delete</button>
-                                                                </td>
-                                                            </tr> --}}
                                                         </tbody>
                                                     </table>
                                                 </div>
@@ -128,7 +109,7 @@
             $('#purchaseProductTable').DataTable({
                 serverSide: true,
                 processing: true,
-                ajax: "{{ route('admin.stock-inventory.index') }}",
+                ajax: "{{ route('admin.stockInventory.index') }}",
                 columns: [{
                         data: 'category.category_name',
                         name: 'category.category_name'

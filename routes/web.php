@@ -101,7 +101,7 @@ Route::group(['middleware' => 'auth'], function () {
 
 
         // Inventory
-        Route::get('/stock-inventory/monthly', [AdminStockInventoryController::class, 'purchasedRecords'])->name('stock-inventory.monthly');
-        Route::resource('/stock-inventory', AdminStockInventoryController::class);
+        Route::get('/stockInventory/monthly', [AdminStockInventoryController::class, 'purchasedRecords'])->name('stock-inventory.monthly');
+        Route::resource('/stockInventory', AdminStockInventoryController::class);
     });
 });

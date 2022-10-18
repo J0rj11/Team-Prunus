@@ -19,7 +19,7 @@ class DatabaseSeeder extends Seeder
             AdminSeeder::class,
             SupplierSeeder::class,
             CategorySeeder::class,
-            ProductSeeder::class,
+            // ProductSeeder::class,
             ExpenseSeeder::class,
             DeliverySeeder::class
         ]);

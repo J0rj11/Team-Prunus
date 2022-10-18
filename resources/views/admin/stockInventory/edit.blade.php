@@ -20,7 +20,7 @@
 
                                             <h3>PURCHASE DATA FORM</h3>
                                             <form class="pt-4 pl-5"
-                                                action="{{ route('admin.stock-inventory.update', $stockInventory) }}"
+                                                action="{{ route('admin.stockInventory.update', $stockInventory) }}"
                                                 method="POST">
                                                 @csrf
                                                 @method('PUT')
@@ -31,7 +31,7 @@
                                                             <label class="col-sm-2 col-form-label ">Date</label>
                                                             <div class="col-sm-8">
                                                                 <input name="purchased_date"
-                                                                    value="{{ old('purchased_date', $stockInventory->purchased_date) }}"
+                                                                    value="{{ old('purchased_date', $stockInventory->created_at) }}"
                                                                     type="date" class="form-control form-control-sm">
                                                             </div>
                                                         </div>
@@ -116,7 +116,7 @@
                                                         <div class="row">
                                                             <div class="col-md-6">
                                                                 <div class="mt-5 pb-2 float-left">
-                                                                    <a href="{{ route('admin.stock-inventory.index') }}"
+                                                                    <a href="{{ route('admin.stockInventory.index') }}"
                                                                         class="btn btn-primary btn-md">
                                                                         <i class="fa fa-arrow-left menu-icon"></i></a>
 
@@ -125,7 +125,7 @@
                                                             </div>
                                                             <div class="col-md-6">
                                                                 <div class="mt-5 pb-2 float-right">
-                                                                    <a href="{{ route('admin.stock-inventory.index') }}"
+                                                                    <a href="{{ route('admin.stockInventory.index') }}"
                                                                         class="btn btn-outline-primary btn-md mr-2">Cancel</a>
                                                                     <button type="submit"
                                                                         class="btn btn-primary btn-md">Confirm</button>

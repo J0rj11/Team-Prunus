@@ -19,7 +19,7 @@
                                         <div class="card-body">
 
                                             <h3>PURCHASE DATA FORM</h3>
-                                            <form class="pt-4 pl-5" action="{{ route('admin.stock-inventory.store') }}"
+                                            <form class="pt-4 pl-5" action="{{ route('admin.stockInventory.store') }}"
                                                 method="POST">
                                                 @csrf
 
@@ -108,7 +108,7 @@
                                                         <div class="row">
                                                             <div class="col-md-6">
                                                                 <div class="mt-5 pb-2 float-left">
-                                                                    <a href="{{ route('admin.stock-inventory.index') }}"
+                                                                    <a href="{{ route('admin.stockInventory.index') }}"
                                                                         class="btn btn-primary btn-md">
                                                                         <i class="fa fa-arrow-left menu-icon"></i></a>
 
@@ -117,7 +117,7 @@
                                                             </div>
                                                             <div class="col-md-6">
                                                                 <div class="mt-5 pb-2 float-right">
-                                                                    <a href="{{ route('admin.stock-inventory.index') }}"
+                                                                    <a href="{{ route('admin.stockInventory.index') }}"
                                                                         class="btn btn-outline-primary btn-md mr-2">Cancel</a>
                                                                     <button type="submit"
                                                                         class="btn btn-primary btn-md">Confirm</button>

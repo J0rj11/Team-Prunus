@@ -20,7 +20,7 @@ class ProductFactory extends Factory
     {
         $price = $this->faker->numberBetween(50, 100);
         return [
-            'product_name' => $this->faker->name,
+            'product_name' => $this->faker->name(),
             'category_id' => Category::inRandomOrder()->first()->id,
             'quantity' => $this->faker->numberBetween(1, 10),
             'price' => $price,
