@@ -19,7 +19,6 @@
                                     <div class="card white-bg">
                                         <div class="card-body">
                                             <div class="card-body bg-transparent">
-                                                <form>
                                                     <div class="table-responsive">
                                                         <table class="table table-hover table-striped"
                                                             id="productSoldTable">
@@ -35,8 +34,10 @@
                                                             <tbody>
                                                             </tbody>
                                                         </table>
+                                                        <div class="mt-3 mr-3 float-right">
+                                                            <button class="btn btn-primary btn-md">Submit report</button>
+                                                        </div>
                                                     </div>
-                                                </form>
                                             </div>
                                         </div>
                                     </div>
@@ -65,6 +66,9 @@
                                                         <tbody>
                                                         </tbody>
                                                     </table>
+                                                    <div class="mt-3 mr-3 float-right">
+                                                        <button class="btn btn-primary btn-md">Submit report</button>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -96,7 +100,9 @@
                                                     <tbody>
                                                     </tbody>
                                                 </table>
-
+                                                <div class="mt-3 mr-3 float-right">
+                                                    <button class="btn btn-primary btn-md">Submit report</button>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
