@@ -16,7 +16,7 @@ class AdminReservationController extends Controller
     public function index(Request $request): View | JsonResponse
     {
         if ($request->ajax()) {
-            return DataTables::of(Reservation::query()->where('status', Reservation::$RESERVATION_STATUS_IDLE)->with('user'))
+            return DataTables::of(Reservation::query()->where('status', Reservation::$RESERVATION_STATUS_IDLE)->with('user')->select('reservations.*'))
                 ->addColumn('name', fn (Reservation $reservation) => $reservation->user->first_name . ' ' . $reservation->user->last_name)
                 ->addColumn('actions', function (Reservation $reservation) {
                     return '<div>

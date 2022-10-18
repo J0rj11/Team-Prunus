@@ -23,7 +23,8 @@ class BalanceController extends Controller
             $query = Transaction::query()
                 ->where('payment_method', Transaction::$TRANSACTION_PAYMENT_CREDIT)
                 ->withCount('transactionItems')
-                ->withSum('transactionItems', 'price');
+                ->withSum('transactionItems', 'price')
+                ->select('tranactions.*');
             return DataTables::of($query)
                 ->addColumn('payment_method', fn (Transaction $transaction) => $transaction->payment_method == 0 ? 'Credit' : 'Cash')
                 ->addColumn('actions', function (Transaction $transaction) {

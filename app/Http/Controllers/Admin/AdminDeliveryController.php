@@ -15,7 +15,7 @@ class AdminDeliveryController extends Controller
     public function index(Request $request): View | JsonResponse
     {
         if ($request->ajax()) {
-            return DataTables::of(Delivery::query()->where('status', Delivery::$DELIVERY_STATUS_IDLE)->with('transaction'))
+            return DataTables::of(Delivery::query()->where('status', Delivery::$DELIVERY_STATUS_IDLE)->with('transaction')->select('deliveries.*'))
                 ->addColumn('actions', function (Delivery $delivery) {
                     return '<div>
                         <a href="' . route('delivery.show', $delivery) . '" class="btn btn-secondary btn-sm">View</a>

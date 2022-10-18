@@ -20,7 +20,7 @@ class AdminReportsController extends Controller
 
     public function productSoldReport(): JsonResponse
     {
-        return DataTables::of(TransactionItem::query()->with(['product', 'product.category']))
+        return DataTables::of(TransactionItem::query()->with(['product', 'product.category'])->select('transactionItems.*'))
             ->addColumn('price', fn (TransactionItem $transactionItem) => '₱ ' . $transactionItem->price)
             ->make();
     }
