@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.cashier')
 
 @section('content')
     <div class="sidebar-fixed main-panel overflow-auto">
@@ -13,7 +13,7 @@
                         <div class="csstabs">
                             <div class="csstab">
                                 <input type="radio" name="css-tabs" id="tab-1" checked class="csstab-switch">
-                                
+
                                 <label for="tab-2" class="csstab-label">Category List</label>
                                 <div class="csstab-content">
                                     <div class="card-body white-bg">
@@ -22,12 +22,12 @@
                                             <div class="table-responsive">
                                                 <table class="table table-hover table-striped" id="categoryTable">
                                                     <thead class="color">
-                                                    <tr>
-                                                        <th>Code</th>
-                                                        <th>Category Name</th>
-                                                        <th>Description</th>
-                                                        <th>Action</th>
-                                                    </tr>
+                                                        <tr>
+                                                            <th>Code</th>
+                                                            <th>Category Name</th>
+                                                            <th>Description</th>
+                                                            <th>Action</th>
+                                                        </tr>
                                                     </thead>
                                                     <tbody>
                                                     </tbody>
@@ -53,8 +53,7 @@
                 serverSide: true,
                 processing: true,
                 ajax: "{{ route('category.index') }}",
-                columns: [
-                    {
+                columns: [{
                         data: 'category_code',
                         name: 'category_code'
                     },
@@ -78,6 +77,4 @@
             })
         })
     </script>
-
 @endpush
-

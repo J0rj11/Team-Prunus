@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Delivery;
+use App\Models\Purchase;
 use App\Models\Transaction;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
@@ -20,8 +21,8 @@ class ReportsController extends Controller
 
     public function productSoldReport(): JsonResponse
     {
-        return DataTables::of(TransactionItem::query()->with(['product', 'product.category']))
-            ->addColumn('price', fn (TransactionItem $transactionItem) => '₱ ' . $transactionItem->price)
+        return DataTables::of(Purchase::query()->with(['product', 'product.category']))
+            ->addColumn('price', fn (Purchase $purchasedProduct) => '₱ ' . ($purchasedProduct->quantity * $purchasedProduct->product->purchase_price))
             ->make();
     }
 
