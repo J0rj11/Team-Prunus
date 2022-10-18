@@ -54,7 +54,8 @@
                                                     </div>
                                                 </div>
                                                 <div class="float-right">
-                                                    <a href="{{ route('admin.stock-inventory.index') }}" class="btn btn-outline-primary btn-sm mr-5">
+                                                    <a href="{{ route('admin.stockInventory.index') }}"
+                                                        class="btn btn-outline-primary btn-sm mr-5">
                                                         <i class="fa fa-arrow-left menu-icon"></i>
                                                         <span class="menu-title">Back</span>
                                                     </a>
