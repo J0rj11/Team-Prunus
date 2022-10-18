@@ -17,24 +17,6 @@
                                 <div class="csstab-content">
 
                                     <div class="card white-bg">
-                                        <!-- <div class="col-md-12 px-4">
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <label class="col-sm-3 col-form-label">Search by</label>
-                                                    <div class="col-sm-9">
-                                                        <input type="date" class="form-control" >
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <label class="col-sm-3 col-form-label">Search by</label>
-                                                    <div class="col-sm-9">
-                                                        <input type="date" class="form-control" >
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div> -->
-                                        
-                                        <div></div>
                                         <div class="card-body">
                                             <div class="card-body bg-transparent">
                                                 <form>
@@ -49,14 +31,7 @@
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
-                                                                <tr>
-                                                                    <td>05-02-2022</td>
-                                                                    <td>SaleReport-5_2_2022.pdf</td>
-                                                                    <td>
-                                                                        <button class="btn btn-primary btn-sm">View</button>
-                                                                        <button class="btn btn-dark btn-sm">Delete</button>
-                                                                    </td>
-                                                                </tr>
+
                                                             </tbody>
                                                         </table>
                                                     </div>
@@ -75,23 +50,16 @@
                                             <div class="card-body">
                                                 <div class="table-responsive">
                                                     <table class="table table-hover table-striped" id="deliveryTable">
-                                                    <thead class="color">
-                                                        <tr>
-                                                            <th>Date</th>
-                                                            <th>File Name</th>
-                                                            <th>Action</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <tr>
-                                                            <td>05-02-2022</td>
-                                                            <td>DeliveryReport-5_2_2022.pdf</td>
-                                                            <td>
-                                                                <button class="btn btn-primary btn-sm">View</button>
-                                                                <button class="btn btn-dark btn-sm">Delete</button>
-                                                            </td>
-                                                        </tr>
-                                                    </tbody>
+                                                        <thead class="color">
+                                                            <tr>
+                                                                <th>Date</th>
+                                                                <th>File Name</th>
+                                                                <th>Action</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+
+                                                        </tbody>
                                                     </table>
                                                 </div>
                                             </div>
@@ -119,23 +87,15 @@
                                         <div class="card-body bg-transparent">
                                             <div class="table-responsive">
                                                 <table class="table table-hover table-striped mb-2" id="expenseTable">
-                                                <thead class="color">
-                                                    <tr>
-                                                        <th>Date</th>
-                                                        <th>File Name</th>
-                                                        <th>Action</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <td>05-02-2022</td>
-                                                        <td>ExpenseReport-5_2_2022.pdf</td>
-                                                        <td>
-                                                            <button class="btn btn-primary btn-sm">View</button>
-                                                            <button class="btn btn-dark btn-sm">Delete</button>
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
+                                                    <thead class="color">
+                                                        <tr>
+                                                            <th>Date</th>
+                                                            <th>File Name</th>
+                                                            <th>Action</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    </tbody>
                                                 </table>
                                             </div>
                                         </div>
@@ -150,23 +110,23 @@
                                         <div class="card-body bg-transparent">
                                             <div class="table-responsive">
                                                 <table class="table table-hover table-striped mb-2" id="expenseTable">
-                                                <thead class="color">
-                                                    <tr>
-                                                        <th>Date</th>
-                                                        <th>File Name</th>
-                                                        <th>Action</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <td>05-02-2022</td>
-                                                        <td>ExpenseReport-5_2_2022.pdf</td>
-                                                        <td>
-                                                            <button class="btn btn-primary btn-sm">View</button>
-                                                            <button class="btn btn-dark btn-sm">Delete</button>
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
+                                                    <thead class="color">
+                                                        <tr>
+                                                            <th>Date</th>
+                                                            <th>File Name</th>
+                                                            <th>Action</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>05-02-2022</td>
+                                                            <td>ExpenseReport-5_2_2022.pdf</td>
+                                                            <td>
+                                                                <button class="btn btn-primary btn-sm">View</button>
+                                                                <button class="btn btn-dark btn-sm">Delete</button>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
                                                 </table>
                                             </div>
                                         </div>
@@ -180,3 +140,67 @@
         </div>
     </div>
 @endsection
+
+
+
+@push('scripts')
+    <script>
+        $('#soldProductTable').DataTable({
+            processing: true,
+            serverSide: true,
+            ajax: "{{ route('admin.reports.product-sold') }}",
+            columns: [{
+                    data: 'created_at',
+                    name: 'created_at'
+                },
+                {
+                    data: 'file_name',
+                    name: 'file_name'
+                },
+                {
+                    data: 'actions',
+                    name: 'actions'
+                }
+            ]
+        })
+
+
+        $('#deliveryTable').DataTable({
+            processing: true,
+            serverSide: true,
+            ajax: "{{ route('admin.reports.delivery-completed') }}",
+            columns: [{
+                    data: 'created_at',
+                    name: 'created_at'
+                },
+                {
+                    data: 'file_name',
+                    name: 'file_name'
+                },
+                {
+                    data: 'actions',
+                    name: 'actions'
+                }
+            ]
+        })
+
+        $('#expenseTable').DataTable({
+            processing: true,
+            serverSide: true,
+            ajax: "{{ route('admin.reports.expense-reports') }}",
+            columns: [{
+                    data: 'created_at',
+                    name: 'created_at'
+                },
+                {
+                    data: 'file_name',
+                    name: 'file_name'
+                },
+                {
+                    data: 'actions',
+                    name: 'actions'
+                }
+            ]
+        })
+    </script>
+@endpush

@@ -19,25 +19,30 @@
                                     <div class="card white-bg">
                                         <div class="card-body">
                                             <div class="card-body bg-transparent">
-                                                    <div class="table-responsive">
-                                                        <table class="table table-hover table-striped"
-                                                            id="productSoldTable">
-                                                            <thead class="color">
-                                                                <tr>
-                                                                    <th>Date</th>
-                                                                    <th>Code</th>
-                                                                    <th>Product Name</th>
-                                                                    <th>Quantity</th>
-                                                                    <th>Total</th>
-                                                                </tr>
-                                                            </thead>
-                                                            <tbody>
-                                                            </tbody>
-                                                        </table>
-                                                        <div class="mt-3 mr-3 float-right">
-                                                            <button class="btn btn-primary btn-md">Submit report</button>
-                                                        </div>
+                                                <div class="table-responsive">
+                                                    <table class="table table-hover table-striped" id="productSoldTable">
+                                                        <thead class="color">
+                                                            <tr>
+                                                                <th>Date</th>
+                                                                <th>Code</th>
+                                                                <th>Product Name</th>
+                                                                <th>Quantity</th>
+                                                                <th>Total</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                        </tbody>
+                                                    </table>
+                                                    <div class="mt-3 mr-3 float-right">
+                                                        <form action="{{ route('reports.generate-product-reports') }}"
+                                                            method="POST">
+                                                            @csrf
+                                                            <button class="btn btn-primary btn-md" type="submit">Submit
+                                                                report</button>
+
+                                                        </form>
                                                     </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -57,6 +62,7 @@
                                                             <tr>
                                                                 <th>Date</th>
                                                                 <th>Time</th>
+                                                                <th>Driver Name</th>
                                                                 <th>Truck #</th>
                                                                 <th>Client's Name</th>
                                                                 <th>Items</th>
@@ -67,7 +73,12 @@
                                                         </tbody>
                                                     </table>
                                                     <div class="mt-3 mr-3 float-right">
-                                                        <button class="btn btn-primary btn-md">Submit report</button>
+                                                        <form action="{{ route('reports.generate-delivery-reports') }}"
+                                                            method="POST">
+                                                            @csrf
+                                                            <button class="btn btn-primary btn-md" type="submit">Submit
+                                                                report</button>
+                                                        </form>
                                                     </div>
                                                 </div>
                                             </div>
@@ -101,7 +112,13 @@
                                                     </tbody>
                                                 </table>
                                                 <div class="mt-3 mr-3 float-right">
-                                                    <button class="btn btn-primary btn-md">Submit report</button>
+                                                    <form action="{{ route('expense.generate-expense-report') }}"
+                                                        method="POST" id="generateForm">
+                                                        @csrf
+                                                        <button class="btn btn-primary generateBtn" type="submit">Submit
+                                                            report</button>
+                                                    </form>
+
                                                 </div>
                                             </div>
                                         </div>
@@ -109,7 +126,6 @@
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>
@@ -118,7 +134,7 @@
 @endsection
 
 @push('scripts')
-    <script>
+    <script type="text/javascript">
         $(() => {
             $('#productSoldTable').DataTable({
                 processing: true,
@@ -160,6 +176,9 @@
                         name: 'updated_at'
                     },
                     {
+                        data: 'driver_name',
+                        name: 'driver_name'
+                    }, {
                         data: 'truck_number',
                         name: 'truck_number'
                     },
@@ -200,6 +219,8 @@
                     }
                 ]
             })
+
+       
         })
     </script>
 @endpush

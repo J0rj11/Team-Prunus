@@ -44,7 +44,8 @@
                                                                 <select class="form-control" id="categorySelect"
                                                                     wire:model="selectedCategory">
                                                                     @foreach ($categories as $category)
-                                                                        <option value="{{ $category->id }}">
+                                                                        <option value="{{ $category->id }}"
+                                                                            @selected($category->id == $selectedCategory->id)>
                                                                             {{ $category->category_name }}</option>
                                                                     @endforeach
                                                                 </select>

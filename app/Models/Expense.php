@@ -15,4 +15,8 @@ class Expense extends Model
         'amount',
         'notes'
     ];
+
+    protected $dates = [
+        'expense_date'
+    ];
 }

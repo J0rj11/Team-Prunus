@@ -50,6 +50,8 @@ Route::group(['middleware' => 'auth'], function () {
         Route::resource('/supplier', \App\Http\Controllers\SupplierController::class);
         Route::resource('/category', \App\Http\Controllers\CategoryController::class);
         Route::resource('/product', \App\Http\Controllers\ProductController::class);
+
+        Route::post('/expense/generate-expense-report', [\App\Http\Controllers\ExpenseController::class, 'generateExpenseReport'])->name('expense.generate-expense-report');
         Route::resource('/expense', \App\Http\Controllers\ExpenseController::class);
 
 
@@ -71,7 +73,8 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/reports', [ReportsController::class, 'index'])->name('reports.index');
         Route::get('/reports/product-sold', [ReportsController::class, 'productSoldReport'])->name('reports.product-sold');
         Route::get('/reports/delivery-completed', [ReportsController::class, 'deliveryCompletedReport'])->name('reports.delivery-completed');
-
+        Route::post('/reports/generate-product-reports', [ReportsController::class, 'generateSoldProductExcelReport'])->name('reports.generate-product-reports');
+        Route::post('/reports/generate-delivery-reports', [ReportsController::class, 'generateDeliveryCompletedExcelReport'])->name('reports.generate-delivery-reports');
 
         // Reservations
         Route::get('/reservations', [ReservationController::class, 'index'])->name('reservations.index');
@@ -92,7 +95,9 @@ Route::group(['middleware' => 'auth'], function () {
         // Reports
         Route::get('/reports', [AdminReportsController::class, 'index'])->name('reports.index');
         Route::get('/reports/product-sold', [AdminReportsController::class, 'productSoldReport'])->name('reports.product-sold');
+        Route::get('/reports/download/{report}', [AdminReportsController::class, 'downloadSoldProductReport'])->name('reports.download');
         Route::get('/reports/delivery-completed', [AdminReportsController::class, 'deliveryCompletedReport'])->name('reports.delivery-completed');
+        Route::get('/reports/expense-report', [AdminReportsController::class, 'expenseReports'])->name('reports.expense-reports');
 
         // Reservation
         Route::get('/reservation', [AdminReservationController::class, 'index'])->name('reservation.index');
