@@ -64,7 +64,6 @@ class AdminStockInventoryController extends Controller
         //     ->get();
 
         $purchasedProducts = Purchase::with('product')
-            ->groupBy('id')
             ->get();
         return view('admin.stockInventory.purchaseDetails', compact('purchasedProducts'));
     }
@@ -79,11 +78,7 @@ class AdminStockInventoryController extends Controller
 
     public function store(StoreProductRequest $request): RedirectResponse
     {
-        $product = Product::create($request->except('purchased_date'));
-        $product->purchases()->create([
-            'total' => $product->quantity * $product->purchase_price,
-            'purchased_date' => $request->date('purchased_date'),
-        ]);
+        Product::create($request->except('purchased_date'));
         return redirect()->back();
     }
 
