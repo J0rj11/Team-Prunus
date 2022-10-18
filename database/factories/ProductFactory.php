@@ -25,7 +25,7 @@ class ProductFactory extends Factory
             'quantity' => $this->faker->numberBetween(1, 10),
             'price' => $price,
             'purchase_price' => $price + 15,
-            'purchased_date' => now(),
+            // 'purchased_date' => now(),
         ];
     }
 }
