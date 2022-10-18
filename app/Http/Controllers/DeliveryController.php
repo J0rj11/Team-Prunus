@@ -52,7 +52,7 @@ class DeliveryController extends Controller
      */
     public function show(Delivery $delivery)
     {
-        $delivery->load('transaction', 'transaction.transactionItems', 'transaction.transactionItems.product');
+        $delivery->load('transaction', 'transaction.purchases', 'transaction.purchases.product');
         return view('cashier.delivery.show', compact('delivery'));
     }
 

@@ -90,21 +90,13 @@ class SetupCustomerTransaction extends Component
 
     public function save(): void
     {
-        $transactionItems = [];
-        $createdAt = now();
+
         foreach ($this->confirmedProducts as $confirmedProduct) {
-            $transactionItems[] = [
+            $this->transaction->purchases()->create([
                 'product_id' => (int)$confirmedProduct['product']['id'],
-                'transaction_id' => $this->transaction->id,
-                'price' => (float)$confirmedProduct['price'],
-                'quantity'  => (int)$confirmedProduct['quantity'],
-                'created_at' => $createdAt,
-                'updated_at' => $createdAt
-            ];
+                'quantity' => (int)$confirmedProduct['quantity'],
+            ]);
         }
-
-        TransactionItem::insert($transactionItems);
-
         redirect()->route('transaction.index');
     }
 }

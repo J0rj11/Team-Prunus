@@ -70,14 +70,14 @@
                                                             </tr>
                                                         </thead>
                                                         <tbody>
-                                                            @foreach ($transaction->transactionItems as $transactionItem)
+                                                            @foreach ($transaction->purchases as $purchasedProduct)
                                                                 <tr>
-                                                                    <td>{{ $transactionItem->product->product_name }}</td>
-                                                                    <td>{{ $transactionItem->product->category->category_name }}
+                                                                    <td>{{ $purchasedProduct->product->product_name }}</td>
+                                                                    <td>{{ $purchasedProduct->product->category->category_name }}
                                                                     </td>
-                                                                    <td>{{ $transactionItem->quantity }}</td>
-                                                                    <td>{{ $transactionItem->product->price }}</td>
-                                                                    <td>₱ {{ $transactionItem->price }}</td>
+                                                                    <td>{{ $purchasedProduct->quantity }}</td>
+                                                                    <td>{{ $purchasedProduct->product->price }}</td>
+                                                                    <td>₱ {{ $purchasedProduct->quantity * $purchasedProduct->product->price }}</td>
                                                                 </tr>
                                                             @endforeach
                                                         </tbody>

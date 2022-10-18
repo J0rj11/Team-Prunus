@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\Admin\AdminReportsController;
 use App\Http\Controllers\Admin\AdminReservationController;
-use App\Http\Controllers\AdminStockInventoryController;
+use App\Http\Controllers\Admin\AdminStockInventoryController;
 use App\Http\Controllers\BalanceController;
 use App\Http\Controllers\Customer\CustomerDashboardController;
 use App\Http\Controllers\Customer\CustomerReservationController;
@@ -11,7 +11,6 @@ use App\Http\Controllers\DeliveryController;
 use App\Http\Controllers\ReportsController;
 use App\Http\Controllers\ReservationBalanceController;
 use App\Http\Controllers\ReservationController;
-use App\Http\Livewire\SetupCustomerTransaction;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -102,6 +101,7 @@ Route::group(['middleware' => 'auth'], function () {
 
 
         // Inventory
+        Route::get('/stock-inventory/monthly', [AdminStockInventoryController::class, 'purchasedRecords'])->name('stock-inventory.monthly');
         Route::resource('/stock-inventory', AdminStockInventoryController::class);
     });
 });

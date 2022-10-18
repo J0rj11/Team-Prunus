@@ -10,13 +10,17 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use App\Http\Requests\StoreTransactionRequest;
 use App\Jobs\NewDeliveryScheduleJob;
+use App\Models\Purchase;
 
 class CustomerTransactionController extends Controller
 {
     public function index(Request $request): View | JsonResponse
     {
         if ($request->ajax()) {
-            return DataTables::of(Transaction::query()->withCount('transactionItems')->withSum('transactionItems', 'price'))
+            return DataTables::of(Transaction::query()->with('purchases.product')->withCount('purchases'))
+                ->addColumn('total_sum', function (Transaction $transaction) {
+                    return collect($transaction->purchases)->map(fn (Purchase $value) => $value->quantity * $value->product->price)->sum();
+                })
                 ->addColumn('payment_method', fn (Transaction $transaction) => $transaction->payment_method == 0 ? 'Credit' : 'Cash')
                 ->addColumn('actions', function (Transaction $transaction) {
                     return '<div>
@@ -53,9 +57,8 @@ class CustomerTransactionController extends Controller
 
     public function show(Transaction $transaction): View
     {
-        $transaction->load('transactionItems', 'transactionItems.product', 'transactionItems.product.category')
-            ->loadCount('transactionItems')
-            ->loadSum('transactionItems', 'price');
+        $transaction->load('purchases', 'purchases.product', 'purchases.product.category')
+            ->loadCount('purchases');
 
         return view('cashier.transaction.show', compact('transaction'));
     }

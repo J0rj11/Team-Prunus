@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\UpdateReservationBalanceRequest;
+use App\Models\Purchase;
 use App\Models\Reservation;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
@@ -20,10 +21,12 @@ class ReservationBalanceController extends Controller
     public function index(): JsonResponse
     {
         $query = Reservation::query()
-            ->with('user')
-            ->withCount('reservationItems')
-            ->withSum('reservationItems', 'price');
+            ->with('user', 'purchases.product')
+            ->withCount('purchases');
         return DataTables::of($query)
+            ->addColumn('total_sum', function (Reservation $reservation) {
+                return collect($reservation->purchases)->map(fn (Purchase $purchase) => $purchase->quantity * $purchase->product->price)->sum();
+            })
             ->addColumn('name', fn (Reservation $reservation) => $reservation->user->first_name . ' ' . $reservation->user->last_name)
             ->addColumn('actions', function (Reservation $reservation) {
                 return '<div>
@@ -47,9 +50,8 @@ class ReservationBalanceController extends Controller
      */
     public function show(Reservation $reservationBalance): View
     {
-        $reservationBalance->load('reservationItems', 'user', 'reservationItems.product', 'reservationItems.product.category')
-            ->loadCount('reservationItems')
-            ->loadSum('reservationItems', 'price');
+        $reservationBalance->load('purchases', 'user', 'purchases.product', 'purchases.product.category')
+            ->loadCount('purchases');
         return view('cashier.balance.reservation-show', compact('reservationBalance'));
     }
 

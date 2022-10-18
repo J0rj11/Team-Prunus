@@ -16,48 +16,45 @@
                                 <div class="csstab-content">
                                     <div class="card-body white-bg">
                                         <div class="card bg-transparent">
-                                                <h3>PURCHASE DETAILS</h3>
+                                            <h3>PURCHASE DETAILS</h3>
                                             <div class="card-body">
-                                                <div class="detail-title">MONTH:</div><br>
-                                                <div class="detail-title">YEAR:</div>
+                                                <div class="detail-title">MONTH: {{ request()->query('month') }}</div><br>
+                                                <div class="detail-title">YEAR: {{ request()->query('year') }}</div>
                                                 <div class="table-responsive px-3">
-                                                <table class="table table-hover table-striped"
-                                                            id="soldProductTable">
-                                                            <thead class="color">
+                                                    <table class="table table-hover table-striped" id="soldProductTable">
+                                                        <thead class="color">
+                                                            <tr>
+                                                                <th>Product Category</th>
+                                                                <th>Product Name</th>
+                                                                <th>Quantity</th>
+                                                                <th>Purchase Price</th>
+                                                                <th>Total</th>
+                                                                <th>Sale Price</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            @foreach ($purchasedProducts as $purchasedProduct)
                                                                 <tr>
-                                                                    <th>Product Category</th>
-                                                                    <th>Product Name</th>
-                                                                    <th>Quantity</th>
-                                                                    <th>Purchase Price</th>
-                                                                    <th>Total</th>
-                                                                    <th>Sale Price</th>
+                                                                    <td>{{ $purchasedProduct->product->category->category_name }}
+                                                                    </td>
+                                                                    <td>{{ $purchasedProduct->product->product_name }}</td>
+                                                                    <td>{{ $purchasedProduct->quantity }}</td>
+                                                                    <td>{{ $purchasedProduct->product->purchase_price }}
+                                                                    </td>
+                                                                    <td>{{ $purchasedProduct->quantity * $purchasedProduct->product->price }}
+                                                                    </td>
+                                                                    <td>{{ $purchasedProduct->product->price }}</td>
                                                                 </tr>
-                                                            </thead>
-                                                            <tbody>
-                                                               <tr>
-                                                                    <td>Pipes</td>                                                                
-                                                                    <td>PVC Pipe</td>                                                                
-                                                                    <td>50</td>                                                                
-                                                                    <td>92.81</td>                                                                
-                                                                    <td>4640.5</td>                                                                
-                                                                    <td>94</td>                                                                
-                                                               </tr>
-                                                               <tr>
-                                                                    <td>Sealant</td>                                                                
-                                                                    <td>Vulcaseal 1/2 L</td>                                                                
-                                                                    <td>10</td>                                                                
-                                                                    <td>322</td>                                                                
-                                                                    <td>3220</td>                                                                
-                                                                    <td>324</td>                                                                 
-                                                               </tr>
-                                                            </tbody>
-                                                        </table>
-                                                        <div class="detail-title mt-5">TOTAL PURCHASE AMOUNT:</div>
-                                                        <div class="detail-subtitle">7,860.00</div>
+                                                            @endforeach
+                                                        </tbody>
+                                                    </table>
+                                                    <div class="detail-title mt-5">TOTAL PURCHASE AMOUNT:</div>
+                                                    <div class="detail-subtitle">
+                                                        {{ $purchasedProducts->map(fn($value) => $value->quantity * $value->product->price)->sum() }}
+                                                    </div>
                                                 </div>
                                                 <div class="float-right">
-                                                    <a href=""
-                                                        class="btn btn-outline-primary btn-sm mr-5">
+                                                    <a href="{{ route('admin.stock-inventory.index') }}" class="btn btn-outline-primary btn-sm mr-5">
                                                         <i class="fa fa-arrow-left menu-icon"></i>
                                                         <span class="menu-title">Back</span>
                                                     </a>

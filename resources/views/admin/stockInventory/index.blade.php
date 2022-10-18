@@ -77,15 +77,19 @@
                                                             </tr>
                                                         </thead>
                                                         <tbody>
-                                                            <tr>
-                                                                <td>January</td>
-                                                                <td>2022</td>
-                                                                <td>
-                                                                    <button class="btn btn-primary btn-sm">View</button>
-                                                                    <button class="btn btn-dark btn-sm">Delete</button>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
+                                                            @foreach ($monthlyPurchasedRecords as $monthlyPurchasedRecord)
+                                                                <tr>
+                                                                    <td>{{ $monthlyPurchasedRecord->month }}</td>
+                                                                    <td>{{ $monthlyPurchasedRecord->year }}</td>
+                                                                    <td>
+                                                                        <a class="btn btn-primary btn-sm"
+                                                                            href="{{ route('admin.stock-inventory.monthly', ['month' => $monthlyPurchasedRecord->month, 'year' => $monthlyPurchasedRecord->year]) }}">View</a>
+                                                                        <button class="btn btn-dark btn-sm">Delete</button>
+                                                                    </td>
+                                                                </tr>
+                                                            @endforeach
+
+                                                            {{-- <tr>
                                                                 <td>February</td>
                                                                 <td>2022</td>
                                                                 <td>
@@ -100,7 +104,7 @@
                                                                     <button class="btn btn-primary btn-sm">View</button>
                                                                     <button class="btn btn-dark btn-sm">Delete</button>
                                                                 </td>
-                                                            </tr>
+                                                            </tr> --}}
                                                         </tbody>
                                                     </table>
                                                 </div>

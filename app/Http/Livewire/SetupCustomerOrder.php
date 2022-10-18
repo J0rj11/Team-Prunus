@@ -104,21 +104,12 @@ class SetupCustomerOrder extends Component
             'remaining_balance' => collect($this->confirmedProducts)->sum('price'),
         ]);
 
-        $reservationItems = [];
-        $createdAt = now();
         foreach ($this->confirmedProducts as $confirmedProduct) {
-            $reservationItems[] = [
+            $reservation->purchases()->create([
                 'product_id' => (int)$confirmedProduct['product']['id'],
-                'reservation_id' => $reservation->id,
-                'price' => (float)$confirmedProduct['price'],
-                'quantity'  => (int)$confirmedProduct['quantity'],
-                'created_at' => $createdAt,
-                'updated_at' => $createdAt
-            ];
+                'quantity' => (int)$confirmedProduct['quantity']
+            ]);
         }
-
-        ReservationItem::insert($reservationItems);
-
         redirect()->route('customer.dashboard.index');
     }
 }

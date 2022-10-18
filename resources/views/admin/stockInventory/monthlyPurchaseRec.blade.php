@@ -17,16 +17,17 @@
                                 <div class="csstab-content">
                                     <div class="card-body white-bg">
                                         <div class="card bg-transparent">
-                                                <h3>MONTHLY PURCHASE RECORDS</h3>
+                                            <h3>MONTHLY PURCHASE RECORDS</h3>
                                             <div class="card-body">
                                                 <div class="table-responsive px-3">
-                                                    <table class="table table-hover table-striped table-bordered-body" id="deliveryTable">
+                                                    <table class="table table-hover table-striped table-bordered-body"
+                                                        id="deliveryTable">
                                                         <thead class="color">
                                                             <tr>
-                                                                <th>MONTHLY: </th>
+                                                                <th>MONTHLY: {{ request('month') }}</th>
                                                             </tr>
                                                             <tr>
-                                                                <th>YEAR:</th>
+                                                                <th>YEAR: {{ request('year') }}</th>
                                                             </tr>
                                                         </thead>
                                                         <tbody>
@@ -36,16 +37,16 @@
                                                                 <th>Action</th>
                                                             </tr>
                                                             <tr>
-                                                                <td>J122</td>                                                                
-                                                                <td>01/15/2022</td>                                                                
+                                                                <td>J122</td>
+                                                                <td>01/15/2022</td>
                                                                 <td>
                                                                     <button class="btn btn-primary btn-sm">View</button>
                                                                     <button class="btn btn-dark btn-sm">Download</button>
                                                                 </td>
                                                             </tr>
                                                             <tr>
-                                                                <td>J222</td>                                                                
-                                                                <td>2022</td>                                                                
+                                                                <td>J222</td>
+                                                                <td>2022</td>
                                                                 <td>
                                                                     <button class="btn btn-primary btn-sm">View</button>
                                                                     <button class="btn btn-dark btn-sm">Download</button>

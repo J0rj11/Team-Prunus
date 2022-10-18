@@ -135,14 +135,14 @@
                                                             </tr>
                                                         </thead>
                                                         <tbody>
-                                                            @foreach ($reservationBalance->reservationItems as $reservationItem)
+                                                            @foreach ($reservationBalance->purchases as $purchasedProduct)
                                                                 <tr>
-                                                                    <td>{{ $reservationItem->product->product_name }}</td>
-                                                                    <td>{{ $reservationItem->product->category->category_name }}
+                                                                    <td>{{ $purchasedProduct->product->product_name }}</td>
+                                                                    <td>{{ $purchasedProduct->product->category->category_name }}
                                                                     </td>
-                                                                    <td>{{ $reservationItem->quantity }}</td>
-                                                                    <td>₱ {{ $reservationItem->product->price }}</td>
-                                                                    <td>₱ {{ $reservationItem->price }}</td>
+                                                                    <td>{{ $purchasedProduct->quantity }}</td>
+                                                                    <td>₱ {{ $purchasedProduct->product->price }}</td>
+                                                                    <td>₱ {{ $purchasedProduct->quantity * $purchasedProduct->product->price }}</td>
                                                                 </tr>
                                                             @endforeach
                                                         </tbody>

@@ -136,12 +136,12 @@
                     name: 'name'
                 },
                 {
-                    data: 'reservation_items_count',
-                    name: 'reservation_items_count'
+                    data: 'purchases_count',
+                    name: 'purchases_count'
                 },
                 {
-                    data: 'reservation_items_sum_price',
-                    name: 'reservation_items_sum_price'
+                    data: 'total_sum',
+                    name: 'total_sum'
                 },
                 {
                     data: 'due_date',

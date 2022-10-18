@@ -89,10 +89,10 @@
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
-                                                                @foreach ($delivery->transaction->transactionItems as $transactionItem)
+                                                                @foreach ($delivery->transaction->purchases as $purchasedProduct)
                                                                     <tr>
-                                                                        <td>{{ $transactionItem->quantity }}</td>
-                                                                        <td>{{ $transactionItem->product->product_name }}
+                                                                        <td>{{ $purchasedProduct->quantity }}</td>
+                                                                        <td>{{ $purchasedProduct->product->product_name }}
                                                                         </td>
                                                                     </tr>
                                                                 @endforeach

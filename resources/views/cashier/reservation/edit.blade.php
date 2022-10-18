@@ -68,11 +68,11 @@
                                                             </tr>
                                                         </thead>
                                                         <tbody>
-                                                            @foreach ($reservation->reservationItems as $reservationItem)
+                                                            @foreach ($reservation->purchases as $purchasesdProduct)
                                                                 <tr>
-                                                                    <td>{{ $reservationItem->product->product_name }}</td>
-                                                                    <td>{{ $reservationItem->quantity }}</td>
-                                                                    <td>₱ {{ $reservationItem->price }}</td>
+                                                                    <td>{{ $purchasesdProduct->product->product_name }}</td>
+                                                                    <td>{{ $purchasesdProduct->quantity }}</td>
+                                                                    <td>₱ {{ $purchasesdProduct->quantity * $purchasesdProduct->product->price }}</td>
                                                                     <td>No Notes Yet</td>
                                                                 </tr>
                                                             @endforeach
