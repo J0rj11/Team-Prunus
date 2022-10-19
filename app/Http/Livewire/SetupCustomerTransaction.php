@@ -46,7 +46,7 @@ class SetupCustomerTransaction extends Component
 
     public function updatedSelectedCategory($category): void
     {
-        $this->selectedCategory = Category::find($category);
+        $this->selectedCategory = Category::find($category)->id;
         $this->products = Product::where('category_id', $category)
             ->get();
 

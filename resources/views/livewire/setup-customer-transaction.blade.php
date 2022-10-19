@@ -45,7 +45,7 @@
                                                                     wire:model="selectedCategory">
                                                                     @foreach ($categories as $category)
                                                                         <option value="{{ $category->id }}"
-                                                                            @selected($category->id == $selectedCategory->id)>
+                                                                            wire:key="category-{{ $category->id }}">
                                                                             {{ $category->category_name }}</option>
                                                                     @endforeach
                                                                 </select>
