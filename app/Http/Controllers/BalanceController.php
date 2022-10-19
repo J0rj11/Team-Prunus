@@ -24,7 +24,7 @@ class BalanceController extends Controller
                 ->where('payment_method', Transaction::$TRANSACTION_PAYMENT_CREDIT)
                 ->withCount('transactionItems')
                 ->withSum('transactionItems', 'price')
-                ->select('tranactions.*');
+                ->select('transactions.*');
             return DataTables::of($query)
                 ->addColumn('payment_method', fn (Transaction $transaction) => $transaction->payment_method == 0 ? 'Credit' : 'Cash')
                 ->addColumn('actions', function (Transaction $transaction) {
@@ -73,9 +73,8 @@ class BalanceController extends Controller
      */
     public function show(Transaction $balance)
     {
-        $balance->load('transactionItems', 'transactionItems.product', 'transactionItems.product.category')
-            ->loadCount('transactionItems')
-            ->loadSum('transactionItems', 'price');
+        $balance->load('purchases', 'purchases.product', 'purchases.product.category')
+            ->loadCount('purchases');
         return view('cashier.balance.show', compact('balance'));
     }
 
