@@ -53,13 +53,13 @@ class Reservation extends Model
     }
 
 
-    public function userId(): Attribute
-    {
-        return Attribute::make(
-            set: fn ($value) => str_pad($value, 4, '0', STR_PAD_LEFT),
-            get: fn ($value) => str_pad($value, 4, '0', STR_PAD_LEFT),
-        );
-    }
+    // public function userId(): Attribute
+    // {
+    //     return Attribute::make(
+    //         set: fn ($value) => str_pad($value, 4, '0', STR_PAD_LEFT),
+    //         get: fn ($value) => str_pad($value, 4, '0', STR_PAD_LEFT),
+    //     );
+    // }
 
 
 

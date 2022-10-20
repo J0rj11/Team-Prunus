@@ -68,22 +68,7 @@ class User extends Authenticatable
     }
 
 
-    // public function latestTransaction(): HasMany
-    // {
-    //     return $this->hasMany(Transaction::class, 'user_id')
-    //         ->latest()
-    //         ->take(1);
-    // }
 
-
-
-    // mutators and accessors
-    public function id(): Attribute
-    {
-        return Attribute::make(
-            get: fn ($value) => str_pad($value, 4, '0', STR_PAD_LEFT),
-        );
-    }
 
 
     public function password(): Attribute
