@@ -72,7 +72,9 @@
                                                                 <tr>
                                                                     <td>{{ $purchasesdProduct->product->product_name }}</td>
                                                                     <td>{{ $purchasesdProduct->quantity }}</td>
-                                                                    <td>₱ {{ $purchasesdProduct->quantity * $purchasesdProduct->product->price }}</td>
+                                                                    <td>₱
+                                                                        {{ $purchasesdProduct->quantity * $purchasesdProduct->product->price }}
+                                                                    </td>
                                                                     <td>No Notes Yet</td>
                                                                 </tr>
                                                             @endforeach
@@ -93,7 +95,7 @@
                                                                 <div class="col-sm-5">
                                                                     <input class="form-control form-control-sm"
                                                                         type="text" readonly
-                                                                        value="{{ $reservation->reservationItems->sum('price') }}">
+                                                                        value="{{ $reservation->purchases->map(fn($value) => $value->quantity * $value->product->purchase_price)->sum() }}">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -125,7 +127,7 @@
                                                             <label>Date</label>
                                                             <div>
                                                                 <input class="form-control" type="text"
-                                                                    value="{{ now() }}" readonly>
+                                                                    value="{{ now()->format('d-M-Y') }}" readonly>
                                                             </div>
                                                         </div>
                                                         <div class="col">

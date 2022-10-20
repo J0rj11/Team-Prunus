@@ -41,21 +41,23 @@
                             </div>
                             <h2 class="center mt-5">Log In</h2>
                             <hr>
-                            @if ($errors->any())
-                                @foreach ($errors->all() as $error)
-                                    <div>{{ $error }}</div>
-                                @endforeach
-                            @endif
                             <form action="{{ route('login') }}" class="py-3 text-center" method="POST">
                                 @csrf
                                 <div class="form-group py-2">
                                     <div class="input-group login-input">
-                                        <div class="input-group-prepend">
+                                        <div
+                                            class="input-group-prepend @error('username') border border-danger @enderror">
                                             <span class="input-group-text fa fa-user"></span>
                                         </div>
-                                        <input type="text" class="form-control font-italic" name="username"
-                                            placeholder="Input your username" aria-label="Username">
+                                        <input type="text"
+                                            class="form-control font-italic @error('username') border border-danger @enderror"
+                                            name="username" placeholder="Input your username" aria-label="Username">
                                     </div>
+                                    @error('username')
+                                        <span class="text-danger h6" role="alert">
+                                            <h6>{{ $message }}</h6>
+                                        </span>
+                                    @enderror
                                 </div>
                                 <div class="form-group py-2">
                                     <div class="input-group login-input">
