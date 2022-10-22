@@ -87,7 +87,7 @@
                                                                 <td></td>
                                                                 <td></td>
                                                                 <td></td>
-                                                                <td>₱ {{ $customer->reservations->map (fn (Reservation $value) => $value->purchases->map(fn (Purchase $purchase) => $purchase->quantity * $purchase->product->purchase_price)->sum())->sum() }}</td>
+                                                                <td>₱ {{ $customer->reservations->map(fn ($value) => $value->purchases->map(fn ($purchase) => $purchase->quantity * $purchase->product->purchase_price)->sum())->sum() }}</td>
                                                                 <td></td>
                                                             </tr>
                                                         </tbody>
