@@ -41,7 +41,7 @@
                                                                 <td>{{ $customer->id }}</td>
                                                                 <td>{{ $customer->first_name . ' ' . $customer->last_name }}
                                                                 </td>
-                                                                <td>{{ $customer->addres ?? 'No Address' }}</td>
+                                                                <td>{{ $customer->address ?? 'No Address' }}</td>
                                                             </tr>
                                                         </tbody>
                                                     </table>
