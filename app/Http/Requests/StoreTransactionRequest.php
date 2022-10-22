@@ -24,7 +24,6 @@ class StoreTransactionRequest extends FormRequest
     public function rules()
     {
         return [
-            'transaction_identifier' => 'required',
             'transaction_name' => 'required',
             'address' => 'required',
             'date' => 'required|date',

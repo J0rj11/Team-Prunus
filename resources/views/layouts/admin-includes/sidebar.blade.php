@@ -40,14 +40,14 @@
         <span class="menu-title">PRODUCT</span>
     </a>
 </li>
-<li class="nav-item">
+{{-- <li class="nav-item">
     <a class="nav-link nav-color" href="{{ route('admin.reservation.index') }}">
         <i class=" menu-icon">
             <iconify-icon icon="fluent:notepad-edit-16-regular"></iconify-icon>
         </i>
         <span class="menu-title">RESERVATIONS</span>
     </a>
-</li>
+</li> --}}
 <!-- <li class="nav-item">
     <a class="nav-link nav-color" href="{{ route('admin.delivery.index') }}">
         <i class="menu-icon">

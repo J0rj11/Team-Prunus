@@ -71,7 +71,7 @@
     </a>
 </li>
 <li class="nav-item">
-    <a class="nav-link nav-color" href="">
+    <a class="nav-link nav-color" href="{{ route('inventory.index') }}">
         <i class="menu-icon">
             <iconify-icon icon="octicon:checklist-16"></iconify-icon>
         </i>

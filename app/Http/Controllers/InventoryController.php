@@ -2,16 +2,23 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\JsonResponse;
+use App\Models\Product;
+use App\Models\Purchase;
 use Illuminate\Http\Request;
-use Illuminate\View\View;
 
 class InventoryController extends Controller
 {
-    public function index(Request $request): View | JsonResponse
+    public function index(Request $request)
     {
-        if ($request->ajax()) {
-            
-        }
+        $products = Product::query()
+            ->whereHas('purchases')
+            ->with('category')
+            ->addSelect([
+                'sold_products_count' => Purchase::whereColumn('product_id', 'products.id')
+                    ->selectRaw('sum(quantity) as sold_products_count')
+            ])
+            ->get();
+
+        return view('cashier.inventory', compact('products'));
     }
 }

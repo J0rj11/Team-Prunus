@@ -18,22 +18,22 @@
                                         <div class="card white-bg p-3">
 
                                             <div class="p-2">
-                                              <div class="detail-title">CAPITAL: </div>
-                                              <div class="detail-title float-right mr-5 pr-5">DATE:</div>
-                                              <br>
-                                              <div class="detail-title">TOTAL END OF DAY SALES:</div>
+                                                <div class="detail-title">CAPITAL: </div>
+                                                <div class="detail-title float-right mr-5 pr-5">DATE:</div>
+                                                <br>
+                                                <div class="detail-title">TOTAL END OF DAY SALES:</div>
                                             </div>
                                             <!-- <div class="row pt-2 px-5">
-                                                <div class="col-md-6">
-                                                    <div class="form-group row">
-                                                        <label class="col-sm-4 col-form-label ">Date</label>
-                                                        <div class="col-sm-8">
-                                                            <input name="" value="" type="date"
-                                                                class="form-control form-control-sm">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div> -->
+                                                            <div class="col-md-6">
+                                                                <div class="form-group row">
+                                                                    <label class="col-sm-4 col-form-label ">Date</label>
+                                                                    <div class="col-sm-8">
+                                                                        <input name="" value="" type="date"
+                                                                            class="form-control form-control-sm">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div> -->
                                             <div class="card-body bg-transparent">
                                                 <div class="table-responsive">
                                                     <table class="table table-hover table-striped table-bordered mb-2">
@@ -47,43 +47,45 @@
                                                                 <th colspan="2">ENDING INVENTORY</th>
                                                             </tr>
                                                             <tr>
-                                                              <th>Qty.</th>
-                                                              <th>Purchase Price</th>
-                                                              <th>Amount</th>
-                                                              <th>Qty.</th>
-                                                              <th>Sale Price</th>
-                                                              <th>Total</th>
-                                                              <th>Available Stock</th>
-                                                              <th>Total</th>
+                                                                <th>Qty.</th>
+                                                                <th>Purchase Price</th>
+                                                                <th>Amount</th>
+                                                                <th>Qty.</th>
+                                                                <th>Sale Price</th>
+                                                                <th>Total</th>
+                                                                <th>Available Stock</th>
+                                                                <th>Total</th>
                                                             </tr>
                                                         </thead>
                                                         <tbody>
-                                                            <tr>
-                                                                <td>P1203T</td>
-                                                                <td>PVC Pipe#1</td>
-                                                                <td>Pipe</td>
-                                                                <td>50</td>
-                                                                <td>92.26</td>
-                                                                <td>4,613</td>
-                                                                <td>10</td>
-                                                                <td>94</td>
-                                                                <td>940</td>
-                                                                <td>40</td>
-                                                                <td>3,760</td>
-                                                              </tr>
-                                                              <tr>
-                                                                <td>P1203T</td>
-                                                                <td>PVC Pipe#1</td>
-                                                                <td>Pipe</td>
-                                                                <td>50</td>
-                                                                <td>92.26</td>
-                                                                <td>4,613</td>
-                                                                <td>10</td>
-                                                                <td>94</td>
-                                                                <td>940</td>
-                                                                <td>40</td>
-                                                                <td>3,760</td>
-                                                              </tr>
+                                                            @foreach ($products as $product)
+                                                                <tr>
+                                                                    <td>{{ $product->id }}</td>
+                                                                    <td>{{ $product->product_name }}</td>
+                                                                    <td>{{ $product->category->category_name }}</td>
+                                                                    <td>50</td>
+                                                                    <td>92.26</td>
+                                                                    <td>4,613</td>
+                                                                    <td>{{ $product->sold_products_count }}</td>
+                                                                    <td>{{ $product->purchase_price }}</td>
+                                                                    <td>940</td>
+                                                                    <td>40</td>
+                                                                    <td>3,760</td>
+                                                                </tr>
+                                                                {{-- <tr>
+                                                                    <td>P1203T</td>
+                                                                    <td>PVC Pipe#1</td>
+                                                                    <td>Pipe</td>
+                                                                    <td>50</td>
+                                                                    <td>92.26</td>
+                                                                    <td>4,613</td>
+                                                                    <td>10</td>
+                                                                    <td>94</td>
+                                                                    <td>940</td>
+                                                                    <td>40</td>
+                                                                    <td>3,760</td>
+                                                                </tr> --}}
+                                                            @endforeach
                                                         </tbody>
                                                     </table>
                                                     <div class="detail-title pt-3">Total:</div> <span

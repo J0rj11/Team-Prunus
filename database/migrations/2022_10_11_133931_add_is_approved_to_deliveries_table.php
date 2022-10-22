@@ -14,7 +14,6 @@ return new class extends Migration
     public function up()
     {
         Schema::table('deliveries', function (Blueprint $table) {
-            $table->boolean('is_approved')->default(false);
         });
     }
 

@@ -2,7 +2,9 @@
 
 namespace App\Models;
 
+use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
@@ -46,4 +48,12 @@ class Transaction extends Model
     {
         return $this->hasMany(TransactionItem::class);
     }
+
+
+    public function transactionIdentifier(): Attribute {
+        return Attribute::make(
+            set: fn ($value) => Str::random()
+        );
+    }
+
 }
