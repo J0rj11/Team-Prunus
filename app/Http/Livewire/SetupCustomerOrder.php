@@ -49,7 +49,7 @@ class SetupCustomerOrder extends Component
 
     public function updatedSelectedCategory($category): void
     {
-        $this->selectedCategory = collect($this->categories)->first(fn ($value) => $value->id == $category);
+        $this->selectedCategory = collect($this->categories)->first(fn ($value) => $value->id == $category)->id;
         $this->products = Product::where('category_id', $category)
             ->get();
         $this->updatedSelectedProduct($this->products->first()->id);
@@ -64,8 +64,8 @@ class SetupCustomerOrder extends Component
 
     public function updatedProductQuantity($productQuantity): void
     {
-        $this->productQuantity = $productQuantity;
-        $this->productPrice =  $productQuantity * (float)$this->selectedProduct['price'];
+        $this->productQuantity = $productQuantity ?? 0;
+        $this->productPrice =  (float)$this->productQuantity * $this->selectedProduct['price'] ?? 0;
     }
 
     public function updatePaymentMethod($paymentMethod)

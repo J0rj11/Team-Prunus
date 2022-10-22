@@ -24,16 +24,16 @@
                                                 <div class="detail-title">TOTAL END OF DAY SALES:</div>
                                             </div>
                                             <!-- <div class="row pt-2 px-5">
-                                                            <div class="col-md-6">
-                                                                <div class="form-group row">
-                                                                    <label class="col-sm-4 col-form-label ">Date</label>
-                                                                    <div class="col-sm-8">
-                                                                        <input name="" value="" type="date"
-                                                                            class="form-control form-control-sm">
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div> -->
+                                                                                    <div class="col-md-6">
+                                                                                        <div class="form-group row">
+                                                                                            <label class="col-sm-4 col-form-label ">Date</label>
+                                                                                            <div class="col-sm-8">
+                                                                                                <input name="" value="" type="date"
+                                                                                                    class="form-control form-control-sm">
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div> -->
                                             <div class="card-body bg-transparent">
                                                 <div class="table-responsive">
                                                     <table class="table table-hover table-striped table-bordered mb-2">
@@ -63,14 +63,17 @@
                                                                     <td>{{ $product->id }}</td>
                                                                     <td>{{ $product->product_name }}</td>
                                                                     <td>{{ $product->category->category_name }}</td>
-                                                                    <td>50</td>
-                                                                    <td>92.26</td>
-                                                                    <td>4,613</td>
-                                                                    <td>{{ $product->sold_products_count }}</td>
+                                                                    <td>{{ $product->quantity }}</td>
                                                                     <td>{{ $product->purchase_price }}</td>
-                                                                    <td>940</td>
-                                                                    <td>40</td>
-                                                                    <td>3,760</td>
+                                                                    <td>{{ $product->purchase_price * $product->quantity }}
+                                                                    </td>
+                                                                    <td>{{ $product->sold_products_count ?? 0 }}</td>
+                                                                    <td>{{ $product->purchase_price }}</td>
+                                                                    <td>{{ ($product->sold_products_count ?? 0) * $product->purchase_price }}
+                                                                    </td>
+                                                                    <td>{{ $product->quantity }}</td>
+                                                                    <td>{{ $product->quantity * $product->purchase_price }}
+                                                                    </td>
                                                                 </tr>
                                                                 {{-- <tr>
                                                                     <td>P1203T</td>
