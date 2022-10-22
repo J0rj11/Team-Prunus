@@ -24,10 +24,11 @@ class UpdateAccountRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required',
+            'first_name' => 'nullable',
+            'last_name' => 'nullable',
             'username' => 'required|unique:users,username,' . $this->route('account')->id,
             'password' => 'nullable|sometimes',
-            'role' => 'required|in:cashier,customer,admin'
+            'role' => 'required|in:cashier,customer,admin',
         ];
     }
 }

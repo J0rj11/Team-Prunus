@@ -22,11 +22,12 @@ class BalanceController extends Controller
         if ($request->ajax()) {
             $query = Transaction::query()
                 ->where('payment_method', Transaction::$TRANSACTION_PAYMENT_CREDIT)
-                ->withCount('transactionItems')
-                ->withSum('transactionItems', 'price')
-                ->select('transactions.*');
+                ->with('purchases', 'purchases.product')
+                ->select('transactions.*')
+                ->withCount('purchases');
             return DataTables::of($query)
                 ->addColumn('payment_method', fn (Transaction $transaction) => $transaction->payment_method == 0 ? 'Credit' : 'Cash')
+                ->addColumn('purchases_total', fn (Transaction $tranasction) => $tranasction->purchases->map(fn ($value) => $value->quantity * $value->product->purchase_price)->sum())
                 ->addColumn('actions', function (Transaction $transaction) {
                     return '<div>
                                 <a href="' . route('balance.show', $transaction) . '" class="btn btn-secondary btn-sm">View</a>

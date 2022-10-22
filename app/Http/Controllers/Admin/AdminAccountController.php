@@ -54,11 +54,6 @@ class AdminAccountController extends Controller
 
     public function update(UpdateAccountRequest $request, User $account): RedirectResponse
     {
-
-        if ($request->has('password')) {
-            $account->password = bcrypt($request->password);
-        }
-
         if ($request->has('role')) {
             $account->syncRoles($request->role);
         }

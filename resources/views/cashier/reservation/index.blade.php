@@ -69,8 +69,8 @@
                         name: 'user.address'
                     },
                     {
-                        data: 'id',
-                        name: 'id'
+                        data: 'total',
+                        name: 'total'
                     },
                     {
                         data: 'actions',
