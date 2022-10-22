@@ -2,15 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Purchase;
 use Illuminate\View\View;
 use App\Models\Transaction;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
 use Illuminate\Http\JsonResponse;
+use App\Jobs\NewDeliveryScheduleJob;
 use Illuminate\Http\RedirectResponse;
 use App\Http\Requests\StoreTransactionRequest;
-use App\Jobs\NewDeliveryScheduleJob;
-use App\Models\Purchase;
 
 class CustomerTransactionController extends Controller
 {
@@ -41,7 +42,7 @@ class CustomerTransactionController extends Controller
 
     public function store(StoreTransactionRequest $request): RedirectResponse
     {
-        $transaction = Transaction::create($request->validated());
+        $transaction = Transaction::create($request->validated() + ['transaction_identifier' => Str::random()]);
 
         if ($transaction->delivery_status == Transaction::$TRANSACTION_DELIVERY_DELIVER) {
             NewDeliveryScheduleJob::dispatch($transaction);

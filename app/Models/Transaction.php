@@ -49,11 +49,4 @@ class Transaction extends Model
         return $this->hasMany(TransactionItem::class);
     }
 
-
-    public function transactionIdentifier(): Attribute {
-        return Attribute::make(
-            set: fn ($value) => Str::random()
-        );
-    }
-
 }
