@@ -57,7 +57,7 @@ class ReportsController extends Controller
                     ->join(' , ');
             })
             ->addColumn('truck_number', fn(Delivery $delivery) => 'Truck # ' . $delivery->truck_number)
-            ->addColumn('sum_price', fn(Delivery $delivery) => $delivery->transaction->purchases->map(fn($value) => $value->quantity * $value->product->purchase_price))
+            ->addColumn('sum_price', fn(Delivery $delivery) => $delivery->transaction->purchases->map(fn($value) => $value->quantity * $value->product->purchase_price)->sum())
             ->make();
     }
 
