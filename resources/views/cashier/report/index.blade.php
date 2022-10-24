@@ -188,7 +188,7 @@
                     },
                     {
                         data: 'joinedItems',
-                        name: 'transaction.transactionItems.product.product_name'
+                        name: 'transaction.purchases.product.product_name'
                     },
                     {
                         data: 'sum_price',
