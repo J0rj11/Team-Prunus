@@ -2,14 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\UpdateReservationBalanceRequest;
 use App\Models\Purchase;
 use App\Models\Reservation;
-use Illuminate\Contracts\View\View;
+use App\Models\Transaction;
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
+use App\Http\Requests\UpdateReservationBalanceRequest;
 
 class ReservationBalanceController extends Controller
 {
@@ -21,6 +22,7 @@ class ReservationBalanceController extends Controller
     public function index(): JsonResponse
     {
         $query = Reservation::query()
+            ->where('payment_type', Transaction::$TRANSACTION_PAYMENT_CREDIT)
             ->with('user', 'purchases.product')
             ->withCount('purchases');
         return DataTables::of($query)
