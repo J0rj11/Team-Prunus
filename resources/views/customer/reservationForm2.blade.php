@@ -48,7 +48,7 @@
                 <div class="form-group row">
                     <label class="col-sm-4 col-form-label">Date of Delivery</label>
                     <div class="col-sm-6">
-                        <input type="date" class="form-control" name="date">
+                        <input type="date"  class="form-control" name="date">
                     </div>
                 </div>
             </div>

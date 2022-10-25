@@ -17,23 +17,13 @@
                                 <div class="csstab-content">
 
                                     <div class="card-body white-bg">
-                                        @if($errors->any()) 
+                                        @if ($errors->any())
                                             @foreach ($errors->all() as $error)
                                                 <span>{{ $error }}</span>
                                             @endforeach
                                         @endif
                                         <form class="px-3" method="POST" action="{{ route('transaction.store') }}">
                                             @csrf
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <div class="form-group row">
-                                                        <label class="col-sm-4 col-form-label">Date</label>
-                                                        <div class="col-sm-8">
-                                                            <input name="date" type="date" class="form-control">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group row">
@@ -59,7 +49,8 @@
                                                     <div class="form-group row">
                                                         <label class="col-sm-4 col-form-label">Contact No.</label>
                                                         <div class="col-sm-8">
-                                                            <input name="contact_number" type="text" class="form-control">
+                                                            <input name="contact_number" type="text"
+                                                                class="form-control">
                                                         </div>
                                                     </div>
                                                 </div>

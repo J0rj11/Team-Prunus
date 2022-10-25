@@ -25,6 +25,7 @@
                                                         <label class="col-sm-4 col-form-label ">Date</label>
                                                         <div class="col-sm-8">
                                                             <input name="" value="" type="date"
+                                                              
                                                                 class="form-control form-control-sm">
                                                         </div>
                                                     </div>

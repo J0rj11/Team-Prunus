@@ -30,6 +30,7 @@
                                                             <div class="col-sm-8">
                                                                 <input name="purchased_date"
                                                                     value="{{ old('purchased_date') }}" type="date"
+                                                                    id="purchased_date"
                                                                     class="form-control form-control-sm">
                                                             </div>
                                                         </div>
@@ -71,6 +72,21 @@
                                                                 <div class="col-sm-7">
                                                                     <input type="text" class="form-control"
                                                                         name="product_name">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="form-group row">
+                                                                <label class="col-sm-4 col-form-label">Product
+                                                                    Unit</label>
+                                                                <div class="col-sm-7">
+                                                                    <select class="form-control form-control-sm"
+                                                                        name="product_unit">
+                                                                        @foreach (\App\Enums\ProductUnitEnum::asSelectArray() as $key => $productUnit)
+                                                                            <option value="{{ $key }}">
+                                                                                {{ $productUnit }}</option>
+                                                                        @endforeach
+                                                                    </select>
                                                                 </div>
                                                             </div>
                                                         </div>

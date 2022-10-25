@@ -134,7 +134,7 @@
                                                             <label>Due Date</label>
                                                             <div>
                                                                 <input class="form-control" type="date" name="due_date",
-                                                                    id="due_date"
+                                                                     id="due_date"
                                                                     value="{{ old('due_date', $reservation->due_date) }}">
                                                             </div>
                                                         </div>

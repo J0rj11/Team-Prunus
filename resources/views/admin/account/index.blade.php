@@ -18,12 +18,25 @@
                                     <div class="card-body white-bg">
                                         <form class="pt-4 pl-5" action="{{ route('admin.account.store') }}" method="POST">
                                             @csrf
-                                            {{-- <div class="form-group row">
-                                                <label class="col-sm-2 col-form-label">User ID</label>
-                                                <div class="col-sm-9">
-                                                    <input type="text" value="{{ old('name') }}" name="name" class="form-control">
-                                                </div>
-                                            </div> --}}
+                                            <div id="id01" class="delete-modal overflow-hidden">
+                                                <span onclick="document.getElementById('id01').style.display='none'"
+                                                    class="close-modal" title="Close Modal">×</span>
+                                                <form class="delete-modal-content" action="/action_page.php">
+                                                    <div class="modal-container">
+                                                        <h4>Delete Account</h4>
+                                                        <p>Are you sure you want to delete this account?</p>
+
+                                                        <div class="clearfix">
+                                                            <button type="button"
+                                                                onclick="document.getElementById('id01').style.display='none'"
+                                                                class="cancelbtn modal-button">Cancel</button>
+                                                            <button type="button"
+                                                                onclick="document.getElementById('id01').style.display='none'"
+                                                                class="deletebtn modal-button">Delete</button>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
                                             <div class="form-group row">
                                                 <label class="col-sm-2 col-form-label">FirstName</label>
                                                 <div class="col-sm-9">

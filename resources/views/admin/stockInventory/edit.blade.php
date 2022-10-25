@@ -32,7 +32,7 @@
                                                             <div class="col-sm-8">
                                                                 <input name="purchased_date"
                                                                     value="{{ old('purchased_date', $stockInventory->created_at) }}"
-                                                                    type="date" class="form-control form-control-sm">
+                                                                    type="date"  class="form-control form-control-sm">
                                                             </div>
                                                         </div>
                                                     </div>

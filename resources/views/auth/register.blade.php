@@ -83,7 +83,7 @@
                                                         <div class="col-sm-12">
                                                             <input type="text" class="form-control form-control-sm"
                                                                 name="contact_number"
-                                                                value="{{ old('contact_number') }}" />
+                                                                value="{{ old('contact_number') }}" maxlength="11" />
                                                         </div>
                                                     </div>
                                                 </div>
@@ -106,16 +106,19 @@
                                                     <div class="form-group">
                                                         <label class="pl-3">Password</label>
                                                         <div class="col-sm-12">
-                                                            <input type="text" class="form-control form-control-sm"
+                                                            <input type="password" class="form-control form-control-sm"
                                                                 name="password" />
                                                         </div>
                                                     </div>
+                                                    @error('password')
+                                                        <span class="text-red ml-2">Password doesnt match</span>
+                                                    @enderror
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label class="pl-3">Confirm Password</label>
                                                         <div class="col-sm-12">
-                                                            <input type="text" class="form-control form-control-sm"
+                                                            <input type="password" class="form-control form-control-sm"
                                                                 name="password_confirmation" />
                                                         </div>
                                                     </div>

@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Enums\ProductUnitEnum;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -11,7 +12,11 @@ class Product extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['product_name', 'category_id', 'quantity', 'price', 'purchase_price'];
+    protected $fillable = ['product_name', 'category_id', 'quantity', 'price', 'purchase_price', 'unit'];
+
+    protected $casts = [
+        'unit' => ProductUnitEnum::class,
+    ];
 
     public function category(): BelongsTo
     {

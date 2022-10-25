@@ -41,7 +41,7 @@ class CustomerTransactionController extends Controller
 
     public function store(StoreTransactionRequest $request): RedirectResponse
     {
-        $transaction = Transaction::create($request->validated());
+        $transaction = Transaction::create($request->validated() + ['date' => now()]);
 
         if ($transaction->delivery_status == Transaction::$TRANSACTION_DELIVERY_DELIVER) {
             NewDeliveryScheduleJob::dispatch($transaction);

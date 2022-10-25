@@ -23,17 +23,7 @@
                                                 <br>
                                                 <div class="detail-title">TOTAL END OF DAY SALES:</div>
                                             </div>
-                                            <!-- <div class="row pt-2 px-5">
-                                                            <div class="col-md-6">
-                                                                <div class="form-group row">
-                                                                    <label class="col-sm-4 col-form-label ">Date</label>
-                                                                    <div class="col-sm-8">
-                                                                        <input name="" value="" type="date"
-                                                                            class="form-control form-control-sm">
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div> -->
+                                        
                                             <div class="card-body bg-transparent">
                                                 <div class="table-responsive">
                                                     <table class="table table-hover table-striped table-bordered mb-2">

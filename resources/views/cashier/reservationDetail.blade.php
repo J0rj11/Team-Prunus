@@ -110,7 +110,7 @@
                                                         <div class="col">
                                                             <label>Due Date</label>
                                                             <div >
-                                                                <input class="form-control" type="date">
+                                                                <input class="form-control" type="date" >
                                                             </div>
                                                         </div>
                                                     </div>

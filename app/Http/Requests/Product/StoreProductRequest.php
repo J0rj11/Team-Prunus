@@ -29,7 +29,8 @@ class StoreProductRequest extends FormRequest
             'price' => 'required|numeric',
             'quantity' => 'required|numeric',
             'purchase_price' => 'required',
-            'purchased_date' => 'nullable|date'
+            'unit' => 'required|in:0,1',
+            'purchased_date' => 'nullable|date',
         ];
     }
 }
