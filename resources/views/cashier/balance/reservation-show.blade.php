@@ -44,8 +44,8 @@
                                                                 <td>{{ $reservationBalance->id }}</td>
                                                                 <td>{{ $reservationBalance->user->first_name . ' ' . $reservationBalance->user->last_name }}
                                                                 </td>
-                                                                <td>{{ $reservationBalance->reservation_items_count }}</td>
-                                                                <td>₱ {{ $reservationBalance->reservation_items_sum_price }}
+                                                                <td>{{ $reservationBalance->purchases_count }}</td>
+                                                                <td>₱ {{ $reservationBalance->purchases->map(fn ($purchase) => $purchase->quantity * $purchase->product->purchase_price)->sum() }}
                                                                 </td>
 
                                                                 <td>{{ $reservationBalance->payment_type == 0 ? 'FULL' : 'PARTIAL' }}
