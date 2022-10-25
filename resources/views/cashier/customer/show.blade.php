@@ -41,7 +41,7 @@
                                                                 <td>{{ $customer->id }}</td>
                                                                 <td>{{ $customer->first_name . ' ' . $customer->last_name }}
                                                                 </td>
-                                                                <td>{{ $customer->addres ?? 'No Address' }}</td>
+                                                                <td>{{ $customer->address ?? 'No Address' }}</td>
                                                             </tr>
                                                         </tbody>
                                                     </table>
@@ -64,20 +64,20 @@
                                                         </thead>
                                                         <tbody>
                                                             @foreach ($customer->reservations as $reservation)
-                                                                @foreach ($reservation->reservationItems as $reservationItem)
+                                                                @foreach ($reservation->purchases as $purchasedProduct)
                                                                     <tr>
-                                                                        <td>{{ $reservationItem->product->product_name }}
+                                                                        <td>{{ $purchasedProduct->product->product_name }}
                                                                         </td>
-                                                                        <td>{{ $reservationItem->product->category->category_name }}
+                                                                        <td>{{ $purchasedProduct->product->category->category_name }}
                                                                         </td>
-                                                                        <td>{{ $reservationItem->quantity }}</td>
+                                                                        <td>{{ $purchasedProduct->quantity }}</td>
                                                                         <td>₱
-                                                                            {{ number_format($reservationItem->product->price, 2) }}
+                                                                            {{ number_format($purchasedProduct->product->price, 2) }}
                                                                         </td>
                                                                         <td>₱
-                                                                            {{ number_format($reservationItem->price, 2) }}
+                                                                            {{ number_format($purchasedProduct->quantity * $purchasedProduct->product->purchase_price, 2) }}
                                                                         </td>
-                                                                        <td>{{ $reservationItem->created_at->format('d M Y') }}
+                                                                        <td>{{ $purchasedProduct->created_at->format('d M Y') }}
                                                                         </td>
                                                                     </tr>
                                                                 @endforeach
@@ -87,7 +87,7 @@
                                                                 <td></td>
                                                                 <td></td>
                                                                 <td></td>
-                                                                <td>₱ 1500</td>
+                                                                <td>₱ {{ $customer->reservations->map(fn ($value) => $value->purchases->map(fn ($purchase) => $purchase->quantity * $purchase->product->purchase_price)->sum())->sum() }}</td>
                                                                 <td></td>
                                                             </tr>
                                                         </tbody>

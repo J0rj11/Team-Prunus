@@ -15,9 +15,7 @@ use Illuminate\Http\RedirectResponse;
 
 class ReportsController extends Controller
 {
-
     public Excel $excel;
-
 
     public function __construct(Excel $excel)
     {
@@ -29,20 +27,18 @@ class ReportsController extends Controller
         return view('cashier.report.index');
     }
 
-
     public function productSoldReport(): JsonResponse
     {
         return DataTables::of(Purchase::query()->with(['product', 'product.category']))
-            ->addColumn('price', fn (Purchase $purchasedProduct) => '₱ ' . ($purchasedProduct->quantity * $purchasedProduct->product->purchase_price))
+            ->addColumn('price', fn(Purchase $purchasedProduct) => '₱ ' . $purchasedProduct->quantity * $purchasedProduct->product->purchase_price)
             ->make();
     }
-
 
     public function generateSoldProductExcelReport(): RedirectResponse
     {
         $productExcelReportName = 'SoldItemReport-' . now()->format('m-D-Y') . '.xlsx';
 
-        $this->excel->store(new ProductReportExport, 'reports/' . $productExcelReportName, 'public', Excel::XLSX);
+        $this->excel->store(new ProductReportExport(), 'reports/' . $productExcelReportName, 'public', Excel::XLSX);
         Report::create(['file_name' => $productExcelReportName, 'type' => Report::$REPORT_TYPE_PRODUCTS]);
 
         return redirect()->back();
@@ -56,12 +52,12 @@ class ReportsController extends Controller
 
         return Datatables::of($query)
             ->addColumn('joinedItems', function (Delivery $delivery) {
-                return collect($delivery->transaction->purchases)->map(
-                    fn ($value) => $value->quantity . ' ' .  $value->product->product_name
-                )->join(' , ');
+                return collect($delivery->transaction->purchases)
+                    ->map(fn($value) => $value->quantity . ' ' . $value->product->product_name)
+                    ->join(' , ');
             })
-            ->addColumn('truck_number', fn (Delivery $delivery) => 'Truck # ' . $delivery->truck_number)
-            ->addColumn('sum_price', fn (Delivery $delivery) => $delivery->transaction->transactionItems->sum('price'))
+            ->addColumn('truck_number', fn(Delivery $delivery) => 'Truck # ' . $delivery->truck_number)
+            ->addColumn('sum_price', fn(Delivery $delivery) => $delivery->transaction->purchases->map(fn($value) => $value->quantity * $value->product->purchase_price)->sum())
             ->make();
     }
 
@@ -69,7 +65,7 @@ class ReportsController extends Controller
     {
         $deliveryExcelReportName = 'DeliveryReport-' . now()->format('m-D-Y') . '.xlsx';
 
-        $this->excel->store(new DeliveryReportExport, 'reports/' . $deliveryExcelReportName, 'public', Excel::XLSX);
+        $this->excel->store(new DeliveryReportExport(), 'reports/' . $deliveryExcelReportName, 'public', Excel::XLSX);
         Report::create(['file_name' => $deliveryExcelReportName, 'type' => Report::$REPORT_TYPE_DELIVERY]);
 
         return redirect()->back();

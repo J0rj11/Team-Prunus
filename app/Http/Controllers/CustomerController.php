@@ -36,7 +36,7 @@ class CustomerController extends Controller
 
     public function show(User $customer)
     {
-        $customer->load('reservations');
+        $customer->load('reservations', 'reservations.purchases', 'reservations.purchases.product', 'reservations.purchases.product.category');
         return view('cashier.customer.show', compact('customer'));
     }
 

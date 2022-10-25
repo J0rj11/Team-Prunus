@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Purchase;
 use Illuminate\View\View;
 use App\Models\Reservation;
 use Illuminate\Http\Request;
@@ -15,8 +16,9 @@ class ReservationController extends Controller
     public function index(Request $request): View | JsonResponse
     {
         if ($request->ajax()) {
-            return DataTables::of(Reservation::query()->with('user'))
+            return DataTables::of(Reservation::query()->with('user', 'purchases', 'purchases.product'))
                 ->addColumn('name', fn (Reservation $reservation) => $reservation->user->first_name . ' ' . $reservation->user->last_name)
+                ->addColumn('total', fn (Reservation $reservation) => $reservation->purchases->map(fn (Purchase $purchase) => $purchase->quantity * $purchase->product->purchase_price)->sum())
                 ->addColumn('actions', function (Reservation $reservation) {
                     return '<div>
                         <a href="' . route('reservation.show', $reservation) . '"class="btn btn-secondary btn-sm">Process Order</a>

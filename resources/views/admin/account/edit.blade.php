@@ -25,7 +25,7 @@
                                                 <label class="col-sm-2 col-form-label">FirstName</label>
                                                 <div class="col-sm-9">
                                                     <input type="text"
-                                                        value="{{ old('first_name', $account->first_name) }}" name="name"
+                                                        value="{{ old('first_name', $account->first_name) }}" name="first_name"
                                                         class="form-control">
                                                 </div>
                                             </div>

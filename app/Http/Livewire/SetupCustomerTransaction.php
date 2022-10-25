@@ -62,8 +62,8 @@ class SetupCustomerTransaction extends Component
 
     public function updatedProductQuantity($productQuantity): void
     {
-        $this->productQuantity = $productQuantity;
-        $this->productPrice = (float) $productQuantity * (float) $this->selectedProduct['price'];
+        $this->productQuantity = $productQuantity ?? 0;
+        $this->productPrice =  (float)$this->productQuantity * (float)$this->selectedProduct['price'];
     }
 
     public function confirmProduct(): void

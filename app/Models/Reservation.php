@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
+use Illuminate\Support\Carbon;
 
 class Reservation extends Model
 {
@@ -49,7 +50,7 @@ class Reservation extends Model
 
     public function createdAt(): Attribute
     {
-        return Attribute::make(get: fn($value) => $value->format('d-M-Y'));
+        return Attribute::make(get: fn($value) => Carbon::parse($value)->format('d-M-Y'));
     }
 
     public function approve(): void

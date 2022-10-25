@@ -44,8 +44,8 @@
                                                             <tr>
                                                                 <td>{{ $balance->transaction_identifier }}</td>
                                                                 <td>{{ $balance->transaction_name }}</td>
-                                                                <td>{{ $balance->transaction_items_count }}</td>
-                                                                <td>₱ {{ $balance->transaction_items_sum_price }}</td>
+                                                                <td>{{ $balance->purchases_count }}</td>
+                                                                <td>₱ {{ $balance->purchases->map(fn ($value) => $value->quantity * $value->product->purchase_price)->sum() }}</td>
                                                                 <td>{{ $balance->payment_method == 0 ? 'CREDIT' : 'CASH' }}
                                                                 </td>
                                                                 <td>{{ $balance->due_date }}</td>
