@@ -33,7 +33,7 @@
                                                         <tbody>
                                                         </tbody>
                                                     </table>
-                                                    <div class="mt-3 mr-3 float-right">
+                                                    {{-- <div class="mt-3 mr-3 float-right">
                                                         <form action="{{ route('reports.generate-product-reports') }}"
                                                             method="POST">
                                                             @csrf
@@ -41,7 +41,7 @@
                                                                 report</button>
 
                                                         </form>
-                                                    </div>
+                                                    </div> --}}
                                                 </div>
                                             </div>
                                         </div>
@@ -72,14 +72,14 @@
                                                         <tbody>
                                                         </tbody>
                                                     </table>
-                                                    <div class="mt-3 mr-3 float-right">
+                                                    {{-- <div class="mt-3 mr-3 float-right">
                                                         <form action="{{ route('reports.generate-delivery-reports') }}"
                                                             method="POST">
                                                             @csrf
                                                             <button class="btn btn-primary btn-md" type="submit">Submit
                                                                 report</button>
                                                         </form>
-                                                    </div>
+                                                    </div> --}}
                                                 </div>
                                             </div>
                                         </div>
@@ -111,7 +111,7 @@
                                                     <tbody>
                                                     </tbody>
                                                 </table>
-                                                <div class="mt-3 mr-3 float-right">
+                                                {{-- <div class="mt-3 mr-3 float-right">
                                                     <form action="{{ route('expense.generate-expense-report') }}"
                                                         method="POST" id="generateForm">
                                                         @csrf
@@ -119,7 +119,7 @@
                                                             report</button>
                                                     </form>
 
-                                                </div>
+                                                </div> --}}
                                             </div>
                                         </div>
                                     </div>
