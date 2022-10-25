@@ -17,6 +17,7 @@ class AdminCustomerController extends Controller
     public function index(Request $request): View | JsonResponse {
         if ($request->ajax()) {
             return DataTables::of(User::query()->role('customer'))
+                ->addColumn('name', fn (User $user) => $user->first_name. ' '. $user->last_name)
                 ->addColumn('actions', function (User $user) {
                     return '<div>
                         <a href="'. route('admin.customer.edit', $user) .'" class="btn btn-secondary btn-sm">View</a>
