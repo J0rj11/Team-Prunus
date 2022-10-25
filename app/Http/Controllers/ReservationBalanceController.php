@@ -22,7 +22,8 @@ class ReservationBalanceController extends Controller
     public function index(): JsonResponse
     {
         $query = Reservation::query()
-            ->where('payment_type', Transaction::$TRANSACTION_PAYMENT_CREDIT)
+            ->where('payment_type', Reservation::$RESERVATION_PAYMENT_TYPE_PARTIAL)
+            ->where('remaining_balance', '!=', 0)
             ->with('user', 'purchases.product')
             ->withCount('purchases');
         return DataTables::of($query)

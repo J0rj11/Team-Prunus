@@ -16,7 +16,7 @@ class ReservationController extends Controller
     public function index(Request $request): View | JsonResponse
     {
         if ($request->ajax()) {
-            return DataTables::of(Reservation::query()->with('user', 'purchases', 'purchases.product'))
+            return DataTables::of(Reservation::query()->with('user', 'purchases', 'purchases.product')->where('is_processed', false))
                 ->addColumn('name', fn (Reservation $reservation) => $reservation->user->first_name . ' ' . $reservation->user->last_name)
                 ->addColumn('total', fn (Reservation $reservation) => $reservation->purchases->map(fn (Purchase $purchase) => $purchase->quantity * $purchase->product->purchase_price)->sum())
                 ->addColumn('actions', function (Reservation $reservation) {
@@ -44,7 +44,7 @@ class ReservationController extends Controller
 
     public function update(UpdateReservationRequest $request, Reservation $reservation): RedirectResponse
     {
-        $reservation->update($request->validated());
+        $reservation->update($request->validated() + ['is_processed' => true]);
 
         return redirect()->back();
     }
