@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Casts\Attribute;
@@ -27,6 +28,7 @@ class Transaction extends Model
         'address',
         'contact_number',
         'date',
+        'due_date',
         'payment_method',
         'delivery_status',
         'remaining_balance',
@@ -37,6 +39,13 @@ class Transaction extends Model
         'date',
         'due_date'
     ];
+
+
+    public function dueDate(): Attribute {
+        return Attribute::make(
+            get: fn ($value) => Carbon::parse($value)->format('d-M-Y')
+        );
+    }
 
 
     public function purchases(): MorphMany
