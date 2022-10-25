@@ -67,6 +67,11 @@
 				}
 			})
 		</script> --}}
+    <script>
+        $(() => {
+            $('input[type="date"]').attr('min', "{{ now()->addDay()->format('Y-m-d') }}")
+        })
+    </script>
 </body>
 
 </html>

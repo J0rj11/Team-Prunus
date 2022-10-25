@@ -65,7 +65,7 @@ class ReservationBalanceController extends Controller
      */
     public function show(Reservation $reservationBalance): View
     {
-        $reservationBalance->load('purchases', 'user', 'purchases.product', 'purchases.product.category')->loadCount('purchases');
+        $reservationBalance->load('purchases', 'user', 'purchases.product', 'purchases.product.category', 'payments')->loadCount('purchases');
         return view('cashier.balance.reservation-show', compact('reservationBalance'));
     }
 

@@ -55,7 +55,7 @@
                                                             </tr>
                                                         </tbody>
                                                         <tfoot>
-                                                            
+
                                                         </tfoot>
                                                     </table>
                                                 </div>
@@ -70,30 +70,38 @@
 
                                                 <div class=" white-bg px-3 mt-3">
                                                     <div class="detail-title text-warning">REMAINING BALANCE: <span>
-                                                            ₱ {{ number_format($reservationBalance->remaining_balance, 2) }}</span>
+                                                            ₱
+                                                            {{ number_format($reservationBalance->remaining_balance, 2) }}</span>
                                                     </div>
                                                     <div class="float-right">
                                                         <label class="btn btn-secondary btn-sm"
-                                                                onclick="document.getElementById('id01').style.display='block'">Add
-                                                                Payment</label></th>
+                                                            onclick="document.getElementById('id01').style.display='block'">Add
+                                                            Payment</label></th>
                                                     </div>
-                                        
+
                                                     <div class="col-md-8 mx-auto">
-                                                
+
                                                         <div class="table-responsive mt-3">
                                                             <table class="table table-hover table-striped mb-4">
                                                                 <thead class="color">
                                                                     <tr>
                                                                         <th>Date</th>
                                                                         <th>Payment</th>
+                                                                        <th>Remaining Balance
+                                                                        <th>
                                                                     </tr>
-
                                                                 </thead>
                                                                 <tbody>
-                                                                    <tr>
-                                                                        <td></td>
-                                                                        <td></td>
-                                                                    </tr>
+                                                                    @foreach ($reservationBalance->payments as $payment)
+                                                                        <tr>
+                                                                            <td>{{ $payment->created_at->format('d-M-Y') }}
+                                                                            </td>
+                                                                            <td>{{ number_format($payment->amount, 2) }}
+                                                                            </td>
+                                                                            <td>{{ number_format($payment->remaining_balance, 2) }}
+                                                                            </td>
+                                                                        </tr>
+                                                                    @endforeach
                                                                 </tbody>
                                                             </table>
                                                         </div>
@@ -103,8 +111,7 @@
                                         </div>
                                     </div>
 
-                                    <div id="id01" class="alert-modal overflow-hidden"
-                                        style="display: none;">
+                                    <div id="id01" class="alert-modal overflow-hidden" style="display: none;">
                                         <form class="alert-modal-content"
                                             action="{{ route('reservation-balance.update', $reservationBalance) }}"
                                             method="POST">
@@ -112,10 +119,8 @@
                                             @method('PUT')
                                             <div class="modal-container">
                                                 <div class="float-right mb-3">
-                                                    <span
-                                                        onclick="document.getElementById('id01').style.display='none'"
-                                                        class="btn btn-danger btn-rounded btn-icon-sm"
-                                                        title="Close Modal">
+                                                    <span onclick="document.getElementById('id01').style.display='none'"
+                                                        class="btn btn-danger btn-rounded btn-icon-sm" title="Close Modal">
                                                         <i class='fa-solid fa-xmark'></i>
                                                     </span>
                                                 </div>
@@ -130,8 +135,7 @@
                                                             <div class="col-sm-9">
                                                                 <input type="text"
                                                                     class="form-control form-control-sm mb-2"
-                                                                    value="{{ now()->format('d M Y') }}"
-                                                                    readonly>
+                                                                    value="{{ now()->format('d M Y') }}" readonly>
                                                             </div>
                                                         </div>
                                                         <div class="row">
@@ -174,7 +178,9 @@
                                                                     </td>
                                                                     <td>{{ $purchasedProduct->quantity }}</td>
                                                                     <td>₱ {{ $purchasedProduct->product->price }}</td>
-                                                                    <td>₱ {{ $purchasedProduct->quantity * $purchasedProduct->product->price }}</td>
+                                                                    <td>₱
+                                                                        {{ $purchasedProduct->quantity * $purchasedProduct->product->price }}
+                                                                    </td>
                                                                 </tr>
                                                             @endforeach
                                                         </tbody>
@@ -182,11 +188,10 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>    
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-
-    @endsection
+            @endsection

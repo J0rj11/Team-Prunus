@@ -58,6 +58,12 @@
 
     <script src="{{ asset('js/dashboard.js') }}"></script>
     <script src="{{ asset('js/Chart.roundedBarCharts.js') }}"></script>
+    <script>
+        $(() => {
+            $('input[type="date"]').attr('min', "{{ now()->addDay()->format('Y-m-d') }}")
+        })
+    </script>
+
     @stack('scripts')
 </body>
 
