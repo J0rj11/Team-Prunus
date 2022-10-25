@@ -23,7 +23,10 @@ class AdminAccountController extends Controller
                 ->addColumn('actions', function (User $user) {
                     return '<div>
                                 <a href="' . route('admin.account.edit', $user) . '" class="btn btn-secondary btn-sm">View</a>
-                                <button type="button" onclick="document.getElementById(' . "'deleteForm'" . ').submit()" class="btn btn-dark btn-sm">Delete</button>
+
+                                <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModalCenter">
+                                    Delete
+                                </button>
                                 <form action="' . route('admin.account.destroy', $user) . '" method="POST" id="deleteForm">
                                         <input type="hidden" name="_token" value="' . csrf_token() . '">
                                         ' . method_field('DELETE') . '
