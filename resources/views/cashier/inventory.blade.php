@@ -23,21 +23,20 @@
                                                     {{ now()->format('d-M-Y') }}</div>
                                                 <br>
                                                 <div class="detail-title">TOTAL END OF DAY SALES:
-                                                    {{ $products->map(fn($product) => $product->purchase_price * $product->quantity)->sum() }}
-                                                </div>
+                                                    {{ $products->map(fn ($product) => $product->purchase_price * $product->quantity)->sum() }}</div>
                                             </div>
-
+                                        
                                             <!-- <div class="row pt-2 px-5">
-                                                                                                    <div class="col-md-6">
-                                                                                                        <div class="form-group row">
-                                                                                                            <label class="col-sm-4 col-form-label ">Date</label>
-                                                                                                            <div class="col-sm-8">
-                                                                                                                <input name="" value="" type="date"
-                                                                                                                    class="form-control form-control-sm">
-                                                                                                            </div>
+                                                                                                <div class="col-md-6">
+                                                                                                    <div class="form-group row">
+                                                                                                        <label class="col-sm-4 col-form-label ">Date</label>
+                                                                                                        <div class="col-sm-8">
+                                                                                                            <input name="" value="" type="date"
+                                                                                                                class="form-control form-control-sm">
                                                                                                         </div>
                                                                                                     </div>
-                                                                                                </div> -->
+                                                                                                </div>
+                                                                                            </div> -->
                                             <div class="card-body bg-transparent">
                                                 <div class="table-responsive">
                                                     <table class="table table-hover table-striped table-bordered mb-2">
@@ -67,22 +66,16 @@
                                                                     <td>{{ $product->id }}</td>
                                                                     <td>{{ $product->product_name }}</td>
                                                                     <td>{{ $product->category->category_name }}</td>
-
-                                                                    {{-- Purchases --}}
                                                                     <td>{{ $product->quantity }}</td>
                                                                     <td>{{ $product->purchase_price }}</td>
                                                                     <td>{{ $product->purchase_price * $product->quantity }}
                                                                     </td>
-                                                                    {{-- Sold Products --}}
                                                                     <td>{{ $product->sold_products_count ?? 0 }}</td>
-                                                                    <td>{{ $product->price }}</td>
-                                                                    <td>{{ ($product->sold_products_count ?? 0) * $product->price }}
+                                                                    <td>{{ $product->purchase_price }}</td>
+                                                                    <td>{{ ($product->sold_products_count ?? 0) * $product->purchase_price }}
                                                                     </td>
-                                                                    {{-- Ending Inventory --}}
-                                                                    <td>{{ $product->quantity - ($product->sold_products_count ?? 0) }}
-                                                                    </td>
-                                                                    <td>
-                                                                        {{ ($product->quantity - $product->sold_products_count ?? 0) * $product->price }}
+                                                                    <td>{{ $product->quantity }}</td>
+                                                                    <td>{{ $product->purchase_price * $product->quantity - ($product->sold_products_count ?? 0) * $product->purchase_price }}
                                                                     </td>
                                                                 </tr>
                                                                 {{-- <tr>

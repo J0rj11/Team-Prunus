@@ -85,6 +85,9 @@
                                                                 name="contact_number"
                                                                 value="{{ old('contact_number') }}" maxlength="11" />
                                                         </div>
+                                                        @error('contact_number')
+                                                            <span>{{ $message }}</span>
+                                                        @enderror
                                                     </div>
                                                 </div>
                                             </div>
