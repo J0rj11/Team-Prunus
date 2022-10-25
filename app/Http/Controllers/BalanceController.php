@@ -22,6 +22,7 @@ class BalanceController extends Controller
         if ($request->ajax()) {
             $query = Transaction::query()
                 ->where('payment_method', Transaction::$TRANSACTION_PAYMENT_CREDIT)
+                ->where('remaining_balance', '!=', 0)
                 ->with('purchases', 'purchases.product')
                 ->select('transactions.*')
                 ->withCount('purchases');
@@ -74,7 +75,7 @@ class BalanceController extends Controller
      */
     public function show(Transaction $balance)
     {
-        $balance->load('purchases', 'purchases.product', 'purchases.product.category')
+        $balance->load('purchases', 'purchases.product', 'purchases.product.category', 'payments')
             ->loadCount('purchases');
         return view('cashier.balance.show', compact('balance'));
     }
@@ -102,7 +103,14 @@ class BalanceController extends Controller
         if ($request->amount > $balance->remaining_balance) {
             return redirect()->back()->withErrors(['message' => 'Cannot deposit higher than balance.']);
         }
-        $balance->update(['remaining_balance' => ($balance->remaining_balance - $request->amount)]);
+
+        $remainingBalanceAmount = ($balance->remaining_balance - $request->amount);
+        $balance->update(['remaining_balance' => $remainingBalanceAmount]);
+        
+        $balance->payments()->create([
+            'remaining_balance' => $remainingBalanceAmount,
+            'amount' => $request->amount
+        ]);
         return redirect()->back();
     }
 

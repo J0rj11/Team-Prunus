@@ -26,6 +26,7 @@ class StoreTransactionRequest extends FormRequest
         return [
             'transaction_name' => 'required',
             'address' => 'required',
+            'payment_method' => 'required',
             'contact_number' => 'required',
             'payment_method' => 'required|in:0,1',
             'due_date' => 'nullable|sometimes|date',

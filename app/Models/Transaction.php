@@ -53,6 +53,11 @@ class Transaction extends Model
         return $this->morphMany(Purchase::class, 'purchasable');
     }
 
+
+    public function payments(): MorphMany {
+        return $this->morphMany(Payment::class, 'paymentable');
+    }
+
     public function transactionItems(): HasMany
     {
         return $this->hasMany(TransactionItem::class);

@@ -47,7 +47,9 @@ class SetupCustomerTransaction extends Component
 
     public function updatedSelectedCategory($category): void
     {
-        $this->selectedCategory = collect($this->categories)->filter(fn (Category $value) => $value->id == $category)->first()->id;
+        $this->selectedCategory = collect($this->categories)
+            ->filter(fn(Category $value) => $value->id == $category)
+            ->first()->id;
         $this->products = Product::where('category_id', $category)->get();
 
         if ($this->products->first()) {
@@ -63,7 +65,7 @@ class SetupCustomerTransaction extends Component
     public function updatedProductQuantity($productQuantity): void
     {
         $this->productQuantity = $productQuantity ?? 0;
-        $this->productPrice =  (float)$this->productQuantity * (float)$this->selectedProduct['price'];
+        $this->productPrice = (float) $this->productQuantity * (float) $this->selectedProduct['price'];
     }
 
     public function confirmProduct(): void
@@ -94,6 +96,14 @@ class SetupCustomerTransaction extends Component
                 'quantity' => (int) $confirmedProduct['quantity'],
             ]);
         }
+
+        if ($this->transaction->payment_method == Transaction::$TRANSACTION_PAYMENT_CREDIT) {
+            $remainingBalance = collect($this->confirmedProducts)->map(fn(array $value) => $value['quantity'] * $value['price'])->sum();
+            $this->transaction->update([
+                'remaining_balance' => $remainingBalance,
+            ]);
+        }
+
         redirect()->route('transaction.index');
     }
 }
